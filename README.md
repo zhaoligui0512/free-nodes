@@ -25,7 +25,19 @@
 | `free-nodes.txt` | V2Ray/Passwall 订阅 | base64 编码节点链接 |
 | `nodes.json` | 节点详细数据 | IP、地理位置、ISP、3轮延迟、平均延迟 |
 
-订阅地址：`https://<你的用户名>.github.io/<仓库名>/free-nodes.yaml`
+### 订阅链接（Clash 导入用）
+
+**Raw 链接（GitHub 文件直链，推荐）：**
+```
+https://raw.githubusercontent.com/zhaoligui0512/free-nodes/main/output/free-nodes.yaml
+```
+
+**Pages 链接（GitHub Actions 部署后生效）：**
+```
+https://zhaoligui0512.github.io/free-nodes/free-nodes.yaml
+```
+
+> ⚠️ 注意：不要用 `github.com/.../blob/...` 链接导入！blob 返回的是 HTML 网页，不是 YAML 文件。Clash 等客户端必须用 raw 或 Pages 链接。
 
 ## 快速开始
 
