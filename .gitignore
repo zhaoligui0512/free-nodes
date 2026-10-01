@@ -1,0 +1,13 @@
+# 运行时生成
+mihomo
+mihomo.log
+mihomo-config.yaml
+country.mmdb
+geosite.dat
+*.gz
+__pycache__/
+*.pyc
+
+# 输出（GitHub Actions 会自动生成并发布到 Pages）
+# 如果你想把输出也提交到仓库，注释掉下面这行
+# output/

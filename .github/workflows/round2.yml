@@ -1,0 +1,76 @@
+name: Round 2 Test
+
+on:
+  # 测试阶段：每小时10分跑第2轮
+  # 稳定后改成: - cron: '0 8 * * *'  (UTC 8:00 = 北京时间 16:00)
+  schedule:
+    - cron: '10 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install pyyaml
+
+      - name: Download Mihomo
+        run: |
+          curl -sL "https://github.com/MetaCubeX/mihomo/releases/download/v1.19.27/mihomo-linux-amd64-v1.19.27.gz" -o mihomo.gz
+          gunzip -f mihomo.gz
+          chmod +x mihomo
+          ./mihomo -v
+
+      - name: Download GeoData
+        run: |
+          curl -sL "https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/country.mmdb" -o country.mmdb
+          curl -sL "https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geosite.dat" -o geosite.dat || true
+
+      - name: Show cache before
+        run: |
+          echo "=== 缓存内容（测试前，应含第1轮结果）==="
+          ls -la .cache/ 2>/dev/null || echo "[WARN] 无缓存文件！第1轮可能未成功commit"
+          if [ -f .cache/round_1.json ]; then
+            python3 -c "
+import json
+d = json.load(open('.cache/round_1.json'))
+print(f'第1轮: {len(d[\"results\"])}节点, {sum(1 for r in d[\"results\"] if r[\"delay\"]>0)}存活, {d[\"timestamp\"]}')
+"
+          fi
+
+      - name: Run Round 2 Test
+        run: |
+          echo "=== 第2轮测试开始 ==="
+          python3 collector.py --round 2
+          echo "=== 第2轮测试完成 ==="
+
+      - name: Show cache after
+        run: |
+          echo "=== 缓存内容（测试后）==="
+          ls -la .cache/
+          for f in .cache/round_*.json; do
+            [ -f "$f" ] && python3 -c "
+import json
+d = json.load(open('$f'))
+print(f'$f: {len(d[\"results\"])}节点, {sum(1 for r in d[\"results\"] if r[\"delay\"]>0)}存活, {d[\"timestamp\"]}')
+"
+          done
+
+      - name: Commit cache to repo
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -f .cache/
+          git diff --staged --quiet || git commit -m "Round 2 test result $(date '+%Y-%m-%d %H:%M')"
+          git push

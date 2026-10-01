@@ -1,0 +1,110 @@
+name: Round 3 Test and Publish
+
+on:
+  # 测试阶段：每小时20分跑第3轮 + 汇总发布
+  # 稳定后改成: - cron: '0 16 * * *'  (UTC 16:00 = 北京时间 0:00)
+  schedule:
+    - cron: '20 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  test-and-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install pyyaml
+
+      - name: Download Mihomo
+        run: |
+          curl -sL "https://github.com/MetaCubeX/mihomo/releases/download/v1.19.27/mihomo-linux-amd64-v1.19.27.gz" -o mihomo.gz
+          gunzip -f mihomo.gz
+          chmod +x mihomo
+          ./mihomo -v
+
+      - name: Download GeoData
+        run: |
+          curl -sL "https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/country.mmdb" -o country.mmdb
+          curl -sL "https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geosite.dat" -o geosite.dat || true
+
+      - name: Show cache before
+        run: |
+          echo "=== 缓存内容（测试前，应含第1、2轮结果）==="
+          ls -la .cache/ 2>/dev/null || echo "[WARN] 无缓存文件！"
+          for f in .cache/round_*.json; do
+            [ -f "$f" ] && python3 -c "
+import json
+d = json.load(open('$f'))
+print(f'$f: {len(d[\"results\"])}节点, {sum(1 for r in d[\"results\"] if r[\"delay\"]>0)}存活, {d[\"timestamp\"]}')
+"
+          done
+
+      - name: Run Round 3 Test
+        run: |
+          echo "=== 第3轮测试开始 ==="
+          python3 collector.py --round 3
+          echo "=== 第3轮测试完成 ==="
+
+      - name: Finalize and generate output
+        run: |
+          echo "=== 汇总模式开始 ==="
+          python3 collector.py --finalize
+          echo "=== 汇总模式完成 ==="
+          echo "=== 输出文件 ==="
+          ls -lh output/
+
+      - name: Show final report
+        run: |
+          echo "========================================"
+          echo "         最终汇总报告"
+          echo "========================================"
+          python3 -c "
+import json
+with open('output/nodes.json') as f:
+    d = json.load(f)
+m = d['meta']
+print(f'生成时间: {m[\"generated_at\"]}')
+print(f'测试轮次: {m[\"total_rounds\"]} ({m[\"rounds_used\"]})')
+print(f'唯一节点: {m[\"total_unique_nodes\"]}')
+print(f'稳定节点(≥{m[\"min_valid_rounds\"]}轮有效): {m[\"total_stable\"]}')
+print(f'优质节点(<{m[\"good_threshold_ms\"]}ms): {m[\"total_good\"]}')
+print()
+print('TOP 15 稳定节点:')
+for i, n in enumerate(d['nodes'][:15]):
+    print(f'  {i+1:2d}. {n[\"real_name\"]:<40} {n[\"avg_delay_ms\"]:>5}ms (有效{n[\"valid_rounds\"]}/{n[\"total_rounds\"]}轮) {n[\"type\"]:<10} {n.get(\"country\",\"\")}')
+"
+          echo "========================================"
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: output
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+      - name: Commit output and cache to repo
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          cp output/free-nodes.yaml output/free-nodes-full.yaml output/free-nodes.txt output/nodes.json .
+          git add -f free-nodes.yaml free-nodes-full.yaml free-nodes.txt nodes.json .cache/
+          git diff --staged --quiet || git commit -m "Finalize: update nodes $(date '+%Y-%m-%d %H:%M')"
+          git push
+        continue-on-error: true

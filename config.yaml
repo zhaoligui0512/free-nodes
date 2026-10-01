@@ -1,0 +1,63 @@
+# ============================================================
+# Free Nodes Collector 配置文件
+# 所有可调整的参数都在这里
+# ============================================================
+
+# Mihomo 二进制路径（相对脚本目录，GitHub Actions 会自动下载）
+mihomo_bin: "./mihomo"
+
+# 输出目录
+output_dir: "output"
+
+# ============================================================
+# 订阅源配置
+# 支持三种类型: nomorewalls / mibei / yaml_url
+# 新增源只需在这里加一条即可
+# ============================================================
+sources:
+  # NoMoreWalls - GitHub 固定链接，每日自动更新
+  - name: "NoMoreWalls"
+    type: "nomorewalls"
+    url: "https://ghproxy.net/https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/list.meta.yml"
+
+  # 米贝 - 动态抓取最新文章中的订阅链接
+  - name: "米贝"
+    type: "mibei"
+    homepage: "https://www.mibei77.com/"
+
+  # 示例：其他 YAML 订阅源（取消注释即可使用）
+  # - name: "其他源"
+  #   type: "yaml_url"
+  #   url: "https://example.com/sub.yaml"
+
+# ============================================================
+# 延迟测试配置
+# ============================================================
+test:
+  # 测试轮数（由 workflow 分3次执行，这里只影响单轮超时等参数）
+  rounds: 3
+
+  # 多轮测试之间的间隔（分钟）- 仅本地完整运行时生效，GitHub Actions 由 cron 控制间隔
+  interval_minutes: 10
+
+  # 至少几轮有效才算稳定节点（3轮中至少2轮存活）
+  min_valid_rounds: 2
+
+  # 测试 URL
+  test_url: "http://www.gstatic.com/generate_204"
+
+  # 单个节点超时时间（秒）
+  timeout_seconds: 10
+
+# ============================================================
+# 输出配置
+# ============================================================
+output:
+  # 最终输出节点数量（取平均延迟最低的前N个）
+  top_n: 30
+
+  # 优质节点延迟阈值（毫秒），低于此值的进入优质清单
+  good_threshold_ms: 1500
+
+  # 自动选择组的测试 URL
+  test_url: "http://www.gstatic.com/generate_204"
