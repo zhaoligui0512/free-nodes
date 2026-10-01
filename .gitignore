@@ -11,3 +11,6 @@ __pycache__/
 # 输出（GitHub Actions 会自动生成并发布到 Pages）
 # 如果你想把输出也提交到仓库，注释掉下面这行
 # output/
+
+# 调试日志
+*.log
