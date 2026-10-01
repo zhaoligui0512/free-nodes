@@ -767,6 +767,7 @@ def run_finalize(config):
     test_cfg = config.get("test", {})
     min_valid = test_cfg.get("min_valid_rounds", 2)
     top_n = config.get("output", {}).get("top_n", 30)
+    output_cfg = config.get("output", {})
 
     # 3. 按节点名汇总3轮延迟
     node_delays = {}  # name -> [delay1, delay2, ...]
@@ -795,16 +796,68 @@ def run_finalize(config):
     stable_nodes.sort(key=lambda x: x["avg_delay"])
     log(f"稳定节点（≥{min_valid}轮有效）: {len(stable_nodes)}/{len(node_list)}")
 
-    # 取 top N
-    if len(stable_nodes) > top_n:
-        log(f"取前 {top_n} 个（共 {len(stable_nodes)} 个稳定节点）")
-        stable_nodes = stable_nodes[:top_n]
-
-    # 5. IP反查
+    # 5. IP反查（提前到分组前，对全部稳定节点执行，用于地区分组）
     log("Phase: IP 反查地理位置")
     ip_info = batch_ip_lookup([n["raw_config"] for n in stable_nodes])
 
-    # 6. 生成真实名称
+    # 6. 地区分层配额选取（解决测试源在美国导致的延迟偏差）
+    #    GitHub Actions runner 在美国 → CF/美加节点延迟极低霸榜 → 亚洲节点被挤出
+    #    方案：按真实地理位置分组，亚洲节点给独立配额（用户实际在亚洲使用）
+    region_cfg = output_cfg.get("region_quota", {})
+    asia_quota = int(region_cfg.get("asia", 20))
+    other_quota = max(top_n - asia_quota, 0)
+    max_same_proto = int(output_cfg.get("max_same_protocol", 8))
+    asia_ccs = set(output_cfg.get("asia_countries",
+        ["JP", "SG", "TW", "HK", "KR", "TH", "VN", "MY", "PH", "ID", "IN",
+         "MO", "BD", "PK", "LK", "KH", "NP"]))
+
+    def _cc(server):
+        info = (ip_info.get(server) or {}).get("info") or {}
+        return info.get("countryCode", "")
+
+    asia_nodes = [n for n in stable_nodes if _cc(n["raw_config"]["server"]) in asia_ccs]
+    other_nodes = [n for n in stable_nodes if _cc(n["raw_config"]["server"]) not in asia_ccs]
+    asia_nodes.sort(key=lambda x: x["avg_delay"])
+    other_nodes.sort(key=lambda x: x["avg_delay"])
+    log(f"地区分组: 亚洲 {len(asia_nodes)} 个, 其他 {len(other_nodes)} 个")
+
+    def _quota_select(nodes, quota):
+        """按延迟选取节点，同协议最多 max_same_proto 个（协议多样性保护）"""
+        selected, proto_count = [], {}
+        for n in nodes:
+            proto = n["raw_config"]["type"]
+            if proto_count.get(proto, 0) >= max_same_proto:
+                continue
+            selected.append(n)
+            proto_count[proto] = proto_count.get(proto, 0) + 1
+            if len(selected) >= quota:
+                break
+        return selected
+
+    # 亚洲优先，配额不足时互补
+    selected = _quota_select(asia_nodes, asia_quota)
+    asia_shortage = asia_quota - len(selected)
+    if asia_shortage > 0:
+        # 亚洲不足，缺额给其他地区
+        selected += _quota_select(other_nodes, other_quota + asia_shortage)
+    else:
+        selected += _quota_select(other_nodes, other_quota)
+    if len(selected) < top_n:
+        # 其他不足，缺额补回亚洲
+        selected += _quota_select(asia_nodes, top_n - len(selected))
+
+    # 去重（互补时可能重叠）
+    seen_ids, final_selected = set(), []
+    for n in selected:
+        if id(n) not in seen_ids:
+            seen_ids.add(id(n))
+            final_selected.append(n)
+    stable_nodes = final_selected
+    log(f"配额选取: {len(stable_nodes)} 个 (亚洲{asia_quota}+其他{other_quota}, 同协议≤{max_same_proto}个)")
+    if len(stable_nodes) > top_n:
+        stable_nodes = stable_nodes[:top_n]
+
+    # 7. 生成真实名称
     nodes = []
     for i, n in enumerate(stable_nodes):
         real_name = make_real_name(n["raw_config"], ip_info.get(n["raw_config"]["server"]), i+1)
@@ -829,7 +882,6 @@ def run_finalize(config):
     log("Phase: 生成输出文件")
     output_dir = os.path.join(WORKDIR, config.get("output_dir", "output"))
     os.makedirs(output_dir, exist_ok=True)
-    output_cfg = config.get("output", {})
     good_threshold = output_cfg.get("good_threshold_ms", 1500)
 
     good_nodes = [n for n in nodes if n["avg_delay_ms"] < good_threshold]
@@ -845,6 +897,7 @@ def run_finalize(config):
         "total_good": len(good_nodes),
         "min_valid_rounds": min_valid,
         "good_threshold_ms": good_threshold,
+        "region_quota": {"asia": asia_quota, "other": other_quota, "max_same_protocol": max_same_proto},
         "sources": [s.get("name", s.get("type", "")) for s in config.get("sources", [])],
     }
 
@@ -880,6 +933,13 @@ def run_finalize(config):
     log(f"唯一节点: {len(node_list)}")
     log(f"稳定节点(≥{min_valid}轮): {len(nodes)}")
     log(f"优质节点(<{good_threshold}ms): {len(good_nodes)}")
+    # 地区分布
+    asia_in_out = sum(1 for n in nodes if _cc(n["server"]) in asia_ccs)
+    log(f"地区分布: 亚洲 {asia_in_out} 个, 其他 {len(nodes)-asia_in_out} 个")
+    # 协议分布
+    from collections import Counter
+    proto_dist = Counter(n["type"] for n in nodes)
+    log(f"协议分布: {dict(proto_dist)}")
     log(f"\nTOP 10:")
     for i, n in enumerate(nodes[:10]):
         log(f"  {i+1:2d}. {n['real_name']:<40} {n['avg_delay_ms']:>5}ms (有效{n['valid_rounds']}/{n['total_rounds']}轮) {n['type']:<10} {n.get('country','')}")

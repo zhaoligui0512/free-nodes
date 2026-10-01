@@ -53,11 +53,24 @@ test:
 # 输出配置
 # ============================================================
 output:
-  # 最终输出节点数量（取平均延迟最低的前N个）
+  # 最终输出节点数量
   top_n: 30
 
   # 优质节点延迟阈值（毫秒），低于此值的进入优质清单
   good_threshold_ms: 1500
+
+  # 地区分层配额（解决 GitHub Actions 美国服务器测速偏差）
+  # 亚洲节点配额 + 其他地区配额 = top_n
+  # 亚洲优先：用户实际在亚洲使用，从美国测的延迟对亚洲节点不公平
+  region_quota:
+    asia: 20
+    other: 10
+
+  # 亚洲国家/地区代码（countryCode）
+  asia_countries: ["JP", "SG", "TW", "HK", "KR", "TH", "VN", "MY", "PH", "ID", "IN", "MO", "BD", "PK", "LK", "KH", "NP"]
+
+  # 同一协议在最终结果中的最大数量（防止 CF vless 等单一协议霸榜）
+  max_same_protocol: 8
 
   # 自动选择组的测试 URL
   test_url: "http://www.gstatic.com/generate_204"
