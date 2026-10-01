@@ -5,12 +5,34 @@ mode: rule
 log-level: info
 ipv6: false
 proxies:
+- cipher: aes-128-gcm
+  password: shadowsocks
+  port: 443
+  server: 149.22.87.204
+  type: ss
+  name: JP-东京-Datacamp-ss-01
+- encryption: none
+  network: tcp
+  port: 443
+  server: 137.220.221.179
+  tls: false
+  type: vless
+  uuid: a16a3336-c9ab-489f-9b85-c973f5e2cfa4
+  name: JP-东京-CTG-vless-02
+- password: Trojan@82164024
+  port: 443
+  server: jp.tronsg.com
+  skip-cert-verify: true
+  sni: jp.tronsg.com
+  type: trojan
+  udp: true
+  name: JP-Minamish-The-trojan-03
 - cipher: aes-256-gcm
   password: kDWvXYZoTBcGkC4
   port: 8882
   server: 149.104.109.252
   type: ss
-  name: PH-马尼拉-Bedge-ss-01
+  name: PH-马尼拉-Bedge-ss-04
 - password: 3fc0f254-54c3-4cf3-896b-5999a2b4c757
   port: 37236
   server: jp-02-hdja-kido.younai-ytl.shop
@@ -18,50 +40,76 @@ proxies:
   sni: tw16.swiftrelay.cc
   type: anytls
   udp: true
-  name: JP-東京都-Amazon-anytls-02
+  name: JP-東京都-Amazon-anytls-05
 - cipher: aes-256-gcm
-  password: RexnBgU7EV5ADxG
-  port: 7001
-  server: 141.164.45.187
+  password: 3eOFeNssde7PYYMv
+  port: 80
+  server: 84.247.155.196
   type: ss
-  name: KR-首尔特别市-Vultr-ss-03
+  name: JP-东京-Contabo-ss-06
 - type: socks5
   server: 101.36.104.239
   port: 10808
-  name: JP-东京-UCLOUD-socks5-04
+  name: JP-东京-UCLOUD-socks5-07
 - type: socks5
   server: 101.36.104.46
   port: 10808
-  name: JP-东京-UCLOUD-socks5-05
+  name: JP-东京-UCLOUD-socks5-08
+- encryption: none
+  network: ws
+  port: 80
+  server: 5.223.41.93
+  tls: false
+  type: vless
+  uuid: f2eada1b-fdec-48c6-8638-18ade32993d4
+  ws-opts:
+    path: /
+  name: SG-新加坡-Hetzner-vless-09
 - password: 3fc0f254-54c3-4cf3-896b-5999a2b4c757
   port: 443
-  server: yazhou06.cybergalaxy.me
+  server: tw63-kb.cybergalaxy.me
   skip-cert-verify: true
-  sni: yazhou06.cybergalaxy.me
+  sni: tw63-kb.cybergalaxy.me
   type: anytls
   udp: true
-  name: TW-台北市-Chunghwa-anytls-06
-- alpn:
-  - h2
-  - http/1.1
-  client-fingerprint: chrome
-  encryption: none
-  network: tcp
-  port: 11907
-  server: 195.58.144.56
-  skip-cert-verify: false
-  tls: true
+  name: TW-半线-Chunghwa-anytls-10
+- network: ws
+  port: 80
+  server: platform115.golnamakcert.top
+  servername: platform115.halalkhor.info
+  tls: false
   type: vless
-  uuid: 07cb07b9-0c4d-46c1-a15a-b147511b6b07
-  name: HK-香港-Panstar-vless-07
-- password: 3fc0f254-54c3-4cf3-896b-5999a2b4c757
-  port: 53274
-  server: jp-02-hdja-kido.younai-ytl.shop
+  uuid: e13cf851-b4fd-413b-8d49-146e6eb8e5d4
+  ws-opts:
+    headers:
+      Host: platform115.halalkhor.info
+    path: /platform115
+  name: MY-吉隆坡-Ace-vless-11
+- type: anytls
+  server: svip.skycon808.com
+  port: 60005
+  password: 13f0acfa-38c1-4e82-a758-583aa31740df
+  sni: xjp18.2uuzhe.com
   skip-cert-verify: true
-  sni: jp33.swiftrelay.cc
+  tls: true
+  udp: true
+  name: KR-Incheon-Amazon-anytls-12
+- password: 3fc0f254-54c3-4cf3-896b-5999a2b4c757
+  port: 443
+  server: tw56-kb.cybergalaxy.me
+  skip-cert-verify: true
+  sni: tw56-kb.cybergalaxy.me
   type: anytls
   udp: true
-  name: JP-東京都-Amazon-anytls-08
+  name: TW-半线-Chunghwa-anytls-13
+- password: 3fc0f254-54c3-4cf3-896b-5999a2b4c757
+  port: 65308
+  server: jpglobal-identity-federation-auth.younai-ytl.shop
+  skip-cert-verify: true
+  sni: jp11.pulsarcore.site
+  type: anytls
+  udp: true
+  name: JP-東京都-Amazon-anytls-14
 - network: ws
   port: 80
   server: platform101.golnamakcert.top
@@ -72,19 +120,49 @@ proxies:
     headers:
       Host: platform101.halalkhor.info
     path: /platform101
-  name: MY-吉隆坡-Evoxt-vless-09
+  name: MY-吉隆坡-Evoxt-vless-15
 - network: ws
   port: 80
-  server: platform109.golnamakcert.top
-  servername: platform109.halalkhor.info
+  server: platform102.golnamakcert.top
+  servername: platform102.golnamakcert.top
   tls: false
   type: vless
   uuid: e13cf851-b4fd-413b-8d49-146e6eb8e5d4
   ws-opts:
     headers:
-      Host: platform109.halalkhor.info
-    path: /platform109
-  name: MY-吉隆坡-Ace-vless-10
+      Host: platform102.halalkhor.info
+    path: /platform102
+  name: MY-吉隆坡-Ace-vless-16
+- network: ws
+  port: 80
+  server: platform117.golnamakcert.top
+  tls: false
+  type: vless
+  uuid: e13cf851-b4fd-413b-8d49-146e6eb8e5d4
+  ws-opts:
+    headers:
+      Host: platform117.halalkhor.info
+    path: /platform117
+  name: MY-吉隆坡-Ace-vless-17
+- password: 3fc0f254-54c3-4cf3-896b-5999a2b4c757
+  port: 47096
+  server: test01.y1static-content-distribution.shop
+  skip-cert-verify: true
+  sni: xjp33.pulsarcore.site
+  type: anytls
+  udp: true
+  name: KR-Incheon-Amazon-anytls-18
+- network: ws
+  port: 80
+  server: platform106.golnamakcert.top
+  tls: false
+  type: vless
+  uuid: e13cf851-b4fd-413b-8d49-146e6eb8e5d4
+  ws-opts:
+    headers:
+      Host: platform106.halalkhor.info
+    path: /platform106
+  name: MY-吉隆坡-EVOXT-vless-19
 - network: ws
   port: 80
   server: platform118.golnamakcert.top
@@ -95,7 +173,30 @@ proxies:
     headers:
       Host: platform118.halalkhor.info
     path: /platform118
-  name: MY-吉隆坡-Ace-vless-11
+  name: MY-吉隆坡-Ace-vless-20
+- network: ws
+  port: 8880
+  server: 162.159.43.187
+  tls: false
+  type: vless
+  udp: true
+  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+  ws-opts:
+    headers:
+      Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
+    path: /?ed=2560security=tls
+  name: CA-多伦多-Cloudflare-vless-21
+- network: ws
+  port: 2052
+  server: 188.114.97.6
+  tls: false
+  type: vless
+  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+  ws-opts:
+    headers:
+      Host: zb1zi.s3nx.dyz.hh.vavava.kdns.fr
+    path: /?ed=2560
+  name: CA-多伦多-Cloudflare-vless-22
 - network: ws
   port: 2086
   server: 162.159.43.187
@@ -108,13 +209,7 @@ proxies:
     headers:
       Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
     path: /?ed=2560security=tls
-  name: CA-多伦多-Cloudflare-vless-12
-- cipher: aes-128-gcm
-  password: 87e9cb62706b5cd08da95b8b423cb673
-  port: 16469
-  server: 103.214.111.162
-  type: ss
-  name: XX-ss-13
+  name: CA-多伦多-Cloudflare-vless-23
 - network: ws
   port: 80
   server: 162.159.43.187
@@ -127,9 +222,9 @@ proxies:
     headers:
       Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
     path: /?ed=2560security=tls
-  name: CA-多伦多-Cloudflare-vless-14
+  name: CA-多伦多-Cloudflare-vless-24
 - network: ws
-  port: 2052
+  port: 2095
   server: 188.114.97.6
   tls: false
   type: vless
@@ -138,7 +233,13 @@ proxies:
     headers:
       Host: zb1zi.s3nx.dyz.hh.vavava.kdns.fr
     path: /?ed=2560
-  name: CA-多伦多-Cloudflare-vless-15
+  name: CA-多伦多-Cloudflare-vless-25
+- cipher: aes-128-gcm
+  password: 87e9cb62706b5cd08da95b8b423cb673
+  port: 16469
+  server: 103.214.111.162
+  type: ss
+  name: US-芝加哥-Dedicated.com-ss-26
 - network: ws
   port: 2095
   server: 162.159.43.187
@@ -151,25 +252,13 @@ proxies:
     headers:
       Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
     path: /?ed=2560security=tls
-  name: CA-多伦多-Cloudflare-vless-16
+  name: CA-多伦多-Cloudflare-vless-27
 - cipher: aes-128-gcm
   password: 62dd75ba944947d4ca983cf1679b3797
   port: 15240
   server: 173.234.25.90
   type: ss
-  name: XX-ss-17
-- network: ws
-  port: 8880
-  server: 162.159.43.187
-  tls: false
-  type: vless
-  udp: true
-  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
-  ws-opts:
-    headers:
-      Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
-    path: /?ed=2560security=tls
-  name: CA-多伦多-Cloudflare-vless-18
+  name: US-洛杉矶-Dedicated.com-ss-28
 - network: ws
   port: 2082
   server: 162.159.38.127
@@ -181,22 +270,10 @@ proxies:
     headers:
       Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
     path: /?ed=2560security=tls
-  name: US-阿什本-Cloudflare-vless-19
-- network: ws
-  port: 2052
-  server: 162.159.38.127
-  servername: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
-  tls: false
-  type: vless
-  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
-  ws-opts:
-    headers:
-      Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
-    path: /?ed=2560security=tls
-  name: US-阿什本-Cloudflare-vless-20
+  name: US-阿什本-Cloudflare-vless-29
 - network: ws
   port: 80
-  server: 162.159.45.19
+  server: 162.159.39.218
   servername: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
   tls: false
   type: vless
@@ -205,136 +282,76 @@ proxies:
     headers:
       Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
     path: /?ed=2560security=tls
-  name: US-阿什本-Cloudflare-vless-21
-- cipher: aes-256-gcm
-  password: eveaaTOb8ji8yntw2Z9yWUG0d6Ir8Ld8m3ymH8THdC5egiTH1mXCiBc0Skr7FibH
-  port: 9443
-  server: yyz-ca-01.blncvpn4u.cc
-  type: ss
-  name: XX-ss-22
-- port: 9002
-  server: 138.199.35.198
-  skip-cert-verify: true
-  tls: true
-  type: http
-  udp: true
-  name: XX-http-23
-- password: 'null'
-  port: 9002
-  server: 138.199.35.216
-  skip-cert-verify: true
-  tls: true
-  type: http
-  udp: true
-  username: 'null'
-  name: US-洛杉矶-Datacamp-http-24
-- cipher: aes-128-gcm
-  password: shadowsocks
-  port: 443
-  server: 149.22.87.204
-  type: ss
-  name: XX-ss-25
-- cipher: chacha20-ietf-poly1305
-  password: BqnqToih0PbU
-  port: 8388
-  server: 51.255.13.232
-  type: ss
-  name: XX-ss-26
-- cipher: chacha20-ietf-poly1305
-  password: e8KgS8fD0yDqYFpgN4G5piCOt9aFyqA3
-  port: 8388
-  server: 132.243.175.144
-  type: ss
-  name: XX-ss-27
-- port: 443
-  server: voteshirleysew.club
-  tls: true
-  type: http
-  udp: true
-  name: XX-http-28
-- cipher: aes-256-gcm
-  password: xBStBEVqvGwHPocc
-  port: 8388
-  server: 64.176.2.21
-  type: ss
-  name: XX-ss-29
-- password: github.com/Alvin9999-newpac/fanqiang
-  port: 19000
-  server: anytls2.864106.xyz
-  skip-cert-verify: true
-  sni: anytls2.864106.xyz
-  type: anytls
-  udp: true
-  name: XX-anytls-30
+  name: US-阿什本-Cloudflare-vless-30
 proxy-groups:
 - name: 🚀 节点选择
   type: select
   proxies:
   - ♻️ 自动选择
   - DIRECT
-  - PH-马尼拉-Bedge-ss-01
-  - JP-東京都-Amazon-anytls-02
-  - KR-首尔特别市-Vultr-ss-03
-  - JP-东京-UCLOUD-socks5-04
-  - JP-东京-UCLOUD-socks5-05
-  - TW-台北市-Chunghwa-anytls-06
-  - HK-香港-Panstar-vless-07
-  - JP-東京都-Amazon-anytls-08
-  - MY-吉隆坡-Evoxt-vless-09
-  - MY-吉隆坡-Ace-vless-10
+  - JP-东京-Datacamp-ss-01
+  - JP-东京-CTG-vless-02
+  - JP-Minamish-The-trojan-03
+  - PH-马尼拉-Bedge-ss-04
+  - JP-東京都-Amazon-anytls-05
+  - JP-东京-Contabo-ss-06
+  - JP-东京-UCLOUD-socks5-07
+  - JP-东京-UCLOUD-socks5-08
+  - SG-新加坡-Hetzner-vless-09
+  - TW-半线-Chunghwa-anytls-10
   - MY-吉隆坡-Ace-vless-11
-  - CA-多伦多-Cloudflare-vless-12
-  - XX-ss-13
-  - CA-多伦多-Cloudflare-vless-14
-  - CA-多伦多-Cloudflare-vless-15
-  - CA-多伦多-Cloudflare-vless-16
-  - XX-ss-17
-  - CA-多伦多-Cloudflare-vless-18
-  - US-阿什本-Cloudflare-vless-19
-  - US-阿什本-Cloudflare-vless-20
-  - US-阿什本-Cloudflare-vless-21
-  - XX-ss-22
-  - XX-http-23
-  - US-洛杉矶-Datacamp-http-24
-  - XX-ss-25
-  - XX-ss-26
-  - XX-ss-27
-  - XX-http-28
-  - XX-ss-29
-  - XX-anytls-30
+  - KR-Incheon-Amazon-anytls-12
+  - TW-半线-Chunghwa-anytls-13
+  - JP-東京都-Amazon-anytls-14
+  - MY-吉隆坡-Evoxt-vless-15
+  - MY-吉隆坡-Ace-vless-16
+  - MY-吉隆坡-Ace-vless-17
+  - KR-Incheon-Amazon-anytls-18
+  - MY-吉隆坡-EVOXT-vless-19
+  - MY-吉隆坡-Ace-vless-20
+  - CA-多伦多-Cloudflare-vless-21
+  - CA-多伦多-Cloudflare-vless-22
+  - CA-多伦多-Cloudflare-vless-23
+  - CA-多伦多-Cloudflare-vless-24
+  - CA-多伦多-Cloudflare-vless-25
+  - US-芝加哥-Dedicated.com-ss-26
+  - CA-多伦多-Cloudflare-vless-27
+  - US-洛杉矶-Dedicated.com-ss-28
+  - US-阿什本-Cloudflare-vless-29
+  - US-阿什本-Cloudflare-vless-30
 - name: ♻️ 自动选择
   type: url-test
   proxies:
-  - PH-马尼拉-Bedge-ss-01
-  - JP-東京都-Amazon-anytls-02
-  - KR-首尔特别市-Vultr-ss-03
-  - JP-东京-UCLOUD-socks5-04
-  - JP-东京-UCLOUD-socks5-05
-  - TW-台北市-Chunghwa-anytls-06
-  - HK-香港-Panstar-vless-07
-  - JP-東京都-Amazon-anytls-08
-  - MY-吉隆坡-Evoxt-vless-09
-  - MY-吉隆坡-Ace-vless-10
+  - JP-东京-Datacamp-ss-01
+  - JP-东京-CTG-vless-02
+  - JP-Minamish-The-trojan-03
+  - PH-马尼拉-Bedge-ss-04
+  - JP-東京都-Amazon-anytls-05
+  - JP-东京-Contabo-ss-06
+  - JP-东京-UCLOUD-socks5-07
+  - JP-东京-UCLOUD-socks5-08
+  - SG-新加坡-Hetzner-vless-09
+  - TW-半线-Chunghwa-anytls-10
   - MY-吉隆坡-Ace-vless-11
-  - CA-多伦多-Cloudflare-vless-12
-  - XX-ss-13
-  - CA-多伦多-Cloudflare-vless-14
-  - CA-多伦多-Cloudflare-vless-15
-  - CA-多伦多-Cloudflare-vless-16
-  - XX-ss-17
-  - CA-多伦多-Cloudflare-vless-18
-  - US-阿什本-Cloudflare-vless-19
-  - US-阿什本-Cloudflare-vless-20
-  - US-阿什本-Cloudflare-vless-21
-  - XX-ss-22
-  - XX-http-23
-  - US-洛杉矶-Datacamp-http-24
-  - XX-ss-25
-  - XX-ss-26
-  - XX-ss-27
-  - XX-http-28
-  - XX-ss-29
-  - XX-anytls-30
+  - KR-Incheon-Amazon-anytls-12
+  - TW-半线-Chunghwa-anytls-13
+  - JP-東京都-Amazon-anytls-14
+  - MY-吉隆坡-Evoxt-vless-15
+  - MY-吉隆坡-Ace-vless-16
+  - MY-吉隆坡-Ace-vless-17
+  - KR-Incheon-Amazon-anytls-18
+  - MY-吉隆坡-EVOXT-vless-19
+  - MY-吉隆坡-Ace-vless-20
+  - CA-多伦多-Cloudflare-vless-21
+  - CA-多伦多-Cloudflare-vless-22
+  - CA-多伦多-Cloudflare-vless-23
+  - CA-多伦多-Cloudflare-vless-24
+  - CA-多伦多-Cloudflare-vless-25
+  - US-芝加哥-Dedicated.com-ss-26
+  - CA-多伦多-Cloudflare-vless-27
+  - US-洛杉矶-Dedicated.com-ss-28
+  - US-阿什本-Cloudflare-vless-29
+  - US-阿什本-Cloudflare-vless-30
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 50
