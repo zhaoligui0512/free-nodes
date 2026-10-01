@@ -61,7 +61,7 @@ jobs:
       - name: Show final report
         run: |
           echo "=== 最终汇总报告 ==="
-          python3 -c 'import json; d=json.load(open("output/nodes.json")); m=d["meta"]; print("生成时间:", m["generated_at"]); print("测试轮次:", m["total_rounds"], m["rounds_used"]); print("唯一节点:", m["total_unique_nodes"]); print("稳定节点:", m["total_stable"]); print("优质节点:", m["total_good"]); print(); print("TOP 10:"); [print(f"  {i+1:2d}. {n[\"real_name\"]:<40} {n[\"avg_delay_ms\"]:>5}ms (有效{n[\"valid_rounds\"]}/{n[\"total_rounds\"]}轮) {n[\"type\"]}") for i,n in enumerate(d["nodes"][:10])]'
+          python3 -c 'import json; d=json.load(open("output/nodes.json")); m=d["meta"]; print("生成时间:", m["generated_at"]); print("测试轮次:", m["total_rounds"], m["rounds_used"]); print("唯一节点:", m["total_unique_nodes"]); print("稳定节点:", m["total_stable"]); print("优质节点:", m["total_good"]); print(); print("TOP 10:"); [print(" ", i+1, n["real_name"], str(n["avg_delay_ms"])+"ms", "有效"+str(n["valid_rounds"])+"/"+str(n["total_rounds"])+"轮", n["type"]) for i,n in enumerate(d["nodes"][:10])]'
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
