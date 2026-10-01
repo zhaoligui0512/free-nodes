@@ -1,9 +1,9 @@
 name: Round 1 Test
 
 on:
-  # 测试阶段：每小时整点跑第1轮（间隔10分钟，20分钟完成全流程）
+  # 生产：每天 UTC 0:00（北京 8:00）跑第1轮
   schedule:
-    - cron: '0 * * * *'
+    - cron: '0 0 * * *'
   workflow_dispatch:
 
 permissions:
