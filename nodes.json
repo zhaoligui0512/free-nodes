@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-10-01T17:38:40.449530",
+    "generated_at": "2026-10-01T18:44:04.477151",
     "total_rounds": 3,
     "rounds_used": [
       1,
@@ -24,33 +24,7 @@
   },
   "nodes": [
     {
-      "real_name": "JP-东京-Datacamp-ss-01",
-      "type": "ss",
-      "server": "149.22.87.204",
-      "port": 443,
-      "ip": "149.22.87.204",
-      "country": "日本",
-      "city": "东京",
-      "isp": "Datacamp Limited",
-      "avg_delay_ms": 290,
-      "valid_rounds": 3,
-      "total_rounds": 3,
-      "delays": [
-        287,
-        268,
-        316
-      ],
-      "raw_config": {
-        "cipher": "aes-128-gcm",
-        "password": "shadowsocks",
-        "port": 443,
-        "server": "149.22.87.204",
-        "type": "ss",
-        "name": "node_0174"
-      }
-    },
-    {
-      "real_name": "JP-东京-CTG-vless-02",
+      "real_name": "JP-东京-CTG-vless-01",
       "type": "vless",
       "server": "137.220.221.179",
       "port": 443,
@@ -58,13 +32,13 @@
       "country": "日本",
       "city": "东京",
       "isp": "CTG Server Ltd.",
-      "avg_delay_ms": 344,
+      "avg_delay_ms": 410,
       "valid_rounds": 3,
       "total_rounds": 3,
       "delays": [
-        352,
-        326,
-        355
+        591,
+        358,
+        280
       ],
       "raw_config": {
         "encryption": "none",
@@ -78,33 +52,7 @@
       }
     },
     {
-      "real_name": "JP-东京-Contabo-ss-03",
-      "type": "ss",
-      "server": "84.247.155.196",
-      "port": 80,
-      "ip": "84.247.155.196",
-      "country": "日本",
-      "city": "东京",
-      "isp": "Contabo GmbH",
-      "avg_delay_ms": 470,
-      "valid_rounds": 2,
-      "total_rounds": 3,
-      "delays": [
-        0,
-        400,
-        540
-      ],
-      "raw_config": {
-        "cipher": "aes-256-gcm",
-        "password": "3eOFeNssde7PYYMv",
-        "port": 80,
-        "server": "84.247.155.196",
-        "type": "ss",
-        "name": "node_0173"
-      }
-    },
-    {
-      "real_name": "JP-Minamish-The-trojan-04",
+      "real_name": "JP-Minamish-The-trojan-02",
       "type": "trojan",
       "server": "jp.tronsg.com",
       "port": 443,
@@ -112,13 +60,13 @@
       "country": "日本",
       "city": "Minamishinagawa",
       "isp": "The Constant Company",
-      "avg_delay_ms": 488,
+      "avg_delay_ms": 445,
       "valid_rounds": 3,
       "total_rounds": 3,
       "delays": [
-        482,
-        467,
-        514
+        381,
+        563,
+        390
       ],
       "raw_config": {
         "password": "Trojan@82164024",
@@ -132,7 +80,7 @@
       }
     },
     {
-      "real_name": "PH-马尼拉-Bedge-ss-05",
+      "real_name": "PH-马尼拉-Bedge-ss-03",
       "type": "ss",
       "server": "149.104.109.252",
       "port": 8882,
@@ -140,13 +88,13 @@
       "country": "菲律宾",
       "city": "马尼拉",
       "isp": "Bedge CO Limited",
-      "avg_delay_ms": 521,
+      "avg_delay_ms": 496,
       "valid_rounds": 3,
       "total_rounds": 3,
       "delays": [
-        508,
-        487,
-        567
+        455,
+        576,
+        456
       ],
       "raw_config": {
         "cipher": "aes-256-gcm",
@@ -158,7 +106,89 @@
       }
     },
     {
-      "real_name": "SG-新加坡-Hetzner-vless-06",
+      "real_name": "JP-东京-Contabo-ss-04",
+      "type": "ss",
+      "server": "84.247.155.196",
+      "port": 80,
+      "ip": "84.247.155.196",
+      "country": "日本",
+      "city": "东京",
+      "isp": "Contabo GmbH",
+      "avg_delay_ms": 556,
+      "valid_rounds": 3,
+      "total_rounds": 3,
+      "delays": [
+        534,
+        817,
+        316
+      ],
+      "raw_config": {
+        "cipher": "aes-256-gcm",
+        "password": "3eOFeNssde7PYYMv",
+        "port": 80,
+        "server": "84.247.155.196",
+        "type": "ss",
+        "name": "node_0173"
+      }
+    },
+    {
+      "real_name": "JP-東京都-Amazon-anytls-05",
+      "type": "anytls",
+      "server": "jpglobal-identity-federation-auth.younai-ytl.shop",
+      "port": 65308,
+      "ip": "54.150.161.33",
+      "country": "日本",
+      "city": "東京都",
+      "isp": "Amazon Technologies Inc.",
+      "avg_delay_ms": 559,
+      "valid_rounds": 3,
+      "total_rounds": 3,
+      "delays": [
+        480,
+        587,
+        609
+      ],
+      "raw_config": {
+        "password": "3fc0f254-54c3-4cf3-896b-5999a2b4c757",
+        "port": 65308,
+        "server": "jpglobal-identity-federation-auth.younai-ytl.shop",
+        "skip-cert-verify": true,
+        "sni": "jp11.pulsarcore.site",
+        "type": "anytls",
+        "udp": true,
+        "name": "node_0255"
+      }
+    },
+    {
+      "real_name": "JP-東京都-Amazon-anytls-06",
+      "type": "anytls",
+      "server": "jp-02-hdja-kido.younai-ytl.shop",
+      "port": 37236,
+      "ip": "13.193.0.128",
+      "country": "日本",
+      "city": "東京都",
+      "isp": "Amazon.com",
+      "avg_delay_ms": 561,
+      "valid_rounds": 3,
+      "total_rounds": 3,
+      "delays": [
+        582,
+        573,
+        529
+      ],
+      "raw_config": {
+        "password": "3fc0f254-54c3-4cf3-896b-5999a2b4c757",
+        "port": 37236,
+        "server": "jp-02-hdja-kido.younai-ytl.shop",
+        "skip-cert-verify": true,
+        "sni": "tw16.swiftrelay.cc",
+        "type": "anytls",
+        "udp": true,
+        "name": "node_0271"
+      }
+    },
+    {
+      "real_name": "SG-新加坡-Hetzner-vless-07",
       "type": "vless",
       "server": "5.223.41.93",
       "port": 80,
@@ -166,13 +196,13 @@
       "country": "新加坡",
       "city": "新加坡",
       "isp": "Hetzner Online GmbH",
-      "avg_delay_ms": 626,
+      "avg_delay_ms": 576,
       "valid_rounds": 3,
       "total_rounds": 3,
       "delays": [
-        626,
-        587,
-        664
+        526,
+        663,
+        540
       ],
       "raw_config": {
         "encryption": "none",
@@ -189,34 +219,6 @@
       }
     },
     {
-      "real_name": "JP-東京都-Amazon-anytls-07",
-      "type": "anytls",
-      "server": "jpglobal-identity-federation-auth.younai-ytl.shop",
-      "port": 65308,
-      "ip": "3.114.226.172",
-      "country": "日本",
-      "city": "東京都",
-      "isp": "Amazon Technologies Inc.",
-      "avg_delay_ms": 638,
-      "valid_rounds": 3,
-      "total_rounds": 3,
-      "delays": [
-        592,
-        608,
-        714
-      ],
-      "raw_config": {
-        "password": "3fc0f254-54c3-4cf3-896b-5999a2b4c757",
-        "port": 65308,
-        "server": "jpglobal-identity-federation-auth.younai-ytl.shop",
-        "skip-cert-verify": true,
-        "sni": "jp11.pulsarcore.site",
-        "type": "anytls",
-        "udp": true,
-        "name": "node_0255"
-      }
-    },
-    {
       "real_name": "JP-东京-UCLOUD-socks5-08",
       "type": "socks5",
       "server": "101.36.104.239",
@@ -225,13 +227,13 @@
       "country": "日本",
       "city": "东京",
       "isp": "UCLOUD INFORMATION TECHNOLOGY (HK) LIMITED",
-      "avg_delay_ms": 650,
-      "valid_rounds": 2,
+      "avg_delay_ms": 622,
+      "valid_rounds": 3,
       "total_rounds": 3,
       "delays": [
-        712,
-        589,
-        0
+        477,
+        810,
+        578
       ],
       "raw_config": {
         "type": "socks5",
@@ -241,88 +243,97 @@
       }
     },
     {
-      "real_name": "TW-半线-Chunghwa-anytls-09",
+      "real_name": "KR-Incheon-Amazon-anytls-09",
       "type": "anytls",
-      "server": "tw63-kb.cybergalaxy.me",
-      "port": 443,
-      "ip": "61.224.92.223",
-      "country": "台湾",
-      "city": "半线",
-      "isp": "Chunghwa Telecom Co., Ltd.",
-      "avg_delay_ms": 659,
-      "valid_rounds": 3,
-      "total_rounds": 3,
-      "delays": [
-        637,
-        677,
-        662
-      ],
-      "raw_config": {
-        "password": "3fc0f254-54c3-4cf3-896b-5999a2b4c757",
-        "port": 443,
-        "server": "tw63-kb.cybergalaxy.me",
-        "skip-cert-verify": true,
-        "sni": "tw63-kb.cybergalaxy.me",
-        "type": "anytls",
-        "udp": true,
-        "name": "node_0272"
-      }
-    },
-    {
-      "real_name": "TW-台北市-Chunghwa-anytls-10",
-      "type": "anytls",
-      "server": "yazhou06.cybergalaxy.me",
-      "port": 443,
-      "ip": "61.228.78.202",
-      "country": "台湾",
-      "city": "台北市",
-      "isp": "Chunghwa Telecom Co., Ltd.",
-      "avg_delay_ms": 660,
-      "valid_rounds": 2,
-      "total_rounds": 3,
-      "delays": [
-        714,
-        605,
-        0
-      ],
-      "raw_config": {
-        "password": "3fc0f254-54c3-4cf3-896b-5999a2b4c757",
-        "port": 443,
-        "server": "yazhou06.cybergalaxy.me",
-        "skip-cert-verify": true,
-        "sni": "yazhou06.cybergalaxy.me",
-        "type": "anytls",
-        "udp": true,
-        "name": "node_0269"
-      }
-    },
-    {
-      "real_name": "KR-Incheon-Amazon-anytls-11",
-      "type": "anytls",
-      "server": "svip.skycon808.com",
-      "port": 60005,
-      "ip": "54.116.193.19",
+      "server": "test01.y1static-content-distribution.shop",
+      "port": 47096,
+      "ip": "3.38.66.8",
       "country": "South Korea",
       "city": "Incheon",
       "isp": "Amazon.com, Inc.",
-      "avg_delay_ms": 727,
+      "avg_delay_ms": 634,
       "valid_rounds": 3,
       "total_rounds": 3,
       "delays": [
+        560,
         730,
-        687,
-        764
+        613
       ],
       "raw_config": {
-        "type": "anytls",
-        "server": "svip.skycon808.com",
-        "port": 60005,
-        "password": "13f0acfa-38c1-4e82-a758-583aa31740df",
-        "sni": "xjp18.2uuzhe.com",
+        "password": "3fc0f254-54c3-4cf3-896b-5999a2b4c757",
+        "port": 47096,
+        "server": "test01.y1static-content-distribution.shop",
         "skip-cert-verify": true,
-        "tls": true,
+        "sni": "xjp33.pulsarcore.site",
+        "type": "anytls",
         "udp": true,
-        "name": "node_0453"
+        "name": "node_0264"
+      }
+    },
+    {
+      "real_name": "MY-吉隆坡-EVOXT-vless-10",
+      "type": "vless",
+      "server": "platform106.golnamakcert.top",
+      "port": 80,
+      "ip": "155.254.60.222",
+      "country": "马来西亚",
+      "city": "吉隆坡",
+      "isp": "EVOXT",
+      "avg_delay_ms": 666,
+      "valid_rounds": 3,
+      "total_rounds": 3,
+      "delays": [
+        670,
+        728,
+        601
+      ],
+      "raw_config": {
+        "network": "ws",
+        "port": 80,
+        "server": "platform106.golnamakcert.top",
+        "tls": false,
+        "type": "vless",
+        "uuid": "e13cf851-b4fd-413b-8d49-146e6eb8e5d4",
+        "ws-opts": {
+          "headers": {
+            "Host": "platform106.halalkhor.info"
+          },
+          "path": "/platform106"
+        },
+        "name": "node_0055"
+      }
+    },
+    {
+      "real_name": "MY-吉隆坡-Ace-vless-11",
+      "type": "vless",
+      "server": "platform117.golnamakcert.top",
+      "port": 80,
+      "ip": "166.88.35.245",
+      "country": "马来西亚",
+      "city": "吉隆坡",
+      "isp": "Ace Data Centers II",
+      "avg_delay_ms": 670,
+      "valid_rounds": 3,
+      "total_rounds": 3,
+      "delays": [
+        681,
+        723,
+        605
+      ],
+      "raw_config": {
+        "network": "ws",
+        "port": 80,
+        "server": "platform117.golnamakcert.top",
+        "tls": false,
+        "type": "vless",
+        "uuid": "e13cf851-b4fd-413b-8d49-146e6eb8e5d4",
+        "ws-opts": {
+          "headers": {
+            "Host": "platform117.halalkhor.info"
+          },
+          "path": "/platform117"
+        },
+        "name": "node_0057"
       }
     },
     {
@@ -334,13 +345,13 @@
       "country": "马来西亚",
       "city": "吉隆坡",
       "isp": "Ace Data Centers II",
-      "avg_delay_ms": 742,
+      "avg_delay_ms": 673,
       "valid_rounds": 3,
       "total_rounds": 3,
       "delays": [
-        753,
-        730,
-        743
+        674,
+        744,
+        601
       ],
       "raw_config": {
         "network": "ws",
@@ -360,40 +371,102 @@
       }
     },
     {
-      "real_name": "MY-吉隆坡-EVOXT-vless-13",
+      "real_name": "MY-吉隆坡-Ace-vless-13",
       "type": "vless",
-      "server": "platform106.golnamakcert.top",
+      "server": "platform102.golnamakcert.top",
       "port": 80,
-      "ip": "155.254.60.222",
+      "ip": "166.88.35.199",
       "country": "马来西亚",
       "city": "吉隆坡",
-      "isp": "EVOXT",
-      "avg_delay_ms": 744,
+      "isp": "Ace Data Centers II",
+      "avg_delay_ms": 683,
       "valid_rounds": 3,
       "total_rounds": 3,
       "delays": [
-        745,
-        763,
-        724
+        681,
+        736,
+        631
       ],
       "raw_config": {
         "network": "ws",
         "port": 80,
-        "server": "platform106.golnamakcert.top",
+        "server": "platform102.golnamakcert.top",
+        "servername": "platform102.golnamakcert.top",
         "tls": false,
         "type": "vless",
         "uuid": "e13cf851-b4fd-413b-8d49-146e6eb8e5d4",
         "ws-opts": {
           "headers": {
-            "Host": "platform106.halalkhor.info"
+            "Host": "platform102.halalkhor.info"
           },
-          "path": "/platform106"
+          "path": "/platform102"
         },
-        "name": "node_0055"
+        "name": "node_0060"
       }
     },
     {
-      "real_name": "MY-吉隆坡-Evoxt-vless-14",
+      "real_name": "JP-東京都-Amazon-anytls-14",
+      "type": "anytls",
+      "server": "jp-02-hdja-kido.younai-ytl.shop",
+      "port": 53274,
+      "ip": "13.193.0.128",
+      "country": "日本",
+      "city": "東京都",
+      "isp": "Amazon.com",
+      "avg_delay_ms": 683,
+      "valid_rounds": 3,
+      "total_rounds": 3,
+      "delays": [
+        645,
+        768,
+        637
+      ],
+      "raw_config": {
+        "password": "3fc0f254-54c3-4cf3-896b-5999a2b4c757",
+        "port": 53274,
+        "server": "jp-02-hdja-kido.younai-ytl.shop",
+        "skip-cert-verify": true,
+        "sni": "jp33.swiftrelay.cc",
+        "type": "anytls",
+        "udp": true,
+        "name": "node_0247"
+      }
+    },
+    {
+      "real_name": "MY-吉隆坡-Evoxt-vless-15",
+      "type": "vless",
+      "server": "platform101.golnamakcert.top",
+      "port": 80,
+      "ip": "45.194.27.124",
+      "country": "马来西亚",
+      "city": "吉隆坡",
+      "isp": "Evoxt Enterprise",
+      "avg_delay_ms": 686,
+      "valid_rounds": 3,
+      "total_rounds": 3,
+      "delays": [
+        683,
+        767,
+        608
+      ],
+      "raw_config": {
+        "network": "ws",
+        "port": 80,
+        "server": "platform101.golnamakcert.top",
+        "tls": false,
+        "type": "vless",
+        "uuid": "e13cf851-b4fd-413b-8d49-146e6eb8e5d4",
+        "ws-opts": {
+          "headers": {
+            "Host": "platform101.halalkhor.info"
+          },
+          "path": "/platform101"
+        },
+        "name": "node_0061"
+      }
+    },
+    {
+      "real_name": "MY-吉隆坡-Evoxt-vless-16",
       "type": "vless",
       "server": "platform107.golnamakcert.top",
       "port": 80,
@@ -401,13 +474,13 @@
       "country": "马来西亚",
       "city": "吉隆坡",
       "isp": "Evoxt SDN BHD",
-      "avg_delay_ms": 752,
+      "avg_delay_ms": 691,
       "valid_rounds": 3,
       "total_rounds": 3,
       "delays": [
-        736,
-        788,
-        731
+        698,
+        732,
+        643
       ],
       "raw_config": {
         "network": "ws",
@@ -427,177 +500,21 @@
       }
     },
     {
-      "real_name": "MY-吉隆坡-Ace-vless-15",
-      "type": "vless",
-      "server": "platform117.golnamakcert.top",
-      "port": 80,
-      "ip": "166.88.35.245",
-      "country": "马来西亚",
-      "city": "吉隆坡",
-      "isp": "Ace Data Centers II",
-      "avg_delay_ms": 755,
-      "valid_rounds": 3,
-      "total_rounds": 3,
-      "delays": [
-        745,
-        798,
-        723
-      ],
-      "raw_config": {
-        "network": "ws",
-        "port": 80,
-        "server": "platform117.golnamakcert.top",
-        "tls": false,
-        "type": "vless",
-        "uuid": "e13cf851-b4fd-413b-8d49-146e6eb8e5d4",
-        "ws-opts": {
-          "headers": {
-            "Host": "platform117.halalkhor.info"
-          },
-          "path": "/platform117"
-        },
-        "name": "node_0057"
-      }
-    },
-    {
-      "real_name": "MY-吉隆坡-Evoxt-vless-16",
-      "type": "vless",
-      "server": "platform103.golnamakcert.top",
-      "port": 80,
-      "ip": "45.195.69.230",
-      "country": "马来西亚",
-      "city": "吉隆坡",
-      "isp": "Evoxt SDN BHD",
-      "avg_delay_ms": 761,
-      "valid_rounds": 3,
-      "total_rounds": 3,
-      "delays": [
-        737,
-        801,
-        744
-      ],
-      "raw_config": {
-        "network": "ws",
-        "port": 80,
-        "server": "platform103.golnamakcert.top",
-        "servername": "platform103.halalkhor.info",
-        "tls": false,
-        "type": "vless",
-        "uuid": "e13cf851-b4fd-413b-8d49-146e6eb8e5d4",
-        "ws-opts": {
-          "headers": {
-            "Host": "platform103.halalkhor.info"
-          },
-          "path": "/platform103"
-        },
-        "name": "node_0058"
-      }
-    },
-    {
-      "real_name": "TW-半线-Chunghwa-anytls-17",
-      "type": "anytls",
-      "server": "tw56-kb.cybergalaxy.me",
-      "port": 443,
-      "ip": "1.168.182.136",
-      "country": "台湾",
-      "city": "半线",
-      "isp": "Chunghwa Telecom Co., Ltd.",
-      "avg_delay_ms": 761,
-      "valid_rounds": 3,
-      "total_rounds": 3,
-      "delays": [
-        890,
-        676,
-        718
-      ],
-      "raw_config": {
-        "password": "3fc0f254-54c3-4cf3-896b-5999a2b4c757",
-        "port": 443,
-        "server": "tw56-kb.cybergalaxy.me",
-        "skip-cert-verify": true,
-        "sni": "tw56-kb.cybergalaxy.me",
-        "type": "anytls",
-        "udp": true,
-        "name": "node_0270"
-      }
-    },
-    {
-      "real_name": "MY-吉隆坡-Ace-vless-18",
-      "type": "vless",
-      "server": "platform118.golnamakcert.top",
-      "port": 80,
-      "ip": "136.0.254.60",
-      "country": "马来西亚",
-      "city": "吉隆坡",
-      "isp": "Ace Data Centers II",
-      "avg_delay_ms": 763,
-      "valid_rounds": 3,
-      "total_rounds": 3,
-      "delays": [
-        753,
-        806,
-        730
-      ],
-      "raw_config": {
-        "network": "ws",
-        "port": 80,
-        "server": "platform118.golnamakcert.top",
-        "tls": false,
-        "type": "vless",
-        "uuid": "e13cf851-b4fd-413b-8d49-146e6eb8e5d4",
-        "ws-opts": {
-          "headers": {
-            "Host": "platform118.halalkhor.info"
-          },
-          "path": "/platform118"
-        },
-        "name": "node_0056"
-      }
-    },
-    {
-      "real_name": "SG-新加坡-Amazon-anytls-19",
-      "type": "anytls",
-      "server": "test01.y1static-content-distribution.shop",
-      "port": 47096,
-      "ip": "52.74.207.71",
-      "country": "新加坡",
-      "city": "新加坡",
-      "isp": "Amazon.com, Inc.",
-      "avg_delay_ms": 783,
-      "valid_rounds": 3,
-      "total_rounds": 3,
-      "delays": [
-        770,
-        727,
-        851
-      ],
-      "raw_config": {
-        "password": "3fc0f254-54c3-4cf3-896b-5999a2b4c757",
-        "port": 47096,
-        "server": "test01.y1static-content-distribution.shop",
-        "skip-cert-verify": true,
-        "sni": "xjp33.pulsarcore.site",
-        "type": "anytls",
-        "udp": true,
-        "name": "node_0264"
-      }
-    },
-    {
-      "real_name": "SG-新加坡-Amazon-anytls-20",
+      "real_name": "KR-Incheon-Amazon-anytls-17",
       "type": "anytls",
       "server": "yazhouany02.downapptwo.cc",
       "port": 25135,
-      "ip": "52.74.185.60",
-      "country": "新加坡",
-      "city": "新加坡",
+      "ip": "16.184.59.159",
+      "country": "South Korea",
+      "city": "Incheon",
       "isp": "Amazon.com, Inc.",
-      "avg_delay_ms": 848,
+      "avg_delay_ms": 778,
       "valid_rounds": 3,
       "total_rounds": 3,
       "delays": [
-        773,
-        661,
-        1110
+        613,
+        820,
+        901
       ],
       "raw_config": {
         "password": "3fc0f254-54c3-4cf3-896b-5999a2b4c757",
@@ -611,51 +528,142 @@
       }
     },
     {
-      "real_name": "US-芝加哥-Dedicated.com-ss-21",
-      "type": "ss",
-      "server": "103.214.111.162",
-      "port": 16469,
-      "ip": "103.214.111.162",
-      "country": "美国",
-      "city": "芝加哥",
-      "isp": "Dedicated.com",
-      "avg_delay_ms": 37,
+      "real_name": "KR-Incheon-Amazon-anytls-18",
+      "type": "anytls",
+      "server": "test01.y1static-content-distribution.shop",
+      "port": 56726,
+      "ip": "3.38.66.8",
+      "country": "South Korea",
+      "city": "Incheon",
+      "isp": "Amazon.com, Inc.",
+      "avg_delay_ms": 782,
+      "valid_rounds": 2,
+      "total_rounds": 3,
+      "delays": [
+        0,
+        886,
+        679
+      ],
+      "raw_config": {
+        "password": "3fc0f254-54c3-4cf3-896b-5999a2b4c757",
+        "port": 56726,
+        "server": "test01.y1static-content-distribution.shop",
+        "skip-cert-verify": true,
+        "sni": "hk11.pulsarcore.site",
+        "type": "anytls",
+        "udp": true,
+        "name": "node_0231"
+      }
+    },
+    {
+      "real_name": "KR-Incheon-Amazon-anytls-19",
+      "type": "anytls",
+      "server": "yazhouany02.downapptwo.cc",
+      "port": 53991,
+      "ip": "16.184.59.159",
+      "country": "South Korea",
+      "city": "Incheon",
+      "isp": "Amazon.com, Inc.",
+      "avg_delay_ms": 807,
       "valid_rounds": 3,
       "total_rounds": 3,
       "delays": [
-        49,
-        20,
-        43
+        695,
+        843,
+        882
       ],
       "raw_config": {
-        "cipher": "aes-128-gcm",
-        "password": "87e9cb62706b5cd08da95b8b423cb673",
-        "port": 16469,
-        "server": "103.214.111.162",
-        "type": "ss",
-        "name": "node_0186"
+        "password": "3fc0f254-54c3-4cf3-896b-5999a2b4c757",
+        "port": 53991,
+        "server": "yazhouany02.downapptwo.cc",
+        "skip-cert-verify": true,
+        "sni": "jp03.pulsarcore.site",
+        "type": "anytls",
+        "udp": true,
+        "name": "node_0248"
+      }
+    },
+    {
+      "real_name": "TW-彰化-Chunghwa-anytls-20",
+      "type": "anytls",
+      "server": "tw56-kb.cybergalaxy.me",
+      "port": 443,
+      "ip": "1.170.192.207",
+      "country": "台湾",
+      "city": "彰化",
+      "isp": "Chunghwa Telecom Co., Ltd.",
+      "avg_delay_ms": 929,
+      "valid_rounds": 3,
+      "total_rounds": 3,
+      "delays": [
+        1512,
+        683,
+        591
+      ],
+      "raw_config": {
+        "password": "3fc0f254-54c3-4cf3-896b-5999a2b4c757",
+        "port": 443,
+        "server": "tw56-kb.cybergalaxy.me",
+        "skip-cert-verify": true,
+        "sni": "tw56-kb.cybergalaxy.me",
+        "type": "anytls",
+        "udp": true,
+        "name": "node_0270"
+      }
+    },
+    {
+      "real_name": "CA-多伦多-Cloudflare-vless-21",
+      "type": "vless",
+      "server": "188.114.97.6",
+      "port": 2052,
+      "ip": "188.114.97.6",
+      "country": "加拿大",
+      "city": "多伦多",
+      "isp": "Cloudflare, Inc.",
+      "avg_delay_ms": 36,
+      "valid_rounds": 3,
+      "total_rounds": 3,
+      "delays": [
+        42,
+        34,
+        32
+      ],
+      "raw_config": {
+        "network": "ws",
+        "port": 2052,
+        "server": "188.114.97.6",
+        "tls": false,
+        "type": "vless",
+        "uuid": "47fcef29-ab4e-4aa6-932b-d95a18f28a4e",
+        "ws-opts": {
+          "headers": {
+            "Host": "zb1zi.s3nx.dyz.hh.vavava.kdns.fr"
+          },
+          "path": "/?ed=2560"
+        },
+        "name": "node_0092"
       }
     },
     {
       "real_name": "CA-多伦多-Cloudflare-vless-22",
       "type": "vless",
       "server": "162.159.43.187",
-      "port": 80,
+      "port": 2086,
       "ip": "162.159.43.187",
       "country": "加拿大",
       "city": "多伦多",
       "isp": "Cloudflare, Inc.",
-      "avg_delay_ms": 40,
+      "avg_delay_ms": 38,
       "valid_rounds": 3,
       "total_rounds": 3,
       "delays": [
-        38,
-        57,
-        26
+        40,
+        39,
+        35
       ],
       "raw_config": {
         "network": "ws",
-        "port": 80,
+        "port": 2086,
         "server": "162.159.43.187",
         "servername": "8nj2r.2k8t.f88.hh.vavava.kdns.fr",
         "tls": false,
@@ -668,37 +676,11 @@
           },
           "path": "/?ed=2560security=tls"
         },
-        "name": "node_0288"
+        "name": "node_0262"
       }
     },
     {
-      "real_name": "CA-Beauharn-OVH-ss-23",
-      "type": "ss",
-      "server": "51.222.200.165",
-      "port": 5000,
-      "ip": "51.222.200.165",
-      "country": "加拿大",
-      "city": "Beauharnois",
-      "isp": "OVH SAS",
-      "avg_delay_ms": 46,
-      "valid_rounds": 3,
-      "total_rounds": 3,
-      "delays": [
-        46,
-        60,
-        31
-      ],
-      "raw_config": {
-        "cipher": "aes-256-gcm",
-        "password": "Y6R9pAtvxxzmGC",
-        "port": 5000,
-        "server": "51.222.200.165",
-        "type": "ss",
-        "name": "node_0157"
-      }
-    },
-    {
-      "real_name": "CA-多伦多-Cloudflare-vless-24",
+      "real_name": "CA-多伦多-Cloudflare-vless-23",
       "type": "vless",
       "server": "162.159.43.187",
       "port": 2095,
@@ -706,13 +688,13 @@
       "country": "加拿大",
       "city": "多伦多",
       "isp": "Cloudflare, Inc.",
-      "avg_delay_ms": 53,
+      "avg_delay_ms": 41,
       "valid_rounds": 3,
       "total_rounds": 3,
       "delays": [
-        36,
-        103,
-        20
+        45,
+        34,
+        45
       ],
       "raw_config": {
         "network": "ws",
@@ -733,6 +715,39 @@
       }
     },
     {
+      "real_name": "CA-多伦多-Cloudflare-vless-24",
+      "type": "vless",
+      "server": "188.114.97.6",
+      "port": 2095,
+      "ip": "188.114.97.6",
+      "country": "加拿大",
+      "city": "多伦多",
+      "isp": "Cloudflare, Inc.",
+      "avg_delay_ms": 43,
+      "valid_rounds": 3,
+      "total_rounds": 3,
+      "delays": [
+        41,
+        38,
+        51
+      ],
+      "raw_config": {
+        "network": "ws",
+        "port": 2095,
+        "server": "188.114.97.6",
+        "tls": false,
+        "type": "vless",
+        "uuid": "47fcef29-ab4e-4aa6-932b-d95a18f28a4e",
+        "ws-opts": {
+          "headers": {
+            "Host": "zb1zi.s3nx.dyz.hh.vavava.kdns.fr"
+          },
+          "path": "/?ed=2560"
+        },
+        "name": "node_0094"
+      }
+    },
+    {
       "real_name": "CA-多伦多-Cloudflare-vless-25",
       "type": "vless",
       "server": "162.159.43.187",
@@ -741,13 +756,13 @@
       "country": "加拿大",
       "city": "多伦多",
       "isp": "Cloudflare, Inc.",
-      "avg_delay_ms": 59,
+      "avg_delay_ms": 44,
       "valid_rounds": 3,
       "total_rounds": 3,
       "delays": [
-        32,
-        123,
-        23
+        46,
+        43,
+        42
       ],
       "raw_config": {
         "network": "ws",
@@ -767,7 +782,68 @@
       }
     },
     {
-      "real_name": "US-阿什本-Cloudflare-vless-26",
+      "real_name": "CA-多伦多-Cloudflare-vless-26",
+      "type": "vless",
+      "server": "162.159.43.187",
+      "port": 80,
+      "ip": "162.159.43.187",
+      "country": "加拿大",
+      "city": "多伦多",
+      "isp": "Cloudflare, Inc.",
+      "avg_delay_ms": 52,
+      "valid_rounds": 3,
+      "total_rounds": 3,
+      "delays": [
+        70,
+        44,
+        43
+      ],
+      "raw_config": {
+        "network": "ws",
+        "port": 80,
+        "server": "162.159.43.187",
+        "servername": "8nj2r.2k8t.f88.hh.vavava.kdns.fr",
+        "tls": false,
+        "type": "vless",
+        "udp": true,
+        "uuid": "47fcef29-ab4e-4aa6-932b-d95a18f28a4e",
+        "ws-opts": {
+          "headers": {
+            "Host": "8nj2r.2k8t.f88.hh.vavava.kdns.fr"
+          },
+          "path": "/?ed=2560security=tls"
+        },
+        "name": "node_0288"
+      }
+    },
+    {
+      "real_name": "US-洛杉矶-Dedicated.com-ss-27",
+      "type": "ss",
+      "server": "173.234.25.90",
+      "port": 15240,
+      "ip": "173.234.25.90",
+      "country": "美国",
+      "city": "洛杉矶",
+      "isp": "Dedicated.com",
+      "avg_delay_ms": 60,
+      "valid_rounds": 3,
+      "total_rounds": 3,
+      "delays": [
+        26,
+        122,
+        31
+      ],
+      "raw_config": {
+        "cipher": "aes-128-gcm",
+        "password": "62dd75ba944947d4ca983cf1679b3797",
+        "port": 15240,
+        "server": "173.234.25.90",
+        "type": "ss",
+        "name": "node_0188"
+      }
+    },
+    {
+      "real_name": "US-阿什本-Cloudflare-vless-28",
       "type": "vless",
       "server": "162.159.38.127",
       "port": 2082,
@@ -775,13 +851,13 @@
       "country": "美国",
       "city": "阿什本",
       "isp": "Cloudflare, Inc.",
-      "avg_delay_ms": 61,
+      "avg_delay_ms": 109,
       "valid_rounds": 3,
       "total_rounds": 3,
       "delays": [
-        85,
-        78,
-        21
+        149,
+        22,
+        156
       ],
       "raw_config": {
         "network": "ws",
@@ -801,69 +877,6 @@
       }
     },
     {
-      "real_name": "US-Secaucus-Interserver,-vless-27",
-      "type": "vless",
-      "server": "162.35.104.144",
-      "port": 8081,
-      "ip": "162.35.104.144",
-      "country": "美国",
-      "city": "Secaucus",
-      "isp": "Interserver, Inc",
-      "avg_delay_ms": 62,
-      "valid_rounds": 3,
-      "total_rounds": 3,
-      "delays": [
-        75,
-        84,
-        27
-      ],
-      "raw_config": {
-        "network": "ws",
-        "port": 8081,
-        "server": "162.35.104.144",
-        "tls": false,
-        "type": "vless",
-        "uuid": "54ee5e59-55a3-4599-83ff-0c67b3f411b2",
-        "ws-opts": {
-          "path": "/vless-test"
-        },
-        "name": "node_0148"
-      }
-    },
-    {
-      "real_name": "CA-多伦多-Cloudflare-vless-28",
-      "type": "vless",
-      "server": "188.114.97.6",
-      "port": 2095,
-      "ip": "188.114.97.6",
-      "country": "加拿大",
-      "city": "多伦多",
-      "isp": "Cloudflare, Inc.",
-      "avg_delay_ms": 67,
-      "valid_rounds": 3,
-      "total_rounds": 3,
-      "delays": [
-        66,
-        81,
-        53
-      ],
-      "raw_config": {
-        "network": "ws",
-        "port": 2095,
-        "server": "188.114.97.6",
-        "tls": false,
-        "type": "vless",
-        "uuid": "47fcef29-ab4e-4aa6-932b-d95a18f28a4e",
-        "ws-opts": {
-          "headers": {
-            "Host": "zb1zi.s3nx.dyz.hh.vavava.kdns.fr"
-          },
-          "path": "/?ed=2560"
-        },
-        "name": "node_0094"
-      }
-    },
-    {
       "real_name": "US-阿什本-Cloudflare-vless-29",
       "type": "vless",
       "server": "162.159.45.19",
@@ -872,13 +885,13 @@
       "country": "美国",
       "city": "阿什本",
       "isp": "Cloudflare, Inc.",
-      "avg_delay_ms": 69,
+      "avg_delay_ms": 115,
       "valid_rounds": 3,
       "total_rounds": 3,
       "delays": [
-        81,
-        73,
-        53
+        159,
+        23,
+        163
       ],
       "raw_config": {
         "network": "ws",
@@ -898,38 +911,32 @@
       }
     },
     {
-      "real_name": "CA-多伦多-Cloudflare-vless-30",
-      "type": "vless",
-      "server": "162.159.43.187",
-      "port": 2086,
-      "ip": "162.159.43.187",
-      "country": "加拿大",
-      "city": "多伦多",
-      "isp": "Cloudflare, Inc.",
-      "avg_delay_ms": 74,
+      "real_name": "XX-http-30",
+      "type": "http",
+      "server": "138.199.35.216",
+      "port": 9002,
+      "ip": "138.199.35.216",
+      "country": null,
+      "city": null,
+      "isp": null,
+      "avg_delay_ms": 132,
       "valid_rounds": 3,
       "total_rounds": 3,
       "delays": [
-        24,
-        164,
-        33
+        38,
+        243,
+        114
       ],
       "raw_config": {
-        "network": "ws",
-        "port": 2086,
-        "server": "162.159.43.187",
-        "servername": "8nj2r.2k8t.f88.hh.vavava.kdns.fr",
-        "tls": false,
-        "type": "vless",
+        "password": "null",
+        "port": 9002,
+        "server": "138.199.35.216",
+        "skip-cert-verify": true,
+        "tls": true,
+        "type": "http",
         "udp": true,
-        "uuid": "47fcef29-ab4e-4aa6-932b-d95a18f28a4e",
-        "ws-opts": {
-          "headers": {
-            "Host": "8nj2r.2k8t.f88.hh.vavava.kdns.fr"
-          },
-          "path": "/?ed=2560security=tls"
-        },
-        "name": "node_0262"
+        "username": "null",
+        "name": "node_0396"
       }
     }
   ]
