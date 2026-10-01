@@ -2,7 +2,6 @@ name: Round 3 Test and Publish
 
 on:
   # 测试阶段：每小时20分跑第3轮 + 汇总发布
-  # 稳定后改成: - cron: '0 16 * * *'  (UTC 16:00 = 北京时间 0:00)
   schedule:
     - cron: '20 * * * *'
   workflow_dispatch:
@@ -43,13 +42,7 @@ jobs:
         run: |
           echo "=== 缓存内容（测试前，应含第1、2轮结果）==="
           ls -la .cache/ 2>/dev/null || echo "[WARN] 无缓存文件！"
-          for f in .cache/round_*.json; do
-            [ -f "$f" ] && python3 -c "
-import json
-d = json.load(open('$f'))
-print(f'$f: {len(d[\"results\"])}节点, {sum(1 for r in d[\"results\"] if r[\"delay\"]>0)}存活, {d[\"timestamp\"]}')
-"
-          done
+          python3 -c 'import json,glob; [print(f, ":", json.load(open(f))["timestamp"]) for f in sorted(glob.glob(".cache/round_*.json"))]'
 
       - name: Run Round 3 Test
         run: |
@@ -67,25 +60,8 @@ print(f'$f: {len(d[\"results\"])}节点, {sum(1 for r in d[\"results\"] if r[\"d
 
       - name: Show final report
         run: |
-          echo "========================================"
-          echo "         最终汇总报告"
-          echo "========================================"
-          python3 -c "
-import json
-with open('output/nodes.json') as f:
-    d = json.load(f)
-m = d['meta']
-print(f'生成时间: {m[\"generated_at\"]}')
-print(f'测试轮次: {m[\"total_rounds\"]} ({m[\"rounds_used\"]})')
-print(f'唯一节点: {m[\"total_unique_nodes\"]}')
-print(f'稳定节点(≥{m[\"min_valid_rounds\"]}轮有效): {m[\"total_stable\"]}')
-print(f'优质节点(<{m[\"good_threshold_ms\"]}ms): {m[\"total_good\"]}')
-print()
-print('TOP 15 稳定节点:')
-for i, n in enumerate(d['nodes'][:15]):
-    print(f'  {i+1:2d}. {n[\"real_name\"]:<40} {n[\"avg_delay_ms\"]:>5}ms (有效{n[\"valid_rounds\"]}/{n[\"total_rounds\"]}轮) {n[\"type\"]:<10} {n.get(\"country\",\"\")}')
-"
-          echo "========================================"
+          echo "=== 最终汇总报告 ==="
+          python3 -c 'import json; d=json.load(open("output/nodes.json")); m=d["meta"]; print("生成时间:", m["generated_at"]); print("测试轮次:", m["total_rounds"], m["rounds_used"]); print("唯一节点:", m["total_unique_nodes"]); print("稳定节点:", m["total_stable"]); print("优质节点:", m["total_good"]); print(); print("TOP 10:"); [print(f"  {i+1:2d}. {n[\"real_name\"]:<40} {n[\"avg_delay_ms\"]:>5}ms (有效{n[\"valid_rounds\"]}/{n[\"total_rounds\"]}轮) {n[\"type\"]}") for i,n in enumerate(d["nodes"][:10])]'
 
       - name: Setup Pages
         uses: actions/configure-pages@v5

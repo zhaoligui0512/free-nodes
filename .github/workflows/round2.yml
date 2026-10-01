@@ -2,7 +2,6 @@ name: Round 2 Test
 
 on:
   # 测试阶段：每小时10分跑第2轮
-  # 稳定后改成: - cron: '0 8 * * *'  (UTC 8:00 = 北京时间 16:00)
   schedule:
     - cron: '10 * * * *'
   workflow_dispatch:
@@ -41,13 +40,7 @@ jobs:
         run: |
           echo "=== 缓存内容（测试前，应含第1轮结果）==="
           ls -la .cache/ 2>/dev/null || echo "[WARN] 无缓存文件！第1轮可能未成功commit"
-          if [ -f .cache/round_1.json ]; then
-            python3 -c "
-import json
-d = json.load(open('.cache/round_1.json'))
-print(f'第1轮: {len(d[\"results\"])}节点, {sum(1 for r in d[\"results\"] if r[\"delay\"]>0)}存活, {d[\"timestamp\"]}')
-"
-          fi
+          python3 -c 'import json,os; print("第1轮:", json.load(open(".cache/round_1.json"))["timestamp"]) if os.path.exists(".cache/round_1.json") else print("第1轮结果缺失")'
 
       - name: Run Round 2 Test
         run: |
@@ -59,13 +52,7 @@ print(f'第1轮: {len(d[\"results\"])}节点, {sum(1 for r in d[\"results\"] if 
         run: |
           echo "=== 缓存内容（测试后）==="
           ls -la .cache/
-          for f in .cache/round_*.json; do
-            [ -f "$f" ] && python3 -c "
-import json
-d = json.load(open('$f'))
-print(f'$f: {len(d[\"results\"])}节点, {sum(1 for r in d[\"results\"] if r[\"delay\"]>0)}存活, {d[\"timestamp\"]}')
-"
-          done
+          python3 -c 'import json,glob; [print(f, ":", json.load(open(f))["timestamp"]) for f in sorted(glob.glob(".cache/round_*.json"))]'
 
       - name: Commit cache to repo
         run: |
