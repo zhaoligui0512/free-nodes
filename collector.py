@@ -297,14 +297,49 @@ def parse_socks5(link):
 # ============================================================
 # 去重
 # ============================================================
-def dedup(proxies):
-    seen = set()
-    result = []
+# Cloudflare IP 段（用于识别 CF 节点，这些节点对中国 IP 通常不可用）
+CF_IP_PREFIXES = ("162.159.", "188.114.", "104.16.", "104.17.", "104.18.", "104.19.",
+                  "172.64.", "173.245.", "162.35.", "198.41.", "197.234.", "103.21.244.",
+                  "103.22.200.", "103.31.4.", "141.101.64.", "108.162.192.", "190.93.240.",
+                  "188.114.96.", "188.114.97.", "188.114.98.", "188.114.99.")
+
+def is_cf_server(server):
+    """判断 server（域名或IP）是否解析到 Cloudflare IP"""
+    try:
+        ip = socket.gethostbyname(server)
+        return ip.startswith(CF_IP_PREFIXES)
+    except:
+        return False
+
+def dedup(proxies, max_sni_per_ip=2):
+    """去重策略：
+    1. 先按 server:port 精确去重
+    2. 再按真实 IP 去重：DNS 解析域名→同一真实 IP 最多保留 max_sni_per_ip 个节点
+       （同一台服务器挂多个域名/SNI 的只保留前几个）
+    保留顺序：先保留精确 server:port 唯一的，再按 IP 截断
+    """
+    # 第一层：server:port 精确去重
+    seen_exact = set()
+    unique = []
     for p in proxies:
         key = f"{p.get('server','')}:{p.get('port','')}"
-        if key in seen:
+        if key in seen_exact:
             continue
-        seen.add(key)
+        seen_exact.add(key)
+        unique.append(p)
+
+    # 第二层：按真实 IP 去重（同 IP 最多 max_sni_per_ip 个）
+    ip_count = {}
+    result = []
+    for p in unique:
+        try:
+            ip = socket.gethostbyname(p.get('server',''))
+        except:
+            ip = p.get('server','')
+        cnt = ip_count.get(ip, 0)
+        if cnt >= max_sni_per_ip:
+            continue
+        ip_count[ip] = cnt + 1
         result.append(p)
     return result
 
@@ -695,7 +730,8 @@ def run_single_round(round_num, config):
         log(f"合计原始节点: {len(all_proxies)}")
 
         log("Phase 2: 去重")
-        deduped = dedup(all_proxies)
+        max_sni = config.get("dedup", {}).get("max_sni_per_ip", 2)
+        deduped = dedup(all_proxies, max_sni_per_ip=max_sni)
         from collections import Counter
         log(f"去重后: {len(deduped)}")
         log(f"协议分布: {dict(Counter(p['type'] for p in deduped))}")
@@ -811,7 +847,16 @@ def run_finalize(config):
     log("Phase: IP 反查地理位置")
     ip_info = batch_ip_lookup([n["raw_config"] for n in stable_nodes])
 
-    # 6. 地区分层配额选取（解决测试源在美国导致的延迟偏差）
+    # 6. CF 节点过滤（对中国 IP 通常不可用，限制数量）
+    #    先识别 CF 节点，标记后再分组，配额选取时限制 CF 数量
+    cf_limit = int(output_cfg.get("max_cf_nodes", 3))
+    for n in stable_nodes:
+        n["is_cf"] = is_cf_server(n["raw_config"]["server"])
+    cf_count = sum(1 for n in stable_nodes if n["is_cf"])
+    if cf_count > 0:
+        log(f"识别 CF 节点: {cf_count} 个 (限制最多 {cf_limit} 个)")
+
+    # 7. 地区分层配额选取（解决测试源在美国导致的延迟偏差）
     #    GitHub Actions runner 在美国 → CF/美加节点延迟极低霸榜 → 亚洲节点被挤出
     #    方案：按真实地理位置分组，亚洲节点给独立配额（用户实际在亚洲使用）
     region_cfg = output_cfg.get("region_quota", {})
@@ -833,14 +878,18 @@ def run_finalize(config):
     log(f"地区分组: 亚洲 {len(asia_nodes)} 个, 其他 {len(other_nodes)} 个")
 
     def _quota_select(nodes, quota):
-        """按延迟选取节点，同协议最多 max_same_proto 个（协议多样性保护）"""
-        selected, proto_count = [], {}
+        """按延迟选取节点，同协议最多 max_same_proto 个（协议多样性保护），CF 节点最多 cf_limit 个"""
+        selected, proto_count, cf_selected = [], {}, 0
         for n in nodes:
             proto = n["raw_config"]["type"]
             if proto_count.get(proto, 0) >= max_same_proto:
                 continue
+            if n.get("is_cf") and cf_selected >= cf_limit:
+                continue
             selected.append(n)
             proto_count[proto] = proto_count.get(proto, 0) + 1
+            if n.get("is_cf"):
+                cf_selected += 1
             if len(selected) >= quota:
                 break
         return selected
@@ -886,6 +935,7 @@ def run_finalize(config):
             "valid_rounds": n["valid_rounds"],
             "total_rounds": n["total_rounds"],
             "delays": n["delays"],
+            "is_cf": n.get("is_cf", False),
             "raw_config": n["raw_config"],
         })
 
