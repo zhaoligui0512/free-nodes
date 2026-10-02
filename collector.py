@@ -910,6 +910,18 @@ def run_finalize(config):
     if cf_count > 0:
         log(f"识别 CF 节点: {cf_count} 个 (限制最多 {cf_limit} 个)")
 
+    # 6.5 排除国家/地区（对中国大陆/香港等出口无意义的节点直接踢掉）
+    exclude_ccs = set(output_cfg.get("exclude_countries", ["CN", "HK"]))
+
+    def _cc(server):
+        info = (ip_info.get(server) or {}).get("info") or {}
+        return info.get("countryCode", "")
+
+    before_exclude = len(stable_nodes)
+    stable_nodes = [n for n in stable_nodes if _cc(n["raw_config"]["server"]) not in exclude_ccs]
+    if len(stable_nodes) != before_exclude:
+        log(f"排除国家/地区 {sorted(exclude_ccs)}: {before_exclude} → {len(stable_nodes)}")
+
     # 7. 分层配额选取（亚洲 + 其他 + HTTP 独立配额）
     #    GitHub Actions runner 在美国 → CF/美加节点延迟极低霸榜 → 亚洲节点被挤出
     #    方案：按真实地理位置分组，亚洲节点给独立配额（用户实际在亚洲使用）
@@ -921,12 +933,8 @@ def run_finalize(config):
     max_same_proto = int(output_cfg.get("max_same_protocol", 8))
     http_prefer_ccs = set(output_cfg.get("http_prefer_countries", ["US"]))
     asia_ccs = set(output_cfg.get("asia_countries",
-        ["JP", "SG", "TW", "HK", "KR", "TH", "VN", "MY", "PH", "ID", "IN",
+        ["JP", "SG", "TW", "KR", "TH", "VN", "MY", "PH", "ID", "IN",
          "MO", "BD", "PK", "LK", "KH", "NP"]))
-
-    def _cc(server):
-        info = (ip_info.get(server) or {}).get("info") or {}
-        return info.get("countryCode", "")
 
     # HTTP 节点独立分组（不占亚洲/其他名额）
     http_nodes = [n for n in stable_nodes if n["raw_config"]["type"] == "http"]

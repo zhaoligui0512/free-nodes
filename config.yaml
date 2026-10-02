@@ -89,7 +89,11 @@ output:
   http_prefer_countries: ["US"]
 
   # 亚洲国家/地区代码（countryCode）
-  asia_countries: ["JP", "SG", "TW", "HK", "KR", "TH", "VN", "MY", "PH", "ID", "IN", "MO", "BD", "PK", "LK", "KH", "NP"]
+  asia_countries: ["JP", "SG", "TW", "KR", "TH", "VN", "MY", "PH", "ID", "IN", "MO", "BD", "PK", "LK", "KH", "NP"]
+
+  # 排除国家/地区：对中国大陆/香港等出口无意义的节点直接踢掉
+  # （AI 服务/OpenAI 等在香港与大陆政策一致，出口无区别）
+  exclude_countries: ["CN", "HK"]
 
   # 同一协议在最终结果中的最大数量（防止 CF vless 等单一协议霸榜）
   max_same_protocol: 8
