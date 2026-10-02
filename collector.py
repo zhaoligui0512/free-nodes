@@ -194,6 +194,16 @@ def parse_vless(link):
         node["ws-opts"] = {"path": urllib.parse.unquote(params["path"])}
     if params.get("host"):
         node.setdefault("ws-opts", {})["headers"] = {"Host": params["host"]}
+    # ECH（Encrypted Client Hello）：加密 SNI 抗 GFW 特征检测
+    # 格式: ech=hostname+https://dns-config-url
+    # 例: ech=cloudflare-ech.com+https://dns.alidns.com/dns-query
+    if params.get("ech"):
+        ech_parts = params["ech"].split("+")
+        node["ech"] = {
+            "enabled": True,
+            "hostname": ech_parts[0] if ech_parts else "",
+            "config-url": ech_parts[1] if len(ech_parts) > 1 else "",
+        }
     return node
 
 def parse_trojan(link):
