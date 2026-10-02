@@ -369,29 +369,39 @@ def stop_mihomo():
 # ============================================================
 # URL test
 # ============================================================
-def url_test_one(name, test_url, timeout):
-    try:
-        encoded = urllib.parse.quote(name, safe="")
-        req = urllib.request.Request(
-            f"http://127.0.0.1:9090/proxies/{encoded}/delay?timeout={timeout*1000}&url={test_url}",
-            method="GET")
-        with urllib.request.urlopen(req, timeout=timeout+3) as resp:
-            data = json.loads(resp.read())
-            return name, data.get("delay", 0)
-    except:
-        return name, 0
+def url_test_one(name, test_urls, timeout):
+    """对单个节点测试多个目标 URL，返回 (name, {url: delay})，失败的 delay=0"""
+    delays = {}
+    for url in test_urls:
+        try:
+            encoded = urllib.parse.quote(name, safe="")
+            req = urllib.request.Request(
+                f"http://127.0.0.1:9090/proxies/{encoded}/delay?timeout={timeout*1000}&url={url}",
+                method="GET")
+            with urllib.request.urlopen(req, timeout=timeout+3) as resp:
+                data = json.loads(resp.read())
+                delays[url] = data.get("delay", 0)
+        except:
+            delays[url] = 0
+    return name, delays
 
-def batch_url_test(proxies, test_url, timeout, batch_size=25):
+def batch_url_test(proxies, test_urls, timeout, batch_size=25):
+    """批量测试。每个节点必须通过所有 test_urls 才算存活，延迟取所有目标的平均值。"""
     results = {}
     names = [p["name"] for p in proxies]
     total = len(names)
     for i in range(0, total, batch_size):
         batch = names[i:i+batch_size]
         with ThreadPoolExecutor(max_workers=batch_size) as ex:
-            futures = {ex.submit(url_test_one, n, test_url, timeout): n for n in batch}
+            futures = {ex.submit(url_test_one, n, test_urls, timeout): n for n in batch}
             for fut in as_completed(futures):
-                name, delay = fut.result()
-                results[name] = delay
+                name, delays = fut.result()
+                # 全通才算存活，延迟取平均值
+                all_pass = all(d > 0 for d in delays.values())
+                if all_pass:
+                    results[name] = round(sum(delays.values()) / len(delays))
+                else:
+                    results[name] = 0
         done = min(i+batch_size, total)
         alive = sum(1 for v in results.values() if v > 0)
         log(f"  进度 {done}/{total}, 存活 {alive}")
@@ -717,12 +727,13 @@ def run_single_round(round_num, config):
         stop_mihomo()
         return
 
-    # URL test
+    # URL test（多目标，全通才算存活）
     log("Phase 4: URL test")
     test_cfg = config.get("test", {})
-    test_url = test_cfg.get("test_url", "http://www.gstatic.com/generate_204")
+    test_urls = test_cfg.get("test_urls", ["http://www.gstatic.com/generate_204"])
     timeout = test_cfg.get("timeout_seconds", 10)
-    delays = batch_url_test(renamed, test_url, timeout)
+    log(f"  测试目标: {len(test_urls)} 个 ({', '.join(test_urls)})")
+    delays = batch_url_test(renamed, test_urls, timeout)
 
     alive = sum(1 for v in delays.values() if v > 0)
     log(f"本轮存活: {alive}/{len(renamed)}")

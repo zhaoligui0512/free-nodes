@@ -43,8 +43,13 @@ test:
   # 至少几轮有效才算稳定节点（3轮中至少2轮存活）
   min_valid_rounds: 2
 
-  # 测试 URL
-  test_url: "http://www.gstatic.com/generate_204"
+  # 多目标测试 URL（全部通过才算存活，延迟取平均值）
+  # Google / ChatGPT / YouTube / Meta 四目标，防止单目标被缓存或劫持
+  test_urls:
+    - "http://www.gstatic.com/generate_204"       # Google
+    - "https://chatgpt.com/"                        # ChatGPT (OpenAI)
+    - "https://www.youtube.com/generate_204"       # YouTube (Google)
+    - "https://www.meta.com/"                       # Meta (Facebook)
 
   # 单个节点超时时间（秒）
   timeout_seconds: 10
