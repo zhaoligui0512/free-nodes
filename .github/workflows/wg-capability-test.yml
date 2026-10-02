@@ -1,0 +1,28 @@
+name: WG Capability Test
+
+# 最小验证：GitHub Actions runner 内核是否支持 WireGuard
+# 不依赖任何密钥/隧道，只测内核能力
+
+on:
+  workflow_dispatch:
+
+jobs:
+  cap-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Kernel info
+        run: |
+          uname -a
+          echo "---"
+          ls /lib/modules/$(uname -r)/kernel/net/ 2>/dev/null | grep -i wireguard && echo "→ 内核模块目录有 wireguard" || echo "→ 模块目录无 wireguard（可能 built-in）"
+
+      - name: Try modprobe wireguard
+        run: |
+          sudo modprobe wireguard 2>&1 && echo "→ modprobe 成功: $(lsmod | grep wireguard)" || echo "→ modprobe 失败（可能已 built-in）"
+          grep -i wireguard /proc/modules || echo "（非模块加载，检查 built-in）"
+          grep -i wireguard /proc/kallsyms 2>/dev/null | head -3 || echo "（无 kallsyms 访问权限）"
+
+      - name: Try create wireguard interface (the real test)
+        run: |
+          sudo ip link add dev wgtest type wireguard 2>&1 && echo "→ 接口创建成功! WireGuard 可用" || echo "→ 接口创建失败: $?"
+          sudo ip link del dev wgtest 2>/dev/null || true
