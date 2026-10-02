@@ -483,10 +483,47 @@ def batch_url_test(proxies, test_urls, timeout, batch_size=25):
 # IP 反查
 # ============================================================
 def ip_lookup(server):
+    """主库: ipinfo.io（准确度高、免token 5万次/月、无并发限速）
+    失败时 fallback 到 ip-api.com"""
     try:
         ip = socket.gethostbyname(server)
     except:
         return server, None
+    # 主库 ipinfo.io
+    try:
+        url = f"https://ipinfo.io/{ip}/json"
+        with urllib.request.urlopen(url, timeout=8) as resp:
+            data = json.loads(resp.read())
+            cc = data.get("country", "")
+            if cc:
+                # 转成与 ip-api 兼容的结构（country 中文名 + countryCode 两字母码）
+                cn_name = {
+                    "US": "美国", "JP": "日本", "SG": "新加坡", "TW": "台湾", "KR": "韩国",
+                    "HK": "香港", "CN": "中国", "DE": "德国", "GB": "英国", "FR": "法国",
+                    "NL": "荷兰", "CA": "加拿大", "AU": "澳大利亚", "RU": "俄罗斯",
+                    "RO": "罗马尼亚", "FI": "芬兰", "SE": "瑞典", "CH": "瑞士", "ES": "西班牙",
+                    "IT": "意大利", "IN": "印度", "BR": "巴西", "TR": "土耳其", "PL": "波兰",
+                    "UA": "乌克兰", "IE": "爱尔兰", "AT": "奥地利", "BE": "比利时",
+                    "CZ": "捷克", "DK": "丹麦", "NO": "挪威", "PT": "葡萄牙", "GR": "希腊",
+                    "MX": "墨西哥", "TH": "泰国", "VN": "越南", "ID": "印尼", "MY": "马来西亚",
+                    "PH": "菲律宾", "NZ": "新西兰", "EG": "埃及", "SA": "沙特", "AE": "阿联酋",
+                    "IL": "以色列", "KZ": "哈萨克斯坦", "BG": "保加利亚", "HU": "匈牙利",
+                    "SK": "斯洛伐克", "HR": "克罗地亚", "MO": "澳门", "BD": "孟加拉国",
+                    "PK": "巴基斯坦", "LK": "斯里兰卡", "KH": "柬埔寨", "NP": "尼泊尔",
+                }
+                return ip, {
+                    "status": "success",
+                    "country": cn_name.get(cc, cc),
+                    "countryCode": cc,
+                    "regionName": data.get("region", ""),
+                    "city": data.get("city", ""),
+                    "isp": data.get("org", ""),
+                    "org": data.get("org", ""),
+                    "query": ip,
+                }
+    except:
+        pass
+    # fallback: ip-api.com
     try:
         url = f"http://ip-api.com/json/{ip}?lang=zh-CN&fields=status,country,countryCode,regionName,city,isp,org,query"
         with urllib.request.urlopen(url, timeout=8) as resp:
@@ -911,16 +948,41 @@ def run_finalize(config):
         log(f"识别 CF 节点: {cf_count} 个 (限制最多 {cf_limit} 个)")
 
     # 6.5 排除国家/地区（对中国大陆/香港等出口无意义的节点直接踢掉）
+    # 双保险: ipinfo 主库判 CN/HK 的，再用 ip-api 复核一次，两库一致才踢
     exclude_ccs = set(output_cfg.get("exclude_countries", ["CN", "HK"]))
 
     def _cc(server):
         info = (ip_info.get(server) or {}).get("info") or {}
         return info.get("countryCode", "")
 
-    before_exclude = len(stable_nodes)
-    stable_nodes = [n for n in stable_nodes if _cc(n["raw_config"]["server"]) not in exclude_ccs]
-    if len(stable_nodes) != before_exclude:
-        log(f"排除国家/地区 {sorted(exclude_ccs)}: {before_exclude} → {len(stable_nodes)}")
+    def _ip_api_cc(server):
+        """用 ip-api 复核某个 server 的国家代码"""
+        try:
+            ip = socket.gethostbyname(server)
+        except:
+            return ""
+        try:
+            url = f"http://ip-api.com/json/{ip}?fields=status,countryCode"
+            with urllib.request.urlopen(url, timeout=8) as resp:
+                data = json.loads(resp.read())
+                if data.get("status") == "success":
+                    return data.get("countryCode", "")
+        except:
+            pass
+        return ""
+
+    candidates = [n for n in stable_nodes if _cc(n["raw_config"]["server"]) in exclude_ccs]
+    kicked, kept = [], []
+    for n in candidates:
+        cc_second = _ip_api_cc(n["raw_config"]["server"])
+        if cc_second in exclude_ccs:
+            kicked.append(n)
+        else:
+            kept.append(n)
+            log(f"  复核不一致: {n['raw_config']['server']} ipinfo={_cc(n['raw_config']['server'])} / ip-api={cc_second or '失败'} → 保留")
+    if kicked or kept:
+        log(f"排除国家/地区 {sorted(exclude_ccs)}: 候选 {len(candidates)} → 踢 {len(kicked)} / 保留 {len(kept)}")
+    stable_nodes = [n for n in stable_nodes if n not in candidates] + kept
 
     # 7. 分层配额选取（亚洲 + 其他 + HTTP 独立配额）
     #    GitHub Actions runner 在美国 → CF/美加节点延迟极低霸榜 → 亚洲节点被挤出
