@@ -45,8 +45,12 @@ jobs:
           python3 -c 'import json,glob; [print(f, ":", json.load(open(f))["timestamp"]) for f in sorted(glob.glob(".cache/round_*.json"))]'
 
       - name: Run Round 3 Test
+        env:
+          WG_EGRESS_ENABLED: "true"
+          WG_PRIVATE_KEY: ${{ secrets.WG_PRIVATE_KEY }}
+          WG_PSK: ${{ secrets.WG_PSK }}
         run: |
-          echo "=== 第3轮测试开始 ==="
+          echo "=== 第3轮测试开始（WireGuard 前置出口）==="
           python3 collector.py --round 3
           echo "=== 第3轮测试完成 ==="
 

@@ -43,8 +43,12 @@ jobs:
           python3 -c 'import json,os; print("第1轮:", json.load(open(".cache/round_1.json"))["timestamp"]) if os.path.exists(".cache/round_1.json") else print("第1轮结果缺失")'
 
       - name: Run Round 2 Test
+        env:
+          WG_EGRESS_ENABLED: "true"
+          WG_PRIVATE_KEY: ${{ secrets.WG_PRIVATE_KEY }}
+          WG_PSK: ${{ secrets.WG_PSK }}
         run: |
-          echo "=== 第2轮测试开始 ==="
+          echo "=== 第2轮测试开始（WireGuard 前置出口）==="
           python3 collector.py --round 2
           echo "=== 第2轮测试完成 ==="
 

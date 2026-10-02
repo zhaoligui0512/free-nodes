@@ -38,6 +38,21 @@ sources:
   #   url: "https://example.com/sub.yaml"
 
 # ============================================================
+# WireGuard 前置出口（链式代理）
+# 被测节点通过 dialer-proxy 走用户路由器 WireGuard 隧道，
+# 从中国出口做真实测试（GitHub Actions 美国 runner 测出的延迟对中国用户无意义）
+# 私钥/PSK 优先从环境变量 WG_PRIVATE_KEY / WG_PSK 读取（不写入 public 仓库）
+# ============================================================
+wg_egress:
+  enabled: false
+  server: "vpn.aivey565.shop"
+  port: 51820
+  ip: "10.0.0.3"
+  public_key: "4cwbtv/nQbfUBtPoTWom3VGPk0zAais7QTMLXJ883lo="
+  mtu: 1280
+  # private_key / pre_shared_key: 用环境变量 WG_PRIVATE_KEY / WG_PSK 提供
+
+# ============================================================
 # 延迟测试配置
 # ============================================================
 test:

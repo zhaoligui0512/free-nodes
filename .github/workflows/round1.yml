@@ -43,8 +43,12 @@ jobs:
           ls -la .cache/ 2>/dev/null || echo "无缓存（首次运行）"
 
       - name: Run Round 1 Test
+        env:
+          WG_EGRESS_ENABLED: "true"
+          WG_PRIVATE_KEY: ${{ secrets.WG_PRIVATE_KEY }}
+          WG_PSK: ${{ secrets.WG_PSK }}
         run: |
-          echo "=== 第1轮测试开始 ==="
+          echo "=== 第1轮测试开始（WireGuard 前置出口）==="
           python3 collector.py --round 1
           echo "=== 第1轮测试完成 ==="
 

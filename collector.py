@@ -383,8 +383,32 @@ def dedup(proxies, max_sni_per_ip=2):
 # ============================================================
 # Mihomo 管理
 # ============================================================
-def gen_mihomo_config(proxies):
-    """从已重命名的节点列表生成mihomo配置（不修改name）"""
+def gen_mihomo_config(proxies, wg_egress=None):
+    """从已重命名的节点列表生成mihomo配置（不修改name）。
+    wg_egress 传 dict 时（{server,port,ip,private_key,public_key,pre_shared_key,mtu}），
+    追加 wireguard 出口节点，并给每个被测节点加 dialer-proxy 实现链式代理
+    （GitHub Actions 通过用户路由器 WireGuard 出口做真实测试）。"""
+    proxies_out = list(proxies)
+    if wg_egress:
+        wg_node = {
+            "name": "wg-egress-cn",
+            "type": "wireguard",
+            "server": wg_egress["server"],
+            "port": wg_egress["port"],
+            "ip": wg_egress["ip"],
+            "private-key": wg_egress["private_key"],
+            "public-key": wg_egress["public_key"],
+            "pre-shared-key": wg_egress.get("pre_shared_key", ""),
+            "allowed-ips": ["0.0.0.0/0"],   # 必须有，否则不发握手
+            "mtu": wg_egress.get("mtu", 1280),
+            "udp": True,
+        }
+        # 被测节点全部链式走 wg 出口
+        proxies_out = [wg_node] + [
+            {**dict(p), "dialer-proxy": "wg-egress-cn"} for p in proxies
+        ]
+        log(f"启用 WireGuard 前置出口: {wg_egress['server']}:{wg_egress['port']} "
+            f"ip={wg_egress['ip']} (dialer-proxy 链式, {len(proxies)} 个节点)")
     config = {
         "mixed-port": 7890,
         "external-controller": "127.0.0.1:9090",
@@ -393,9 +417,9 @@ def gen_mihomo_config(proxies):
         "log-level": "error",
         "geodata-mode": True,
         "geo-auto-update": False,
-        "proxies": proxies,
+        "proxies": proxies_out,
         "proxy-groups": [{"name": "PROXY", "type": "select",
-                          "proxies": [p["name"] for p in proxies] + ["DIRECT"]}],
+                          "proxies": [p["name"] for p in proxies_out]}],
         "rules": ["MATCH,PROXY"],
     }
     path = os.path.join(WORKDIR, "mihomo-config.yaml")
@@ -403,9 +427,9 @@ def gen_mihomo_config(proxies):
         yaml.dump(config, f, allow_unicode=True, default_flow_style=False)
     return proxies
 
-def gen_mihomo_config_from_list(proxies):
+def gen_mihomo_config_from_list(proxies, wg_egress=None):
     """兼容旧调用，直接用已重命名的列表"""
-    return gen_mihomo_config(proxies)
+    return gen_mihomo_config(proxies, wg_egress)
 
 def start_mihomo(config):
     bin_path = config.get("mihomo_bin", os.path.join(WORKDIR, "mihomo"))
@@ -848,7 +872,21 @@ def run_single_round(round_num, config):
     # 启动Mihomo
     log("Phase 3: 启动 Mihomo")
     stop_mihomo()
-    gen_mihomo_config_from_list(renamed)
+    wg_egress = None
+    wg_cfg = config.get("wg_egress", {})
+    env_enabled = os.environ.get("WG_EGRESS_ENABLED", "").lower() in ("1", "true", "yes")
+    if wg_cfg.get("enabled") or env_enabled:
+        import os as _os
+        wg_egress = {
+            "server": wg_cfg["server"],
+            "port": int(wg_cfg["port"]),
+            "ip": wg_cfg["ip"],
+            "private_key": _os.environ.get("WG_PRIVATE_KEY", wg_cfg.get("private_key", "")),
+            "public_key": wg_cfg["public_key"],
+            "pre_shared_key": _os.environ.get("WG_PSK", wg_cfg.get("pre_shared_key", "")),
+            "mtu": int(wg_cfg.get("mtu", 1280)),
+        }
+    gen_mihomo_config_from_list(renamed, wg_egress)
     if not start_mihomo(config):
         log("[ERROR] Mihomo 启动失败，退出")
         stop_mihomo()
