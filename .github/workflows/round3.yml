@@ -85,7 +85,7 @@ jobs:
             echo "无变更，跳过commit"
           else
             git commit -m "Finalize: update nodes $(date '+%Y-%m-%d %H:%M')"
-            git pull --rebase origin main || echo "[WARN] rebase失败，继续尝试push"
-            git push
+            git pull --rebase -X theirs origin main || git rebase --abort
+            git push || (git pull --rebase -X theirs origin main && git push)
           fi
         continue-on-error: true
