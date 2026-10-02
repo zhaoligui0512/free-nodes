@@ -1,0 +1,71 @@
+name: WG Egress Test
+
+# 验证：GitHub Actions 通过 WireGuard 连到用户路由器，出口是否变为中国 IP
+# 用法：仓库 Settings → Secrets → 添加 WG_* 系列 secret，然后手动触发本 workflow
+# 依赖：路由器 wg0 服务端已添加本客户端公钥对端
+
+on:
+  workflow_dispatch:
+
+jobs:
+  wg-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Show runner egress (before WG)
+        run: |
+          echo "=== 连接 WG 前的出口 ==="
+          curl -s --max-time 20 "http://ip-api.com/json/?fields=country,countryCode,regionName,city,isp,query"
+          echo ""
+
+      - name: Install wireguard-tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq wireguard-tools
+
+      - name: Write WG config from secrets
+        env:
+          WG_PRIVATE_KEY: ${{ secrets.WG_PRIVATE_KEY }}
+          WG_PSK: ${{ secrets.WG_PSK }}
+          WG_SERVER_PUBKEY: ${{ secrets.WG_SERVER_PUBKEY }}
+          WG_ENDPOINT: ${{ secrets.WG_ENDPOINT }}
+          WG_ADDRESS: ${{ secrets.WG_ADDRESS }}
+        run: |
+          sudo mkdir -p /etc/wireguard
+          sudo tee /etc/wireguard/wgtest.conf > /dev/null <<EOF
+          [Interface]
+          PrivateKey = ${WG_PRIVATE_KEY}
+          Address = ${WG_ADDRESS}
+          MTU = 1280
+
+          [Peer]
+          PublicKey = ${WG_SERVER_PUBKEY}
+          PresharedKey = ${WG_PSK}
+          Endpoint = ${WG_ENDPOINT}
+          AllowedIPs = 0.0.0.0/0
+          PersistentKeepalive = 25
+          EOF
+          echo "配置已写入"
+
+      - name: Bring up tunnel
+        run: |
+          sudo wg-quick up wgtest 2>&1 || sudo wg-quick up wgtest
+          sleep 3
+          sudo wg show wgtest | head -20
+
+      - name: Verify egress IP (after WG)
+        run: |
+          echo "=== 通过 WG 隧道的出口（期望: 中国/用户家）==="
+          for i in 1 2 3; do
+            curl -s --max-time 20 "http://ip-api.com/json/?fields=country,countryCode,regionName,city,isp,query" && break
+            sleep 3
+          done
+          echo ""
+          echo "=== 隧道连接状态 ==="
+          sudo wg show wgtest latest-handshakes
+          sudo wg show wgtest transfer
+
+      - name: Teardown
+        if: always()
+        run: |
+          sudo wg-quick down wgtest 2>/dev/null || true
+          echo "隧道已关闭"
