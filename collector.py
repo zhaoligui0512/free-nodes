@@ -1123,11 +1123,12 @@ def run_finalize(config):
         "sources": [s.get("name", s.get("type", "")) for s in config.get("sources", [])],
     }
 
-    # free-nodes.yaml (优质)
-    clash_good = build_clash_yaml(good_nodes, output_cfg)
+    # free-nodes.yaml (路由器 Passwall 订阅版：配额筛选排序后的完整清单，不按阈值砍)
+    # 用户定义：free-nodes = 配额筛选后的 30 个（路由 URL test 自动选，无需人工）
+    clash_good = build_clash_yaml(nodes, output_cfg)
     with open(os.path.join(output_dir, "free-nodes.yaml"), "w") as f:
         yaml.dump(clash_good, f, allow_unicode=True, default_flow_style=False, sort_keys=False)
-    log(f"  ✓ free-nodes.yaml ({len(good_nodes)}个优质节点)")
+    log(f"  ✓ free-nodes.yaml ({len(nodes)}个配额筛选节点)")
 
     # free-nodes-full.yaml (全量版：含 CN/HK，不做配额截断，按延迟排序，供本机 Clash 人工选择)
     full_nodes = []
@@ -1155,8 +1156,8 @@ def run_finalize(config):
         yaml.dump(clash_full, f, allow_unicode=True, default_flow_style=False, sort_keys=False)
     log(f"  ✓ free-nodes-full.yaml ({len(full_nodes)}个全量节点, 含CN/HK, 按延迟排序)")
 
-    # free-nodes.txt (V2Ray)
-    txt_content = build_v2ray_txt(good_nodes)
+    # free-nodes.txt (V2Ray, 与 free-nodes.yaml 同源：配额筛选后的完整清单)
+    txt_content = build_v2ray_txt(nodes)
     with open(os.path.join(output_dir, "free-nodes.txt"), "w") as f:
         f.write(txt_content)
     log(f"  ✓ free-nodes.txt (V2Ray/Passwall格式)")

@@ -83,13 +83,12 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          cp output/free-nodes.yaml output/free-nodes-full.yaml output/free-nodes.txt output/nodes.json .
-          git add -f free-nodes.yaml free-nodes-full.yaml free-nodes.txt nodes.json .cache/
+          git add -A
           if git diff --staged --quiet; then
             echo "无变更，跳过commit"
           else
             git commit -m "Finalize: update nodes $(date '+%Y-%m-%d %H:%M')"
-            git pull --rebase -X theirs origin main || git rebase --abort
+            git pull --rebase -X theirs origin main 2>/dev/null || (git stash && git pull --rebase -X theirs origin main && git stash pop)
             git push || (git pull --rebase -X theirs origin main && git push)
           fi
         continue-on-error: true
