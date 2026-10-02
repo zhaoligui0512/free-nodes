@@ -77,11 +77,16 @@ output:
   good_threshold_ms: 1500
 
   # 地区分层配额（解决 GitHub Actions 美国服务器测速偏差）
-  # 亚洲节点配额 + 其他地区配额 = top_n
+  # 亚洲节点配额 + 其他地区配额 + HTTP独立配额 = top_n
   # 亚洲优先：用户实际在亚洲使用，从美国测的延迟对亚洲节点不公平
+  # HTTP 独立配额：HTTP 节点单独成组，优先美国（美区 Apple ID 等需要美国出口）
   region_quota:
-    asia: 20
-    other: 10
+    asia: 15
+    other: 5
+
+  # HTTP 节点独立配额（不占亚洲/其他名额，美国优先，其余按速度补足）
+  http_quota: 10
+  http_prefer_countries: ["US"]
 
   # 亚洲国家/地区代码（countryCode）
   asia_countries: ["JP", "SG", "TW", "HK", "KR", "TH", "VN", "MY", "PH", "ID", "IN", "MO", "BD", "PK", "LK", "KH", "NP"]

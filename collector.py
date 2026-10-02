@@ -578,6 +578,11 @@ def build_clash_yaml(nodes, output_config):
     for n in nodes:
         p = dict(n["raw_config"])
         p["name"] = n["real_name"]
+        # 清洗：http 节点的 username/password 若为 null/'null'/空则删除
+        # （Clash 会把字面 'null' 当作真实认证值导致连接失败）
+        for k in ("username", "password"):
+            if p.get(k) in (None, "null", ""):
+                p.pop(k, None)
         proxies.append(p)
 
     names = [p["name"] for p in proxies]
@@ -905,13 +910,16 @@ def run_finalize(config):
     if cf_count > 0:
         log(f"识别 CF 节点: {cf_count} 个 (限制最多 {cf_limit} 个)")
 
-    # 7. 地区分层配额选取（解决测试源在美国导致的延迟偏差）
+    # 7. 分层配额选取（亚洲 + 其他 + HTTP 独立配额）
     #    GitHub Actions runner 在美国 → CF/美加节点延迟极低霸榜 → 亚洲节点被挤出
     #    方案：按真实地理位置分组，亚洲节点给独立配额（用户实际在亚洲使用）
+    #    HTTP 节点独立配额：以美国为主（美区 Apple ID 等场景需要美国出口）
     region_cfg = output_cfg.get("region_quota", {})
-    asia_quota = int(region_cfg.get("asia", 20))
-    other_quota = max(top_n - asia_quota, 0)
+    asia_quota = int(region_cfg.get("asia", 15))
+    other_quota = int(region_cfg.get("other", 5))
+    http_quota = int(output_cfg.get("http_quota", 10))
     max_same_proto = int(output_cfg.get("max_same_protocol", 8))
+    http_prefer_ccs = set(output_cfg.get("http_prefer_countries", ["US"]))
     asia_ccs = set(output_cfg.get("asia_countries",
         ["JP", "SG", "TW", "HK", "KR", "TH", "VN", "MY", "PH", "ID", "IN",
          "MO", "BD", "PK", "LK", "KH", "NP"]))
@@ -920,11 +928,14 @@ def run_finalize(config):
         info = (ip_info.get(server) or {}).get("info") or {}
         return info.get("countryCode", "")
 
-    asia_nodes = [n for n in stable_nodes if _cc(n["raw_config"]["server"]) in asia_ccs]
-    other_nodes = [n for n in stable_nodes if _cc(n["raw_config"]["server"]) not in asia_ccs]
+    # HTTP 节点独立分组（不占亚洲/其他名额）
+    http_nodes = [n for n in stable_nodes if n["raw_config"]["type"] == "http"]
+    non_http = [n for n in stable_nodes if n["raw_config"]["type"] != "http"]
+    asia_nodes = [n for n in non_http if _cc(n["raw_config"]["server"]) in asia_ccs]
+    other_nodes = [n for n in non_http if _cc(n["raw_config"]["server"]) not in asia_ccs]
     asia_nodes.sort(key=lambda x: x["avg_delay"])
     other_nodes.sort(key=lambda x: x["avg_delay"])
-    log(f"地区分组: 亚洲 {len(asia_nodes)} 个, 其他 {len(other_nodes)} 个")
+    log(f"地区分组: 亚洲 {len(asia_nodes)} 个, 其他 {len(other_nodes)} 个, HTTP {len(http_nodes)} 个")
 
     def _quota_select(nodes, quota):
         """按延迟选取节点，同协议最多 max_same_proto 个（协议多样性保护），CF 节点最多 cf_limit 个"""
@@ -943,6 +954,12 @@ def run_finalize(config):
                 break
         return selected
 
+    def _select_http(nodes, quota):
+        """HTTP 节点选取：优先指定国家（美国）全加，其余按延迟补足"""
+        ordered = sorted(nodes, key=lambda x: (0 if _cc(x["raw_config"]["server"]) in http_prefer_ccs else 1,
+                                               x["avg_delay"]))
+        return ordered[:quota]
+
     # 亚洲优先，配额不足时互补
     selected = _quota_select(asia_nodes, asia_quota)
     asia_shortage = asia_quota - len(selected)
@@ -951,9 +968,14 @@ def run_finalize(config):
         selected += _quota_select(other_nodes, other_quota + asia_shortage)
     else:
         selected += _quota_select(other_nodes, other_quota)
-    if len(selected) < top_n:
+    if len(selected) < asia_quota + other_quota:
         # 其他不足，缺额补回亚洲
-        selected += _quota_select(asia_nodes, top_n - len(selected))
+        selected += _quota_select(asia_nodes, asia_quota + other_quota - len(selected))
+
+    # HTTP 独立配额（美国优先）
+    selected_http = _select_http(http_nodes, http_quota)
+    selected += selected_http
+    log(f"HTTP 选取: {len(selected_http)} 个 (优先 {sorted(http_prefer_ccs)}, 目标 {http_quota})")
 
     # 去重（互补时可能重叠）
     seen_ids, final_selected = set(), []
@@ -962,7 +984,7 @@ def run_finalize(config):
             seen_ids.add(id(n))
             final_selected.append(n)
     stable_nodes = final_selected
-    log(f"配额选取: {len(stable_nodes)} 个 (亚洲{asia_quota}+其他{other_quota}, 同协议≤{max_same_proto}个)")
+    log(f"配额选取: {len(stable_nodes)} 个 (亚洲{asia_quota}+其他{other_quota}+HTTP{http_quota}, 同协议≤{max_same_proto}个)")
     if len(stable_nodes) > top_n:
         stable_nodes = stable_nodes[:top_n]
 

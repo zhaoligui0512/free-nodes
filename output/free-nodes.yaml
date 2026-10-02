@@ -27,294 +27,6 @@ proxies:
   udp: true
   uuid: 425a46b5-9816-3dbf-b803-8e7c250a9043
   name: JP-東京都-Amazon-vmess-02
-- password: 3fc0f254-54c3-4cf3-896b-5999a2b4c757
-  port: 56726
-  server: test01.y1static-content-distribution.shop
-  skip-cert-verify: true
-  sni: hk11.pulsarcore.site
-  type: anytls
-  udp: true
-  name: KR-Incheon-Amazon-anytls-03
-- alterId: 0
-  cipher: auto
-  network: ws
-  port: 443
-  server: kBONDXW9liFCi4h4.v.3dns.vip
-  servername: kBONDXW9liFCi4h4.v.3dns.vip
-  skip-cert-verify: false
-  tls: true
-  type: vmess
-  uuid: 88888888-8888-8888-8888-888888888888
-  ws-opts:
-    headers:
-      Host: kBONDXW9liFCi4h4.v.3dns.vip
-    path: /ws-vmess
-  name: HK-香港-Alibaba-vmess-04
-- alterId: 0
-  cipher: auto
-  network: ws
-  port: 443
-  server: ADncdOvLHR4M1P36.v.3dns.vip
-  servername: ADncdOvLHR4M1P36.v.3dns.vip
-  skip-cert-verify: false
-  tls: true
-  type: vmess
-  uuid: 88888888-8888-8888-8888-888888888888
-  ws-opts:
-    headers:
-      Host: ADncdOvLHR4M1P36.v.3dns.vip
-    path: /ws-vmess
-  name: HK-香港-Alibaba-vmess-05
-- alterId: 0
-  cipher: auto
-  network: ws
-  port: 443
-  server: 6JiziO8PxQAXBAtZ.v.3dns.vip
-  servername: 6JiziO8PxQAXBAtZ.v.3dns.vip
-  skip-cert-verify: false
-  tls: true
-  type: vmess
-  uuid: 88888888-8888-8888-8888-888888888888
-  ws-opts:
-    headers:
-      Host: 6JiziO8PxQAXBAtZ.v.3dns.vip
-    path: /ws-vmess
-  name: SG-新加坡-Alibaba-vmess-06
-- network: tcp
-  password: AA885B42-133C-3828-FB69-E45105C06092
-  port: 10115
-  server: 7d0a2gz0-7a0c.aws-agent.net
-  skip-cert-verify: true
-  sni: m.ctrip.com
-  type: trojan
-  name: HK-香港-Squirrel-trojan-07
-- network: tcp
-  password: AA885B42-133C-3828-FB69-E45105C06092
-  port: 12107
-  server: 7d0a2gz0-7a0c.aws-agent.net
-  skip-cert-verify: true
-  sni: m.ctrip.com
-  type: trojan
-  name: HK-香港-Squirrel-trojan-08
-- client-fingerprint: chrome
-  network: ws
-  port: 443
-  server: bounded-crammed.video-streams.org
-  servername: bounded-crammed.video-streams.org
-  tls: true
-  type: vless
-  udp: true
-  uuid: 18dee1c0-77be-4596-88d6-c23bd83fdae6
-  ws-opts:
-    headers:
-      Host: bounded-crammed.video-streams.org
-    path: /ws
-  name: JP-东京-Fastly,-vless-09
-- alterId: 0
-  cipher: auto
-  network: ws
-  port: 443
-  server: kneNaKHeSXnZH259.v.3dns.vip
-  servername: kneNaKHeSXnZH259.v.3dns.vip
-  skip-cert-verify: false
-  tls: true
-  type: vmess
-  uuid: 88888888-8888-8888-8888-888888888888
-  ws-opts:
-    headers:
-      Host: kneNaKHeSXnZH259.v.3dns.vip
-    path: /ws-vmess
-  name: JP-东京-Shenzhen-vmess-10
-- alpn:
-  - h3
-  disable-sni: false
-  password: D7286728-678E-443B-B76B-B699654C66DD
-  port: 8080
-  reduce-rtt: false
-  request-timeout: 0
-  server: tw6.dexlos.com
-  skip-cert-verify: true
-  sni: tw6.dexlos.com
-  type: tuic
-  uuid: D7286728-678E-443B-B76B-B699654C66DD
-  name: TW-台北市-Chunghwa-tuic-11
-- alterId: 1
-  cipher: auto
-  port: 21583
-  server: ydh8094-g03.jp01-nn-vm0.entry.fr0528.art
-  skip-cert-verify: true
-  tls: true
-  type: vmess
-  udp: true
-  uuid: 425a46b5-9816-3dbf-b803-8e7c250a9043
-  name: JP-東京都-Amazon-vmess-12
-- alterId: 0
-  cipher: auto
-  network: ws
-  port: 443
-  server: ASaqYIDZa9WDQ9Kq.v.3dns.vip
-  servername: ASaqYIDZa9WDQ9Kq.v.3dns.vip
-  skip-cert-verify: false
-  tls: true
-  type: vmess
-  uuid: 88888888-8888-8888-8888-888888888888
-  ws-opts:
-    headers:
-      Host: ASaqYIDZa9WDQ9Kq.v.3dns.vip
-    path: /ws-vmess
-  name: SG-新加坡-Alibaba-vmess-13
-- network: tcp
-  password: AA885B42-133C-3828-FB69-E45105C06092
-  port: 10155
-  server: 63182sh8-4d7b.aws-agent.net
-  skip-cert-verify: true
-  sni: m.ctrip.com
-  type: trojan
-  name: HK-香港-Squirrel-trojan-14
-- network: ws
-  port: 80
-  server: 5.223.19.211
-  tls: false
-  type: vless
-  uuid: 4b8a0930-1c36-4efe-b4fe-21f9ad97905c
-  ws-opts:
-    path: /
-  name: SG-新加坡-Hetzner-vless-15
-- network: ws
-  password: 9efd3f19-c7cb-4fa9-8d66-0598043597dc
-  port: 443
-  server: ttww11.bpca2026.top
-  skip-cert-verify: true
-  sni: ttww11.bpca2026.top
-  type: trojan
-  ws-opts:
-    headers:
-      Host: ttww11.bpca2026.top
-    path: /images
-  name: TW-Yuanlin-Chunghwa-trojan-16
-- alpn:
-  - http/1.1
-  client-fingerprint: chrome
-  network: ws
-  port: 443
-  server: grimness-backlogs.cdn-content.com
-  servername: grimness-backlogs.cdn-content.com
-  tls: true
-  type: vless
-  udp: true
-  uuid: 7d7c2c1a-5220-431e-afb0-3b588baffb83
-  ws-opts:
-    headers:
-      Host: grimness-backlogs.cdn-content.com
-    path: /ws
-  name: JP-东京-Fastly,-vless-17
-- type: socks5
-  server: 101.36.104.239
-  port: 10808
-  name: JP-东京-UCLOUD-socks5-18
-- auth: 5d0a6445-a30d-4522-bb1f-94f1d3ad63be
-  password: 5d0a6445-a30d-4522-bb1f-94f1d3ad63be
-  port: 2060
-  server: rb.mangshe.xyz
-  skip-cert-verify: true
-  sni: 127.0.0.1
-  tls: false
-  type: hysteria2
-  name: JP-东京-Baxet-hysteria2-19
-- alterId: 0
-  cipher: auto
-  network: ws
-  port: 443
-  server: kQov7UKaDknXb8a3.v.3dns.vip
-  servername: kQov7UKaDknXb8a3.v.3dns.vip
-  skip-cert-verify: false
-  tls: true
-  type: vmess
-  uuid: 88888888-8888-8888-8888-888888888888
-  ws-opts:
-    headers:
-      Host: kQov7UKaDknXb8a3.v.3dns.vip
-    path: /ws-vmess
-  name: JP-东京-Alibaba-vmess-20
-- type: vless
-  server: 80.93.202.40
-  port: 8880
-  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: vms.lifetime02.workers.dev
-  name: US-洛杉矶-Kinetic-vless-21
-- type: vless
-  server: 91.206.71.8
-  port: 80
-  uuid: c20a0bcf-aa6f-4c35-9e62-a39b47b04e73
-  network: ws
-  ws-opts:
-    path: /pyip=Telegram🇨🇳+@WangCai2
-    headers:
-      Host: round-haze-8783.294.workers.dev
-  name: NL-阿姆斯特丹-Cloudflare-vless-22
-- type: vless
-  server: 45.9.156.24
-  port: 443
-  uuid: 2f35965a-9a9b-45fd-ba32-987296dfb6be
-  network: grpc
-  tls: true
-  servername: bg2.univesalsrv.com
-  reality-opts:
-    public-key: 0f0dh_FUju5cHgQcIwUjHvxQb9aIZ00p0kZRHeE7Ey4
-    short-id: 501ab3325b77e1ca
-  client-fingerprint: chrome
-  name: BG-索菲亞-MAXKO-vless-23
-- type: vless
-  server: 63.141.128.30
-  port: 8880
-  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: vms.lifetime42.workers.dev
-  name: US-奧斯汀-Bigcommerce-vless-24
-- type: vless
-  server: 188.114.96.3
-  port: 8443
-  uuid: 69848b7f-3ee7-4c30-b035-6cff5e08ac4a
-  network: ws
-  tls: true
-  servername: us.luxes.network
-  client-fingerprint: safari
-  ws-opts:
-    path: /assets?ed
-  name: CA-多伦多-Cloudflare-vless-25
-- type: trojan
-  server: f533f9b2-c69a-4dd0-bc63-f2ab94dd5f53.f1eb10ae-1d82-4c6a-b4dd-bd9525520956.com
-  port: 13209
-  password: fac593ac-d6aa-4523-bea9-b3eb2a2b3da3
-  sni: 207.yuanul.com
-  name: GB-伦敦-PAN-LIAN-trojan-26
-- obfs: salamander
-  obfs-password: rG07s3COMIEvdnQipRyWzx_H_2xygNC3
-  password: p7Q76LzlnS4hIzr1W3staBOnUe_WwSkR
-  port: 443
-  server: 130.49.161.70
-  skip-cert-verify: false
-  sni: hy2.aspidnet.xyz
-  tls: false
-  type: hysteria2
-  name: NL-Dronten-Digital-hysteria2-27
-- obfs: salamander
-  obfs-password: 6ccfcef2e116b03ce9047333
-  password: TPey1Zqj9th9y2JKyiuqVPRTvfjQC-nB
-  port: 5443
-  server: fastly.vexogf.ir
-  skip-cert-verify: false
-  sni: tun-a-1.bexait.ir
-  tls: false
-  type: hysteria2
-  name: XX-hysteria2-28
 - alterId: 0
   cipher: auto
   network: ws
@@ -329,22 +41,279 @@ proxies:
     headers:
       Host: Z9FfBx3zs2q5O0BG.v.3dns.vip
     path: /ws-vmess
-  name: XX-vmess-29
+  name: JP-东京-Alibaba-vmess-03
+- password: 3fc0f254-54c3-4cf3-896b-5999a2b4c757
+  port: 56726
+  server: test01.y1static-content-distribution.shop
+  skip-cert-verify: true
+  sni: hk11.pulsarcore.site
+  type: anytls
+  udp: true
+  name: SG-新加坡-Amazon-anytls-04
 - alterId: 0
   cipher: auto
   network: ws
   port: 443
-  server: bJ1Aa2ZyJxYamYuK.v.3dns.vip
-  servername: bJ1Aa2ZyJxYamYuK.v.3dns.vip
+  server: kBONDXW9liFCi4h4.v.3dns.vip
+  servername: kBONDXW9liFCi4h4.v.3dns.vip
   skip-cert-verify: false
   tls: true
   type: vmess
   uuid: 88888888-8888-8888-8888-888888888888
   ws-opts:
     headers:
-      Host: bJ1Aa2ZyJxYamYuK.v.3dns.vip
+      Host: kBONDXW9liFCi4h4.v.3dns.vip
     path: /ws-vmess
-  name: US-明克勒-Alibaba-vmess-30
+  name: HK-香港-Alibaba-vmess-05
+- alterId: 0
+  cipher: auto
+  network: ws
+  port: 443
+  server: ADncdOvLHR4M1P36.v.3dns.vip
+  servername: ADncdOvLHR4M1P36.v.3dns.vip
+  skip-cert-verify: false
+  tls: true
+  type: vmess
+  uuid: 88888888-8888-8888-8888-888888888888
+  ws-opts:
+    headers:
+      Host: ADncdOvLHR4M1P36.v.3dns.vip
+    path: /ws-vmess
+  name: HK-香港-Alibaba-vmess-06
+- client-fingerprint: chrome
+  network: ws
+  port: 443
+  server: 151.242.189.162
+  servername: cf2us.3rr0r.online
+  tls: true
+  type: vless
+  uuid: ab61daa1-b7fb-486e-8946-b1da9a444685
+  ws-opts:
+    headers:
+      Host: cf2us.3rr0r.online
+    path: /proxyip=ProxyIP.TW.CMLiussss.Net
+  name: TW-台北市-ByteVirt-vless-07
+- alterId: 0
+  cipher: auto
+  network: ws
+  port: 443
+  server: 6JiziO8PxQAXBAtZ.v.3dns.vip
+  servername: 6JiziO8PxQAXBAtZ.v.3dns.vip
+  skip-cert-verify: false
+  tls: true
+  type: vmess
+  uuid: 88888888-8888-8888-8888-888888888888
+  ws-opts:
+    headers:
+      Host: 6JiziO8PxQAXBAtZ.v.3dns.vip
+    path: /ws-vmess
+  name: SG-新加坡-Alibaba-vmess-08
+- network: tcp
+  password: AA885B42-133C-3828-FB69-E45105C06092
+  port: 10115
+  server: 7d0a2gz0-7a0c.aws-agent.net
+  skip-cert-verify: true
+  sni: m.ctrip.com
+  type: trojan
+  name: HK-香港-Squirrel-trojan-09
+- network: tcp
+  password: AA885B42-133C-3828-FB69-E45105C06092
+  port: 12107
+  server: 7d0a2gz0-7a0c.aws-agent.net
+  skip-cert-verify: true
+  sni: m.ctrip.com
+  type: trojan
+  name: HK-香港-Squirrel-trojan-10
+- client-fingerprint: chrome
+  network: ws
+  port: 443
+  server: bounded-crammed.video-streams.org
+  servername: bounded-crammed.video-streams.org
+  tls: true
+  type: vless
+  udp: true
+  uuid: 18dee1c0-77be-4596-88d6-c23bd83fdae6
+  ws-opts:
+    headers:
+      Host: bounded-crammed.video-streams.org
+    path: /ws
+  name: JP-东京-Fastly,-vless-11
+- alterId: 0
+  cipher: auto
+  network: ws
+  port: 443
+  server: kneNaKHeSXnZH259.v.3dns.vip
+  servername: kneNaKHeSXnZH259.v.3dns.vip
+  skip-cert-verify: false
+  tls: true
+  type: vmess
+  uuid: 88888888-8888-8888-8888-888888888888
+  ws-opts:
+    headers:
+      Host: kneNaKHeSXnZH259.v.3dns.vip
+    path: /ws-vmess
+  name: JP-东京-Shenzhen-vmess-12
+- alpn:
+  - h3
+  disable-sni: false
+  password: D7286728-678E-443B-B76B-B699654C66DD
+  port: 8080
+  reduce-rtt: false
+  request-timeout: 0
+  server: tw6.dexlos.com
+  skip-cert-verify: true
+  sni: tw6.dexlos.com
+  type: tuic
+  uuid: D7286728-678E-443B-B76B-B699654C66DD
+  name: TW-台北市-Chunghwa-tuic-13
+- alterId: 1
+  cipher: auto
+  port: 21583
+  server: ydh8094-g03.jp01-nn-vm0.entry.fr0528.art
+  skip-cert-verify: true
+  tls: true
+  type: vmess
+  udp: true
+  uuid: 425a46b5-9816-3dbf-b803-8e7c250a9043
+  name: JP-東京都-Amazon-vmess-14
+- alterId: 0
+  cipher: auto
+  network: ws
+  port: 443
+  server: ASaqYIDZa9WDQ9Kq.v.3dns.vip
+  servername: ASaqYIDZa9WDQ9Kq.v.3dns.vip
+  skip-cert-verify: false
+  tls: true
+  type: vmess
+  uuid: 88888888-8888-8888-8888-888888888888
+  ws-opts:
+    headers:
+      Host: ASaqYIDZa9WDQ9Kq.v.3dns.vip
+    path: /ws-vmess
+  name: SG-新加坡-Alibaba-vmess-15
+- type: vless
+  server: 80.93.202.40
+  port: 8880
+  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: vms.lifetime02.workers.dev
+  name: US-洛杉矶-Kinetic-vless-16
+- type: vless
+  server: 91.206.71.8
+  port: 80
+  uuid: c20a0bcf-aa6f-4c35-9e62-a39b47b04e73
+  network: ws
+  ws-opts:
+    path: /pyip=Telegram🇨🇳+@WangCai2
+    headers:
+      Host: round-haze-8783.294.workers.dev
+  name: NL-阿姆斯特丹-Cloudflare-vless-17
+- type: vless
+  server: 45.9.156.24
+  port: 443
+  uuid: 2f35965a-9a9b-45fd-ba32-987296dfb6be
+  network: grpc
+  tls: true
+  servername: bg2.univesalsrv.com
+  reality-opts:
+    public-key: 0f0dh_FUju5cHgQcIwUjHvxQb9aIZ00p0kZRHeE7Ey4
+    short-id: 501ab3325b77e1ca
+  client-fingerprint: chrome
+  name: BG-索菲亞-MAXKO-vless-18
+- type: vless
+  server: 63.141.128.30
+  port: 8880
+  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: vms.lifetime42.workers.dev
+  name: US-奧斯汀-Bigcommerce-vless-19
+- type: vless
+  server: 188.114.96.3
+  port: 8443
+  uuid: 69848b7f-3ee7-4c30-b035-6cff5e08ac4a
+  network: ws
+  tls: true
+  servername: us.luxes.network
+  client-fingerprint: safari
+  ws-opts:
+    path: /assets?ed
+  name: CA-多伦多-Cloudflare-vless-20
+- port: 9002
+  server: 138.199.35.198
+  skip-cert-verify: true
+  tls: true
+  type: http
+  udp: true
+  name: US-洛杉矶-Datacamp-http-21
+- port: 9002
+  server: 138.199.35.216
+  skip-cert-verify: true
+  tls: true
+  type: http
+  udp: true
+  name: US-洛杉矶-Datacamp-http-22
+- port: 443
+  server: 38.28.193.188
+  skip-cert-verify: true
+  tls: true
+  type: http
+  udp: true
+  name: US-洛杉矶-PEG-http-23
+- port: 443
+  server: 149.36.51.129
+  skip-cert-verify: true
+  tls: true
+  type: http
+  udp: true
+  name: NL-阿姆斯特丹-Datacamp-http-24
+- port: 9002
+  server: 84.17.47.149
+  skip-cert-verify: true
+  tls: true
+  type: http
+  udp: true
+  name: NL-阿姆斯特丹-Datacamp-http-25
+- port: 9002
+  server: 84.17.47.125
+  skip-cert-verify: true
+  tls: true
+  type: http
+  udp: true
+  name: NL-阿姆斯特丹-Datacamp-http-26
+- port: 9002
+  server: 193.176.84.27
+  skip-cert-verify: true
+  tls: true
+  type: http
+  udp: true
+  name: RO-布加勒斯特-M247-http-27
+- port: 443
+  server: fan.365747.xyz
+  skip-cert-verify: true
+  tls: true
+  type: http
+  udp: true
+  name: CN-长治-PEG-http-28
+- port: 9002
+  server: 193.176.84.24
+  skip-cert-verify: true
+  tls: true
+  type: http
+  udp: true
+  name: RO-布加勒斯特-M247-http-29
+- port: 9002
+  server: 84.17.47.148
+  skip-cert-verify: true
+  tls: true
+  type: http
+  udp: true
+  name: NL-阿姆斯特丹-Datacamp-http-30
 proxy-groups:
 - name: 🚀 节点选择
   type: select
@@ -353,67 +322,67 @@ proxy-groups:
   - DIRECT
   - SG-新加坡-Aceville-vless-01
   - JP-東京都-Amazon-vmess-02
-  - KR-Incheon-Amazon-anytls-03
-  - HK-香港-Alibaba-vmess-04
+  - JP-东京-Alibaba-vmess-03
+  - SG-新加坡-Amazon-anytls-04
   - HK-香港-Alibaba-vmess-05
-  - SG-新加坡-Alibaba-vmess-06
-  - HK-香港-Squirrel-trojan-07
-  - HK-香港-Squirrel-trojan-08
-  - JP-东京-Fastly,-vless-09
-  - JP-东京-Shenzhen-vmess-10
-  - TW-台北市-Chunghwa-tuic-11
-  - JP-東京都-Amazon-vmess-12
-  - SG-新加坡-Alibaba-vmess-13
-  - HK-香港-Squirrel-trojan-14
-  - SG-新加坡-Hetzner-vless-15
-  - TW-Yuanlin-Chunghwa-trojan-16
-  - JP-东京-Fastly,-vless-17
-  - JP-东京-UCLOUD-socks5-18
-  - JP-东京-Baxet-hysteria2-19
-  - JP-东京-Alibaba-vmess-20
-  - US-洛杉矶-Kinetic-vless-21
-  - NL-阿姆斯特丹-Cloudflare-vless-22
-  - BG-索菲亞-MAXKO-vless-23
-  - US-奧斯汀-Bigcommerce-vless-24
-  - CA-多伦多-Cloudflare-vless-25
-  - GB-伦敦-PAN-LIAN-trojan-26
-  - NL-Dronten-Digital-hysteria2-27
-  - XX-hysteria2-28
-  - XX-vmess-29
-  - US-明克勒-Alibaba-vmess-30
+  - HK-香港-Alibaba-vmess-06
+  - TW-台北市-ByteVirt-vless-07
+  - SG-新加坡-Alibaba-vmess-08
+  - HK-香港-Squirrel-trojan-09
+  - HK-香港-Squirrel-trojan-10
+  - JP-东京-Fastly,-vless-11
+  - JP-东京-Shenzhen-vmess-12
+  - TW-台北市-Chunghwa-tuic-13
+  - JP-東京都-Amazon-vmess-14
+  - SG-新加坡-Alibaba-vmess-15
+  - US-洛杉矶-Kinetic-vless-16
+  - NL-阿姆斯特丹-Cloudflare-vless-17
+  - BG-索菲亞-MAXKO-vless-18
+  - US-奧斯汀-Bigcommerce-vless-19
+  - CA-多伦多-Cloudflare-vless-20
+  - US-洛杉矶-Datacamp-http-21
+  - US-洛杉矶-Datacamp-http-22
+  - US-洛杉矶-PEG-http-23
+  - NL-阿姆斯特丹-Datacamp-http-24
+  - NL-阿姆斯特丹-Datacamp-http-25
+  - NL-阿姆斯特丹-Datacamp-http-26
+  - RO-布加勒斯特-M247-http-27
+  - CN-长治-PEG-http-28
+  - RO-布加勒斯特-M247-http-29
+  - NL-阿姆斯特丹-Datacamp-http-30
 - name: ♻️ 自动选择
   type: url-test
   proxies:
   - SG-新加坡-Aceville-vless-01
   - JP-東京都-Amazon-vmess-02
-  - KR-Incheon-Amazon-anytls-03
-  - HK-香港-Alibaba-vmess-04
+  - JP-东京-Alibaba-vmess-03
+  - SG-新加坡-Amazon-anytls-04
   - HK-香港-Alibaba-vmess-05
-  - SG-新加坡-Alibaba-vmess-06
-  - HK-香港-Squirrel-trojan-07
-  - HK-香港-Squirrel-trojan-08
-  - JP-东京-Fastly,-vless-09
-  - JP-东京-Shenzhen-vmess-10
-  - TW-台北市-Chunghwa-tuic-11
-  - JP-東京都-Amazon-vmess-12
-  - SG-新加坡-Alibaba-vmess-13
-  - HK-香港-Squirrel-trojan-14
-  - SG-新加坡-Hetzner-vless-15
-  - TW-Yuanlin-Chunghwa-trojan-16
-  - JP-东京-Fastly,-vless-17
-  - JP-东京-UCLOUD-socks5-18
-  - JP-东京-Baxet-hysteria2-19
-  - JP-东京-Alibaba-vmess-20
-  - US-洛杉矶-Kinetic-vless-21
-  - NL-阿姆斯特丹-Cloudflare-vless-22
-  - BG-索菲亞-MAXKO-vless-23
-  - US-奧斯汀-Bigcommerce-vless-24
-  - CA-多伦多-Cloudflare-vless-25
-  - GB-伦敦-PAN-LIAN-trojan-26
-  - NL-Dronten-Digital-hysteria2-27
-  - XX-hysteria2-28
-  - XX-vmess-29
-  - US-明克勒-Alibaba-vmess-30
+  - HK-香港-Alibaba-vmess-06
+  - TW-台北市-ByteVirt-vless-07
+  - SG-新加坡-Alibaba-vmess-08
+  - HK-香港-Squirrel-trojan-09
+  - HK-香港-Squirrel-trojan-10
+  - JP-东京-Fastly,-vless-11
+  - JP-东京-Shenzhen-vmess-12
+  - TW-台北市-Chunghwa-tuic-13
+  - JP-東京都-Amazon-vmess-14
+  - SG-新加坡-Alibaba-vmess-15
+  - US-洛杉矶-Kinetic-vless-16
+  - NL-阿姆斯特丹-Cloudflare-vless-17
+  - BG-索菲亞-MAXKO-vless-18
+  - US-奧斯汀-Bigcommerce-vless-19
+  - CA-多伦多-Cloudflare-vless-20
+  - US-洛杉矶-Datacamp-http-21
+  - US-洛杉矶-Datacamp-http-22
+  - US-洛杉矶-PEG-http-23
+  - NL-阿姆斯特丹-Datacamp-http-24
+  - NL-阿姆斯特丹-Datacamp-http-25
+  - NL-阿姆斯特丹-Datacamp-http-26
+  - RO-布加勒斯特-M247-http-27
+  - CN-长治-PEG-http-28
+  - RO-布加勒斯特-M247-http-29
+  - NL-阿姆斯特丹-Datacamp-http-30
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 50

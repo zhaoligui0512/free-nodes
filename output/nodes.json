@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-10-03T04:52:00.452405",
+    "generated_at": "2026-10-03T05:12:45.306563",
     "total_rounds": 3,
     "rounds_used": [
       1,
@@ -13,8 +13,8 @@
     "min_valid_rounds": 1,
     "good_threshold_ms": 1500,
     "region_quota": {
-      "asia": 20,
-      "other": 10,
+      "asia": 15,
+      "other": 5,
       "max_same_protocol": 8
     },
     "sources": [
@@ -90,13 +90,51 @@
       }
     },
     {
-      "real_name": "KR-Incheon-Amazon-anytls-03",
+      "real_name": "JP-东京-Alibaba-vmess-03",
+      "type": "vmess",
+      "server": "Z9FfBx3zs2q5O0BG.v.3dns.vip",
+      "port": 443,
+      "ip": "8.209.229.2",
+      "country": "日本",
+      "city": "东京",
+      "isp": "Alibaba (US) Technology Co., Ltd.",
+      "avg_delay_ms": 188,
+      "valid_rounds": 1,
+      "total_rounds": 3,
+      "delays": [
+        0,
+        0,
+        188
+      ],
+      "is_cf": false,
+      "raw_config": {
+        "alterId": 0,
+        "cipher": "auto",
+        "network": "ws",
+        "port": 443,
+        "server": "Z9FfBx3zs2q5O0BG.v.3dns.vip",
+        "servername": "Z9FfBx3zs2q5O0BG.v.3dns.vip",
+        "skip-cert-verify": false,
+        "tls": true,
+        "type": "vmess",
+        "uuid": "88888888-8888-8888-8888-888888888888",
+        "ws-opts": {
+          "headers": {
+            "Host": "Z9FfBx3zs2q5O0BG.v.3dns.vip"
+          },
+          "path": "/ws-vmess"
+        },
+        "name": "node_0172"
+      }
+    },
+    {
+      "real_name": "SG-新加坡-Amazon-anytls-04",
       "type": "anytls",
       "server": "test01.y1static-content-distribution.shop",
       "port": 56726,
-      "ip": "43.202.139.170",
-      "country": "South Korea",
-      "city": "Incheon",
+      "ip": "46.137.234.85",
+      "country": "新加坡",
+      "city": "新加坡",
       "isp": "Amazon.com, Inc.",
       "avg_delay_ms": 203,
       "valid_rounds": 1,
@@ -119,7 +157,7 @@
       }
     },
     {
-      "real_name": "HK-香港-Alibaba-vmess-04",
+      "real_name": "HK-香港-Alibaba-vmess-05",
       "type": "vmess",
       "server": "kBONDXW9liFCi4h4.v.3dns.vip",
       "port": 443,
@@ -157,7 +195,7 @@
       }
     },
     {
-      "real_name": "HK-香港-Alibaba-vmess-05",
+      "real_name": "HK-香港-Alibaba-vmess-06",
       "type": "vmess",
       "server": "ADncdOvLHR4M1P36.v.3dns.vip",
       "port": 443,
@@ -195,7 +233,43 @@
       }
     },
     {
-      "real_name": "SG-新加坡-Alibaba-vmess-06",
+      "real_name": "TW-台北市-ByteVirt-vless-07",
+      "type": "vless",
+      "server": "151.242.189.162",
+      "port": 443,
+      "ip": "151.242.189.162",
+      "country": "台湾",
+      "city": "台北市",
+      "isp": "ByteVirt LLC",
+      "avg_delay_ms": 316,
+      "valid_rounds": 1,
+      "total_rounds": 3,
+      "delays": [
+        0,
+        0,
+        316
+      ],
+      "is_cf": false,
+      "raw_config": {
+        "client-fingerprint": "chrome",
+        "network": "ws",
+        "port": 443,
+        "server": "151.242.189.162",
+        "servername": "cf2us.3rr0r.online",
+        "tls": true,
+        "type": "vless",
+        "uuid": "ab61daa1-b7fb-486e-8946-b1da9a444685",
+        "ws-opts": {
+          "headers": {
+            "Host": "cf2us.3rr0r.online"
+          },
+          "path": "/proxyip=ProxyIP.TW.CMLiussss.Net"
+        },
+        "name": "node_0038"
+      }
+    },
+    {
+      "real_name": "SG-新加坡-Alibaba-vmess-08",
       "type": "vmess",
       "server": "6JiziO8PxQAXBAtZ.v.3dns.vip",
       "port": 443,
@@ -233,7 +307,7 @@
       }
     },
     {
-      "real_name": "HK-香港-Squirrel-trojan-07",
+      "real_name": "HK-香港-Squirrel-trojan-09",
       "type": "trojan",
       "server": "7d0a2gz0-7a0c.aws-agent.net",
       "port": 10115,
@@ -262,7 +336,7 @@
       }
     },
     {
-      "real_name": "HK-香港-Squirrel-trojan-08",
+      "real_name": "HK-香港-Squirrel-trojan-10",
       "type": "trojan",
       "server": "7d0a2gz0-7a0c.aws-agent.net",
       "port": 12107,
@@ -291,11 +365,11 @@
       }
     },
     {
-      "real_name": "JP-东京-Fastly,-vless-09",
+      "real_name": "JP-东京-Fastly,-vless-11",
       "type": "vless",
       "server": "bounded-crammed.video-streams.org",
       "port": 443,
-      "ip": "199.232.161.242",
+      "ip": "146.75.113.242",
       "country": "日本",
       "city": "东京",
       "isp": "Fastly, Inc.",
@@ -328,7 +402,7 @@
       }
     },
     {
-      "real_name": "JP-东京-Shenzhen-vmess-10",
+      "real_name": "JP-东京-Shenzhen-vmess-12",
       "type": "vmess",
       "server": "kneNaKHeSXnZH259.v.3dns.vip",
       "port": 443,
@@ -366,7 +440,7 @@
       }
     },
     {
-      "real_name": "TW-台北市-Chunghwa-tuic-11",
+      "real_name": "TW-台北市-Chunghwa-tuic-13",
       "type": "tuic",
       "server": "tw6.dexlos.com",
       "port": 8080,
@@ -401,7 +475,7 @@
       }
     },
     {
-      "real_name": "JP-東京都-Amazon-vmess-12",
+      "real_name": "JP-東京都-Amazon-vmess-14",
       "type": "vmess",
       "server": "ydh8094-g03.jp01-nn-vm0.entry.fr0528.art",
       "port": 21583,
@@ -432,7 +506,7 @@
       }
     },
     {
-      "real_name": "SG-新加坡-Alibaba-vmess-13",
+      "real_name": "SG-新加坡-Alibaba-vmess-15",
       "type": "vmess",
       "server": "ASaqYIDZa9WDQ9Kq.v.3dns.vip",
       "port": 443,
@@ -470,235 +544,7 @@
       }
     },
     {
-      "real_name": "HK-香港-Squirrel-trojan-14",
-      "type": "trojan",
-      "server": "63182sh8-4d7b.aws-agent.net",
-      "port": 10155,
-      "ip": "147.90.40.95",
-      "country": "香港",
-      "city": "香港",
-      "isp": "Squirrel Networks LLC",
-      "avg_delay_ms": 613,
-      "valid_rounds": 1,
-      "total_rounds": 3,
-      "delays": [
-        0,
-        0,
-        613
-      ],
-      "is_cf": false,
-      "raw_config": {
-        "network": "tcp",
-        "password": "AA885B42-133C-3828-FB69-E45105C06092",
-        "port": 10155,
-        "server": "63182sh8-4d7b.aws-agent.net",
-        "skip-cert-verify": true,
-        "sni": "m.ctrip.com",
-        "type": "trojan",
-        "name": "node_0049"
-      }
-    },
-    {
-      "real_name": "SG-新加坡-Hetzner-vless-15",
-      "type": "vless",
-      "server": "5.223.19.211",
-      "port": 80,
-      "ip": "5.223.19.211",
-      "country": "新加坡",
-      "city": "新加坡",
-      "isp": "Hetzner Online GmbH",
-      "avg_delay_ms": 625,
-      "valid_rounds": 1,
-      "total_rounds": 3,
-      "delays": [
-        625,
-        0,
-        0
-      ],
-      "is_cf": false,
-      "raw_config": {
-        "network": "ws",
-        "port": 80,
-        "server": "5.223.19.211",
-        "tls": false,
-        "type": "vless",
-        "uuid": "4b8a0930-1c36-4efe-b4fe-21f9ad97905c",
-        "ws-opts": {
-          "path": "/"
-        },
-        "name": "node_0030"
-      }
-    },
-    {
-      "real_name": "TW-Yuanlin-Chunghwa-trojan-16",
-      "type": "trojan",
-      "server": "ttww11.bpca2026.top",
-      "port": 443,
-      "ip": "1.168.160.53",
-      "country": "台湾",
-      "city": "Yuanlin",
-      "isp": "Chunghwa Telecom Co., Ltd.",
-      "avg_delay_ms": 642,
-      "valid_rounds": 1,
-      "total_rounds": 3,
-      "delays": [
-        642,
-        0,
-        0
-      ],
-      "is_cf": false,
-      "raw_config": {
-        "network": "ws",
-        "password": "9efd3f19-c7cb-4fa9-8d66-0598043597dc",
-        "port": 443,
-        "server": "ttww11.bpca2026.top",
-        "skip-cert-verify": true,
-        "sni": "ttww11.bpca2026.top",
-        "type": "trojan",
-        "ws-opts": {
-          "headers": {
-            "Host": "ttww11.bpca2026.top"
-          },
-          "path": "/images"
-        },
-        "name": "node_0056"
-      }
-    },
-    {
-      "real_name": "JP-东京-Fastly,-vless-17",
-      "type": "vless",
-      "server": "grimness-backlogs.cdn-content.com",
-      "port": 443,
-      "ip": "199.232.161.242",
-      "country": "日本",
-      "city": "东京",
-      "isp": "Fastly, Inc.",
-      "avg_delay_ms": 739,
-      "valid_rounds": 1,
-      "total_rounds": 3,
-      "delays": [
-        0,
-        0,
-        739
-      ],
-      "is_cf": false,
-      "raw_config": {
-        "alpn": [
-          "http/1.1"
-        ],
-        "client-fingerprint": "chrome",
-        "network": "ws",
-        "port": 443,
-        "server": "grimness-backlogs.cdn-content.com",
-        "servername": "grimness-backlogs.cdn-content.com",
-        "tls": true,
-        "type": "vless",
-        "udp": true,
-        "uuid": "7d7c2c1a-5220-431e-afb0-3b588baffb83",
-        "ws-opts": {
-          "headers": {
-            "Host": "grimness-backlogs.cdn-content.com"
-          },
-          "path": "/ws"
-        },
-        "name": "node_0063"
-      }
-    },
-    {
-      "real_name": "JP-东京-UCLOUD-socks5-18",
-      "type": "socks5",
-      "server": "101.36.104.239",
-      "port": 10808,
-      "ip": "101.36.104.239",
-      "country": "日本",
-      "city": "东京",
-      "isp": "UCLOUD INFORMATION TECHNOLOGY (HK) LIMITED",
-      "avg_delay_ms": 768,
-      "valid_rounds": 2,
-      "total_rounds": 3,
-      "delays": [
-        1331,
-        0,
-        206
-      ],
-      "is_cf": false,
-      "raw_config": {
-        "type": "socks5",
-        "server": "101.36.104.239",
-        "port": 10808,
-        "name": "node_0094"
-      }
-    },
-    {
-      "real_name": "JP-东京-Baxet-hysteria2-19",
-      "type": "hysteria2",
-      "server": "rb.mangshe.xyz",
-      "port": 2060,
-      "ip": "185.141.219.10",
-      "country": "日本",
-      "city": "东京",
-      "isp": "Baxet Group Inc.",
-      "avg_delay_ms": 799,
-      "valid_rounds": 1,
-      "total_rounds": 3,
-      "delays": [
-        799,
-        0,
-        0
-      ],
-      "is_cf": false,
-      "raw_config": {
-        "auth": "5d0a6445-a30d-4522-bb1f-94f1d3ad63be",
-        "password": "5d0a6445-a30d-4522-bb1f-94f1d3ad63be",
-        "port": 2060,
-        "server": "rb.mangshe.xyz",
-        "skip-cert-verify": true,
-        "sni": "127.0.0.1",
-        "tls": false,
-        "type": "hysteria2",
-        "name": "node_0189"
-      }
-    },
-    {
-      "real_name": "JP-东京-Alibaba-vmess-20",
-      "type": "vmess",
-      "server": "kQov7UKaDknXb8a3.v.3dns.vip",
-      "port": 443,
-      "ip": "8.211.161.129",
-      "country": "日本",
-      "city": "东京",
-      "isp": "Alibaba (US) Technology Co., Ltd.",
-      "avg_delay_ms": 848,
-      "valid_rounds": 1,
-      "total_rounds": 3,
-      "delays": [
-        0,
-        0,
-        848
-      ],
-      "is_cf": false,
-      "raw_config": {
-        "alterId": 0,
-        "cipher": "auto",
-        "network": "ws",
-        "port": 443,
-        "server": "kQov7UKaDknXb8a3.v.3dns.vip",
-        "servername": "kQov7UKaDknXb8a3.v.3dns.vip",
-        "skip-cert-verify": false,
-        "tls": true,
-        "type": "vmess",
-        "uuid": "88888888-8888-8888-8888-888888888888",
-        "ws-opts": {
-          "headers": {
-            "Host": "kQov7UKaDknXb8a3.v.3dns.vip"
-          },
-          "path": "/ws-vmess"
-        },
-        "name": "node_0173"
-      }
-    },
-    {
-      "real_name": "US-洛杉矶-Kinetic-vless-21",
+      "real_name": "US-洛杉矶-Kinetic-vless-16",
       "type": "vless",
       "server": "80.93.202.40",
       "port": 8880,
@@ -731,7 +577,7 @@
       }
     },
     {
-      "real_name": "NL-阿姆斯特丹-Cloudflare-vless-22",
+      "real_name": "NL-阿姆斯特丹-Cloudflare-vless-17",
       "type": "vless",
       "server": "91.206.71.8",
       "port": 80,
@@ -764,7 +610,7 @@
       }
     },
     {
-      "real_name": "BG-索菲亞-MAXKO-vless-23",
+      "real_name": "BG-索菲亞-MAXKO-vless-18",
       "type": "vless",
       "server": "45.9.156.24",
       "port": 443,
@@ -798,7 +644,7 @@
       }
     },
     {
-      "real_name": "US-奧斯汀-Bigcommerce-vless-24",
+      "real_name": "US-奧斯汀-Bigcommerce-vless-19",
       "type": "vless",
       "server": "63.141.128.30",
       "port": 8880,
@@ -831,7 +677,7 @@
       }
     },
     {
-      "real_name": "CA-多伦多-Cloudflare-vless-25",
+      "real_name": "CA-多伦多-Cloudflare-vless-20",
       "type": "vless",
       "server": "188.114.96.3",
       "port": 8443,
@@ -864,168 +710,285 @@
       }
     },
     {
-      "real_name": "GB-伦敦-PAN-LIAN-trojan-26",
-      "type": "trojan",
-      "server": "f533f9b2-c69a-4dd0-bc63-f2ab94dd5f53.f1eb10ae-1d82-4c6a-b4dd-bd9525520956.com",
-      "port": 13209,
-      "ip": "143.20.71.22",
-      "country": "英国",
-      "city": "伦敦",
-      "isp": "PAN-LIAN TECHNOLOGY CO., LIMITED",
-      "avg_delay_ms": 26,
-      "valid_rounds": 1,
-      "total_rounds": 3,
-      "delays": [
-        0,
-        0,
-        26
-      ],
-      "is_cf": false,
-      "raw_config": {
-        "type": "trojan",
-        "server": "f533f9b2-c69a-4dd0-bc63-f2ab94dd5f53.f1eb10ae-1d82-4c6a-b4dd-bd9525520956.com",
-        "port": 13209,
-        "password": "fac593ac-d6aa-4523-bea9-b3eb2a2b3da3",
-        "sni": "207.yuanul.com",
-        "name": "node_0095"
-      }
-    },
-    {
-      "real_name": "NL-Dronten-Digital-hysteria2-27",
-      "type": "hysteria2",
-      "server": "130.49.161.70",
-      "port": 443,
-      "ip": "130.49.161.70",
-      "country": "荷兰",
-      "city": "Dronten",
-      "isp": "Digital City FZE",
-      "avg_delay_ms": 33,
-      "valid_rounds": 1,
-      "total_rounds": 3,
-      "delays": [
-        0,
-        0,
-        33
-      ],
-      "is_cf": false,
-      "raw_config": {
-        "obfs": "salamander",
-        "obfs-password": "rG07s3COMIEvdnQipRyWzx_H_2xygNC3",
-        "password": "p7Q76LzlnS4hIzr1W3staBOnUe_WwSkR",
-        "port": 443,
-        "server": "130.49.161.70",
-        "skip-cert-verify": false,
-        "sni": "hy2.aspidnet.xyz",
-        "tls": false,
-        "type": "hysteria2",
-        "name": "node_0160"
-      }
-    },
-    {
-      "real_name": "XX-hysteria2-28",
-      "type": "hysteria2",
-      "server": "fastly.vexogf.ir",
-      "port": 5443,
-      "ip": "88.99.32.105",
-      "country": null,
-      "city": null,
-      "isp": null,
-      "avg_delay_ms": 38,
-      "valid_rounds": 1,
-      "total_rounds": 3,
-      "delays": [
-        0,
-        0,
-        38
-      ],
-      "is_cf": false,
-      "raw_config": {
-        "obfs": "salamander",
-        "obfs-password": "6ccfcef2e116b03ce9047333",
-        "password": "TPey1Zqj9th9y2JKyiuqVPRTvfjQC-nB",
-        "port": 5443,
-        "server": "fastly.vexogf.ir",
-        "skip-cert-verify": false,
-        "sni": "tun-a-1.bexait.ir",
-        "tls": false,
-        "type": "hysteria2",
-        "name": "node_0152"
-      }
-    },
-    {
-      "real_name": "XX-vmess-29",
-      "type": "vmess",
-      "server": "Z9FfBx3zs2q5O0BG.v.3dns.vip",
-      "port": 443,
-      "ip": "8.209.229.2",
-      "country": null,
-      "city": null,
-      "isp": null,
-      "avg_delay_ms": 188,
-      "valid_rounds": 1,
-      "total_rounds": 3,
-      "delays": [
-        0,
-        0,
-        188
-      ],
-      "is_cf": false,
-      "raw_config": {
-        "alterId": 0,
-        "cipher": "auto",
-        "network": "ws",
-        "port": 443,
-        "server": "Z9FfBx3zs2q5O0BG.v.3dns.vip",
-        "servername": "Z9FfBx3zs2q5O0BG.v.3dns.vip",
-        "skip-cert-verify": false,
-        "tls": true,
-        "type": "vmess",
-        "uuid": "88888888-8888-8888-8888-888888888888",
-        "ws-opts": {
-          "headers": {
-            "Host": "Z9FfBx3zs2q5O0BG.v.3dns.vip"
-          },
-          "path": "/ws-vmess"
-        },
-        "name": "node_0172"
-      }
-    },
-    {
-      "real_name": "US-明克勒-Alibaba-vmess-30",
-      "type": "vmess",
-      "server": "bJ1Aa2ZyJxYamYuK.v.3dns.vip",
-      "port": 443,
-      "ip": "43.110.63.10",
+      "real_name": "US-洛杉矶-Datacamp-http-21",
+      "type": "http",
+      "server": "138.199.35.198",
+      "port": 9002,
+      "ip": "138.199.35.198",
       "country": "美国",
-      "city": "明克勒",
-      "isp": "Alibaba (US) Technology Co., Ltd.",
-      "avg_delay_ms": 209,
+      "city": "洛杉矶",
+      "isp": "Datacamp Limited",
+      "avg_delay_ms": 967,
+      "valid_rounds": 1,
+      "total_rounds": 3,
+      "delays": [
+        967,
+        0,
+        0
+      ],
+      "is_cf": false,
+      "raw_config": {
+        "port": 9002,
+        "server": "138.199.35.198",
+        "skip-cert-verify": true,
+        "tls": true,
+        "type": "http",
+        "udp": true,
+        "name": "node_0088"
+      }
+    },
+    {
+      "real_name": "US-洛杉矶-Datacamp-http-22",
+      "type": "http",
+      "server": "138.199.35.216",
+      "port": 9002,
+      "ip": "138.199.35.216",
+      "country": "美国",
+      "city": "洛杉矶",
+      "isp": "Datacamp Limited",
+      "avg_delay_ms": 1026,
+      "valid_rounds": 1,
+      "total_rounds": 3,
+      "delays": [
+        1026,
+        0,
+        0
+      ],
+      "is_cf": false,
+      "raw_config": {
+        "password": "null",
+        "port": 9002,
+        "server": "138.199.35.216",
+        "skip-cert-verify": true,
+        "tls": true,
+        "type": "http",
+        "udp": true,
+        "username": "null",
+        "name": "node_0085"
+      }
+    },
+    {
+      "real_name": "US-洛杉矶-PEG-http-23",
+      "type": "http",
+      "server": "38.28.193.188",
+      "port": 443,
+      "ip": "38.28.193.188",
+      "country": "美国",
+      "city": "洛杉矶",
+      "isp": "PEG TECH INC",
+      "avg_delay_ms": 1106,
+      "valid_rounds": 1,
+      "total_rounds": 3,
+      "delays": [
+        1106,
+        0,
+        0
+      ],
+      "is_cf": false,
+      "raw_config": {
+        "port": 443,
+        "server": "38.28.193.188",
+        "skip-cert-verify": true,
+        "tls": true,
+        "type": "http",
+        "udp": true,
+        "name": "node_0087"
+      }
+    },
+    {
+      "real_name": "NL-阿姆斯特丹-Datacamp-http-24",
+      "type": "http",
+      "server": "149.36.51.129",
+      "port": 443,
+      "ip": "149.36.51.129",
+      "country": "荷兰",
+      "city": "阿姆斯特丹",
+      "isp": "Datacamp Limited",
+      "avg_delay_ms": 416,
       "valid_rounds": 1,
       "total_rounds": 3,
       "delays": [
         0,
         0,
-        209
+        416
       ],
       "is_cf": false,
       "raw_config": {
-        "alterId": 0,
-        "cipher": "auto",
-        "network": "ws",
         "port": 443,
-        "server": "bJ1Aa2ZyJxYamYuK.v.3dns.vip",
-        "servername": "bJ1Aa2ZyJxYamYuK.v.3dns.vip",
-        "skip-cert-verify": false,
+        "server": "149.36.51.129",
+        "skip-cert-verify": true,
         "tls": true,
-        "type": "vmess",
-        "uuid": "88888888-8888-8888-8888-888888888888",
-        "ws-opts": {
-          "headers": {
-            "Host": "bJ1Aa2ZyJxYamYuK.v.3dns.vip"
-          },
-          "path": "/ws-vmess"
-        },
-        "name": "node_0179"
+        "type": "http",
+        "udp": true,
+        "name": "node_0060"
+      }
+    },
+    {
+      "real_name": "NL-阿姆斯特丹-Datacamp-http-25",
+      "type": "http",
+      "server": "84.17.47.149",
+      "port": 9002,
+      "ip": "84.17.47.149",
+      "country": "荷兰",
+      "city": "阿姆斯特丹",
+      "isp": "DataCamp Limited",
+      "avg_delay_ms": 706,
+      "valid_rounds": 2,
+      "total_rounds": 3,
+      "delays": [
+        1004,
+        0,
+        409
+      ],
+      "is_cf": false,
+      "raw_config": {
+        "port": 9002,
+        "server": "84.17.47.149",
+        "skip-cert-verify": true,
+        "tls": true,
+        "type": "http",
+        "udp": true,
+        "name": "node_0065"
+      }
+    },
+    {
+      "real_name": "NL-阿姆斯特丹-Datacamp-http-26",
+      "type": "http",
+      "server": "84.17.47.125",
+      "port": 9002,
+      "ip": "84.17.47.125",
+      "country": "荷兰",
+      "city": "阿姆斯特丹",
+      "isp": "DataCamp Limited",
+      "avg_delay_ms": 724,
+      "valid_rounds": 2,
+      "total_rounds": 3,
+      "delays": [
+        1034,
+        0,
+        413
+      ],
+      "is_cf": false,
+      "raw_config": {
+        "port": 9002,
+        "server": "84.17.47.125",
+        "skip-cert-verify": true,
+        "tls": true,
+        "type": "http",
+        "udp": true,
+        "name": "node_0064"
+      }
+    },
+    {
+      "real_name": "RO-布加勒斯特-M247-http-27",
+      "type": "http",
+      "server": "193.176.84.27",
+      "port": 9002,
+      "ip": "193.176.84.27",
+      "country": "罗马尼亚",
+      "city": "布加勒斯特",
+      "isp": "M247 Europe SRL",
+      "avg_delay_ms": 772,
+      "valid_rounds": 2,
+      "total_rounds": 3,
+      "delays": [
+        1259,
+        0,
+        285
+      ],
+      "is_cf": false,
+      "raw_config": {
+        "port": 9002,
+        "server": "193.176.84.27",
+        "skip-cert-verify": true,
+        "tls": true,
+        "type": "http",
+        "udp": true,
+        "name": "node_0081"
+      }
+    },
+    {
+      "real_name": "CN-长治-PEG-http-28",
+      "type": "http",
+      "server": "fan.365747.xyz",
+      "port": 443,
+      "ip": "137.175.22.5",
+      "country": "中国",
+      "city": "长治",
+      "isp": "PEG TECH INC",
+      "avg_delay_ms": 824,
+      "valid_rounds": 1,
+      "total_rounds": 3,
+      "delays": [
+        824,
+        0,
+        0
+      ],
+      "is_cf": false,
+      "raw_config": {
+        "port": 443,
+        "server": "fan.365747.xyz",
+        "skip-cert-verify": true,
+        "tls": true,
+        "type": "http",
+        "udp": true,
+        "name": "node_0086"
+      }
+    },
+    {
+      "real_name": "RO-布加勒斯特-M247-http-29",
+      "type": "http",
+      "server": "193.176.84.24",
+      "port": 9002,
+      "ip": "193.176.84.24",
+      "country": "罗马尼亚",
+      "city": "布加勒斯特",
+      "isp": "M247 Europe SRL",
+      "avg_delay_ms": 840,
+      "valid_rounds": 2,
+      "total_rounds": 3,
+      "delays": [
+        1310,
+        0,
+        369
+      ],
+      "is_cf": false,
+      "raw_config": {
+        "port": 9002,
+        "server": "193.176.84.24",
+        "skip-cert-verify": true,
+        "tls": true,
+        "type": "http",
+        "udp": true,
+        "name": "node_0077"
+      }
+    },
+    {
+      "real_name": "NL-阿姆斯特丹-Datacamp-http-30",
+      "type": "http",
+      "server": "84.17.47.148",
+      "port": 9002,
+      "ip": "84.17.47.148",
+      "country": "荷兰",
+      "city": "阿姆斯特丹",
+      "isp": "DataCamp Limited",
+      "avg_delay_ms": 977,
+      "valid_rounds": 1,
+      "total_rounds": 3,
+      "delays": [
+        977,
+        0,
+        0
+      ],
+      "is_cf": false,
+      "raw_config": {
+        "port": 9002,
+        "server": "84.17.47.148",
+        "skip-cert-verify": true,
+        "tls": true,
+        "type": "http",
+        "udp": true,
+        "name": "node_0067"
       }
     }
   ]
