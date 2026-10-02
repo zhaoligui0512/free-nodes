@@ -295,8 +295,45 @@ def parse_socks5(link):
     return node
 
 # ============================================================
-# 去重
+# TCP 测活预筛
 # ============================================================
+TCP_TYPES = {"vless", "trojan", "ss", "shadowsocks", "socks", "socks5", "http", "vmess", "anytls"}
+UDP_TYPES = {"hysteria2", "hy2", "wireguard", "tuic"}
+
+def tcp_alive_check(proxies, timeout=5, max_workers=50):
+    """TCP 连通性预筛：快速过滤死节点，减轻 URL test 压力。
+    - TCP 系协议（vless/trojan/ss/socks/http）：TCP connect 测活
+    - UDP 系协议（hysteria2/tuic/wireguard）：TCP 探测会误判，跳过直接保留，
+      最终由 URL test 判定真实存活
+    """
+    targets, skip = [], []
+    for p in proxies:
+        if p.get("type") in TCP_TYPES:
+            targets.append(p)
+        else:
+            skip.append(p)
+
+    def _check(p):
+        try:
+            sock = socket.create_connection((p["server"], int(p["port"])), timeout=timeout)
+            sock.close()
+            return p, True
+        except:
+            return p, False
+
+    alive, dead = [], []
+    with ThreadPoolExecutor(max_workers=max_workers) as ex:
+        futures = {ex.submit(_check, p): p for p in targets}
+        for fut in as_completed(futures):
+            p, ok = fut.result()
+            if ok:
+                alive.append(p)
+            else:
+                dead.append(p)
+
+    log(f"TCP 测活: TCP协议 {len(targets)} 个 → 存活 {len(alive)}, 死亡 {len(dead)}"
+        f"{f', 跳过UDP协议 {len(skip)} 个 (hysteria2等)' if skip else ''}")
+    return alive + skip
 # Cloudflare IP 段（用于识别 CF 节点，这些节点对中国 IP 通常不可用）
 CF_IP_PREFIXES = ("162.159.", "188.114.", "104.16.", "104.17.", "104.18.", "104.19.",
                   "172.64.", "173.245.", "162.35.", "198.41.", "197.234.", "103.21.244.",
@@ -735,6 +772,18 @@ def run_single_round(round_num, config):
         from collections import Counter
         log(f"去重后: {len(deduped)}")
         log(f"协议分布: {dict(Counter(p['type'] for p in deduped))}")
+
+        # Phase 2.5: TCP 测活预筛（减轻 URL test 压力）
+        test_cfg = config.get("test", {})
+        tcp_check = test_cfg.get("tcp_alive_check", True)
+        if tcp_check:
+            log("Phase 2.5: TCP 测活预筛")
+            deduped = tcp_alive_check(
+                deduped,
+                timeout=test_cfg.get("tcp_timeout_seconds", 5),
+                max_workers=test_cfg.get("tcp_concurrency", 50))
+            log(f"TCP 测活后待测列表: {len(deduped)}")
+            log(f"协议分布: {dict(Counter(p['type'] for p in deduped))}")
 
         # 重命名并保存节点列表（后续轮次复用）
         renamed = []
