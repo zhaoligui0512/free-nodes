@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-10-03T05:45:44.982896",
+    "generated_at": "2026-10-03T05:52:35.492277",
     "total_rounds": 3,
     "rounds_used": [
       1,
@@ -59,34 +59,7 @@
       }
     },
     {
-      "real_name": "JP-Chūō-AS36530-trojan-02",
-      "type": "trojan",
-      "server": "f533f9b2-c69a-4dd0-bc63-f2ab94dd5f53.f1eb10ae-1d82-4c6a-b4dd-bd9525520956.com",
-      "port": 13209,
-      "ip": "23.185.104.6",
-      "country": "日本",
-      "city": "Chūō",
-      "isp": "AS36530 IDC Cube",
-      "avg_delay_ms": 26,
-      "valid_rounds": 1,
-      "total_rounds": 3,
-      "delays": [
-        0,
-        0,
-        26
-      ],
-      "is_cf": false,
-      "raw_config": {
-        "type": "trojan",
-        "server": "f533f9b2-c69a-4dd0-bc63-f2ab94dd5f53.f1eb10ae-1d82-4c6a-b4dd-bd9525520956.com",
-        "port": 13209,
-        "password": "fac593ac-d6aa-4523-bea9-b3eb2a2b3da3",
-        "sni": "207.yuanul.com",
-        "name": "node_0095"
-      }
-    },
-    {
-      "real_name": "JP-Tokyo-Amazon-vmess-03",
+      "real_name": "JP-Tokyo-Amazon-vmess-02",
       "type": "vmess",
       "server": "y4ora9g-g03.jp03-j7-vm0.entry.fr0528.art",
       "port": 21583,
@@ -117,7 +90,7 @@
       }
     },
     {
-      "real_name": "JP-Tokyo-Alibaba-vmess-04",
+      "real_name": "JP-Tokyo-Alibaba-vmess-03",
       "type": "vmess",
       "server": "Z9FfBx3zs2q5O0BG.v.3dns.vip",
       "port": 443,
@@ -155,11 +128,11 @@
       }
     },
     {
-      "real_name": "SG-Singapor-Amazon-anytls-05",
+      "real_name": "SG-Singapor-Amazon-anytls-04",
       "type": "anytls",
       "server": "test01.y1static-content-distribution.shop",
       "port": 56726,
-      "ip": "54.254.146.147",
+      "ip": "52.76.237.93",
       "country": "新加坡",
       "city": "Singapore",
       "isp": "AS16509 Amazon.com, Inc.",
@@ -184,7 +157,7 @@
       }
     },
     {
-      "real_name": "TW-Taipei-AS212336-vless-06",
+      "real_name": "TW-Taipei-AS212336-vless-05",
       "type": "vless",
       "server": "151.242.189.162",
       "port": 443,
@@ -220,7 +193,7 @@
       }
     },
     {
-      "real_name": "SG-Singapor-Alibaba-vmess-07",
+      "real_name": "SG-Singapor-Alibaba-vmess-06",
       "type": "vmess",
       "server": "6JiziO8PxQAXBAtZ.v.3dns.vip",
       "port": 443,
@@ -258,7 +231,7 @@
       }
     },
     {
-      "real_name": "JP-Tokyo-AS54113-vless-08",
+      "real_name": "JP-Tokyo-AS54113-vless-07",
       "type": "vless",
       "server": "bounded-crammed.video-streams.org",
       "port": 443,
@@ -295,7 +268,7 @@
       }
     },
     {
-      "real_name": "JP-Tokyo-AS132203-vmess-09",
+      "real_name": "JP-Tokyo-AS132203-vmess-08",
       "type": "vmess",
       "server": "kneNaKHeSXnZH259.v.3dns.vip",
       "port": 443,
@@ -333,7 +306,7 @@
       }
     },
     {
-      "real_name": "TW-Taipei-AS3462-tuic-10",
+      "real_name": "TW-Taipei-AS3462-tuic-09",
       "type": "tuic",
       "server": "tw6.dexlos.com",
       "port": 8080,
@@ -368,7 +341,7 @@
       }
     },
     {
-      "real_name": "JP-Tokyo-Amazon-vmess-11",
+      "real_name": "JP-Tokyo-Amazon-vmess-10",
       "type": "vmess",
       "server": "ydh8094-g03.jp01-nn-vm0.entry.fr0528.art",
       "port": 21583,
@@ -399,7 +372,7 @@
       }
     },
     {
-      "real_name": "SG-Singapor-Alibaba-vmess-12",
+      "real_name": "SG-Singapor-Alibaba-vmess-11",
       "type": "vmess",
       "server": "ASaqYIDZa9WDQ9Kq.v.3dns.vip",
       "port": 443,
@@ -437,7 +410,7 @@
       }
     },
     {
-      "real_name": "SG-Singapor-Hetzner-vless-13",
+      "real_name": "SG-Singapor-Hetzner-vless-12",
       "type": "vless",
       "server": "5.223.19.211",
       "port": 80,
@@ -468,7 +441,7 @@
       }
     },
     {
-      "real_name": "TW-Yuanlin-AS3462-trojan-14",
+      "real_name": "TW-Yuanlin-AS3462-trojan-13",
       "type": "trojan",
       "server": "ttww11.bpca2026.top",
       "port": 443,
@@ -503,11 +476,11 @@
       }
     },
     {
-      "real_name": "JP-Tokyo-AS54113-vless-15",
+      "real_name": "JP-Tokyo-AS54113-vless-14",
       "type": "vless",
       "server": "grimness-backlogs.cdn-content.com",
       "port": 443,
-      "ip": "146.75.113.242",
+      "ip": "199.232.161.242",
       "country": "日本",
       "city": "Tokyo",
       "isp": "AS54113 Fastly, Inc.",
@@ -540,6 +513,31 @@
           "path": "/ws"
         },
         "name": "node_0063"
+      }
+    },
+    {
+      "real_name": "JP-Tokyo-UCLOUD-socks5-15",
+      "type": "socks5",
+      "server": "101.36.104.239",
+      "port": 10808,
+      "ip": "101.36.104.239",
+      "country": "日本",
+      "city": "Tokyo",
+      "isp": "AS135377 UCLOUD INFORMATION TECHNOLOGY (HK) LIMITED",
+      "avg_delay_ms": 768,
+      "valid_rounds": 2,
+      "total_rounds": 3,
+      "delays": [
+        1331,
+        0,
+        206
+      ],
+      "is_cf": false,
+      "raw_config": {
+        "type": "socks5",
+        "server": "101.36.104.239",
+        "port": 10808,
+        "name": "node_0094"
       }
     },
     {

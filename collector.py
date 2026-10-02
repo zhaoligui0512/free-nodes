@@ -947,6 +947,10 @@ def run_finalize(config):
     if cf_count > 0:
         log(f"识别 CF 节点: {cf_count} 个 (限制最多 {cf_limit} 个)")
 
+    # 保存全量稳定节点（含 CN/HK，未做配额截断）——用于 free-nodes-full.yaml
+    # （精简版会排除 CN/HK 并截断到 top_n，全量版保留全部供人工选择）
+    all_stable_raw = list(stable_nodes)
+
     # 6.5 排除国家/地区（对中国大陆/香港等出口无意义的节点直接踢掉）
     # 以 ipinfo 主库判定为准（准确、快速；ip-api 复核已弃用——不一致结果反而制造噪音）
     exclude_ccs = set(output_cfg.get("exclude_countries", ["CN", "HK"]))
@@ -1087,11 +1091,31 @@ def run_finalize(config):
         yaml.dump(clash_good, f, allow_unicode=True, default_flow_style=False, sort_keys=False)
     log(f"  ✓ free-nodes.yaml ({len(good_nodes)}个优质节点)")
 
-    # free-nodes-full.yaml (全部)
-    clash_full = build_clash_yaml(nodes, output_cfg)
+    # free-nodes-full.yaml (全量版：含 CN/HK，不做配额截断，按延迟排序，供本机 Clash 人工选择)
+    full_nodes = []
+    for i, n in enumerate(sorted(all_stable_raw, key=lambda x: x["avg_delay"])):
+        real_name = make_real_name(n["raw_config"], ip_info.get(n["raw_config"]["server"]), i+1)
+        info = (ip_info.get(n["raw_config"]["server"]) or {}).get("info") or {}
+        full_nodes.append({
+            "real_name": real_name,
+            "type": n["raw_config"]["type"],
+            "server": n["raw_config"]["server"],
+            "port": n["raw_config"]["port"],
+            "ip": (ip_info.get(n["raw_config"]["server"]) or {}).get("ip"),
+            "country": info.get("country"),
+            "city": info.get("city"),
+            "isp": info.get("isp"),
+            "avg_delay_ms": n["avg_delay"],
+            "valid_rounds": n["valid_rounds"],
+            "total_rounds": n["total_rounds"],
+            "delays": n["delays"],
+            "is_cf": n.get("is_cf", False),
+            "raw_config": n["raw_config"],
+        })
+    clash_full = build_clash_yaml(full_nodes, output_cfg)
     with open(os.path.join(output_dir, "free-nodes-full.yaml"), "w") as f:
         yaml.dump(clash_full, f, allow_unicode=True, default_flow_style=False, sort_keys=False)
-    log(f"  ✓ free-nodes-full.yaml ({len(nodes)}个全部稳定)")
+    log(f"  ✓ free-nodes-full.yaml ({len(full_nodes)}个全量节点, 含CN/HK, 按延迟排序)")
 
     # free-nodes.txt (V2Ray)
     txt_content = build_v2ray_txt(good_nodes)
