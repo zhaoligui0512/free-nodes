@@ -17,6 +17,12 @@ proxies:
     headers:
       Host: kv.074167.xyz
   name: SG-Singapor-AS139341-vless-01
+- type: trojan
+  server: f533f9b2-c69a-4dd0-bc63-f2ab94dd5f53.f1eb10ae-1d82-4c6a-b4dd-bd9525520956.com
+  port: 13209
+  password: fac593ac-d6aa-4523-bea9-b3eb2a2b3da3
+  sni: 207.yuanul.com
+  name: JP-Chūō-AS36530-trojan-02
 - alterId: 1
   cipher: auto
   port: 21583
@@ -26,7 +32,7 @@ proxies:
   type: vmess
   udp: true
   uuid: 425a46b5-9816-3dbf-b803-8e7c250a9043
-  name: JP-Tokyo-Amazon-vmess-02
+  name: JP-Tokyo-Amazon-vmess-03
 - alterId: 0
   cipher: auto
   network: ws
@@ -41,7 +47,7 @@ proxies:
     headers:
       Host: Z9FfBx3zs2q5O0BG.v.3dns.vip
     path: /ws-vmess
-  name: JP-Tokyo-Alibaba-vmess-03
+  name: JP-Tokyo-Alibaba-vmess-04
 - password: 3fc0f254-54c3-4cf3-896b-5999a2b4c757
   port: 56726
   server: test01.y1static-content-distribution.shop
@@ -49,7 +55,7 @@ proxies:
   sni: hk11.pulsarcore.site
   type: anytls
   udp: true
-  name: SG-Singapor-Amazon-anytls-04
+  name: SG-Singapor-Amazon-anytls-05
 - client-fingerprint: chrome
   network: ws
   port: 443
@@ -62,7 +68,7 @@ proxies:
     headers:
       Host: cf2us.3rr0r.online
     path: /proxyip=ProxyIP.TW.CMLiussss.Net
-  name: TW-Taipei-AS212336-vless-05
+  name: TW-Taipei-AS212336-vless-06
 - alterId: 0
   cipher: auto
   network: ws
@@ -77,7 +83,7 @@ proxies:
     headers:
       Host: 6JiziO8PxQAXBAtZ.v.3dns.vip
     path: /ws-vmess
-  name: SG-Singapor-Alibaba-vmess-06
+  name: SG-Singapor-Alibaba-vmess-07
 - client-fingerprint: chrome
   network: ws
   port: 443
@@ -91,7 +97,7 @@ proxies:
     headers:
       Host: bounded-crammed.video-streams.org
     path: /ws
-  name: JP-Tokyo-AS54113-vless-07
+  name: JP-Tokyo-AS54113-vless-08
 - alterId: 0
   cipher: auto
   network: ws
@@ -106,7 +112,7 @@ proxies:
     headers:
       Host: kneNaKHeSXnZH259.v.3dns.vip
     path: /ws-vmess
-  name: JP-Tokyo-AS132203-vmess-08
+  name: JP-Tokyo-AS132203-vmess-09
 - alpn:
   - h3
   disable-sni: false
@@ -119,7 +125,7 @@ proxies:
   sni: tw6.dexlos.com
   type: tuic
   uuid: D7286728-678E-443B-B76B-B699654C66DD
-  name: TW-Taipei-AS3462-tuic-09
+  name: TW-Taipei-AS3462-tuic-10
 - alterId: 1
   cipher: auto
   port: 21583
@@ -129,7 +135,7 @@ proxies:
   type: vmess
   udp: true
   uuid: 425a46b5-9816-3dbf-b803-8e7c250a9043
-  name: JP-Tokyo-Amazon-vmess-10
+  name: JP-Tokyo-Amazon-vmess-11
 - alterId: 0
   cipher: auto
   network: ws
@@ -144,7 +150,7 @@ proxies:
     headers:
       Host: ASaqYIDZa9WDQ9Kq.v.3dns.vip
     path: /ws-vmess
-  name: SG-Singapor-Alibaba-vmess-11
+  name: SG-Singapor-Alibaba-vmess-12
 - network: ws
   port: 80
   server: 5.223.19.211
@@ -153,7 +159,7 @@ proxies:
   uuid: 4b8a0930-1c36-4efe-b4fe-21f9ad97905c
   ws-opts:
     path: /
-  name: SG-Singapor-Hetzner-vless-12
+  name: SG-Singapor-Hetzner-vless-13
 - network: ws
   password: 9efd3f19-c7cb-4fa9-8d66-0598043597dc
   port: 443
@@ -165,7 +171,7 @@ proxies:
     headers:
       Host: ttww11.bpca2026.top
     path: /images
-  name: TW-Yuanlin-AS3462-trojan-13
+  name: TW-Yuanlin-AS3462-trojan-14
 - alpn:
   - http/1.1
   client-fingerprint: chrome
@@ -181,11 +187,7 @@ proxies:
     headers:
       Host: grimness-backlogs.cdn-content.com
     path: /ws
-  name: JP-Tokyo-AS54113-vless-14
-- type: socks5
-  server: 101.36.104.239
-  port: 10808
-  name: JP-Tokyo-UCLOUD-socks5-15
+  name: JP-Tokyo-AS54113-vless-15
 - type: vless
   server: 80.93.202.40
   port: 8880
@@ -316,20 +318,20 @@ proxy-groups:
   - ♻️ 自动选择
   - DIRECT
   - SG-Singapor-AS139341-vless-01
-  - JP-Tokyo-Amazon-vmess-02
-  - JP-Tokyo-Alibaba-vmess-03
-  - SG-Singapor-Amazon-anytls-04
-  - TW-Taipei-AS212336-vless-05
-  - SG-Singapor-Alibaba-vmess-06
-  - JP-Tokyo-AS54113-vless-07
-  - JP-Tokyo-AS132203-vmess-08
-  - TW-Taipei-AS3462-tuic-09
-  - JP-Tokyo-Amazon-vmess-10
-  - SG-Singapor-Alibaba-vmess-11
-  - SG-Singapor-Hetzner-vless-12
-  - TW-Yuanlin-AS3462-trojan-13
-  - JP-Tokyo-AS54113-vless-14
-  - JP-Tokyo-UCLOUD-socks5-15
+  - JP-Chūō-AS36530-trojan-02
+  - JP-Tokyo-Amazon-vmess-03
+  - JP-Tokyo-Alibaba-vmess-04
+  - SG-Singapor-Amazon-anytls-05
+  - TW-Taipei-AS212336-vless-06
+  - SG-Singapor-Alibaba-vmess-07
+  - JP-Tokyo-AS54113-vless-08
+  - JP-Tokyo-AS132203-vmess-09
+  - TW-Taipei-AS3462-tuic-10
+  - JP-Tokyo-Amazon-vmess-11
+  - SG-Singapor-Alibaba-vmess-12
+  - SG-Singapor-Hetzner-vless-13
+  - TW-Yuanlin-AS3462-trojan-14
+  - JP-Tokyo-AS54113-vless-15
   - US-Los Ange-Cloudflare-vless-16
   - NL-Rotterda-Cloudflare-vless-17
   - BG-Sofia-AS211619-vless-18
@@ -349,20 +351,20 @@ proxy-groups:
   type: url-test
   proxies:
   - SG-Singapor-AS139341-vless-01
-  - JP-Tokyo-Amazon-vmess-02
-  - JP-Tokyo-Alibaba-vmess-03
-  - SG-Singapor-Amazon-anytls-04
-  - TW-Taipei-AS212336-vless-05
-  - SG-Singapor-Alibaba-vmess-06
-  - JP-Tokyo-AS54113-vless-07
-  - JP-Tokyo-AS132203-vmess-08
-  - TW-Taipei-AS3462-tuic-09
-  - JP-Tokyo-Amazon-vmess-10
-  - SG-Singapor-Alibaba-vmess-11
-  - SG-Singapor-Hetzner-vless-12
-  - TW-Yuanlin-AS3462-trojan-13
-  - JP-Tokyo-AS54113-vless-14
-  - JP-Tokyo-UCLOUD-socks5-15
+  - JP-Chūō-AS36530-trojan-02
+  - JP-Tokyo-Amazon-vmess-03
+  - JP-Tokyo-Alibaba-vmess-04
+  - SG-Singapor-Amazon-anytls-05
+  - TW-Taipei-AS212336-vless-06
+  - SG-Singapor-Alibaba-vmess-07
+  - JP-Tokyo-AS54113-vless-08
+  - JP-Tokyo-AS132203-vmess-09
+  - TW-Taipei-AS3462-tuic-10
+  - JP-Tokyo-Amazon-vmess-11
+  - SG-Singapor-Alibaba-vmess-12
+  - SG-Singapor-Hetzner-vless-13
+  - TW-Yuanlin-AS3462-trojan-14
+  - JP-Tokyo-AS54113-vless-15
   - US-Los Ange-Cloudflare-vless-16
   - NL-Rotterda-Cloudflare-vless-17
   - BG-Sofia-AS211619-vless-18

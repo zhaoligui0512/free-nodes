@@ -948,41 +948,19 @@ def run_finalize(config):
         log(f"识别 CF 节点: {cf_count} 个 (限制最多 {cf_limit} 个)")
 
     # 6.5 排除国家/地区（对中国大陆/香港等出口无意义的节点直接踢掉）
-    # 双保险: ipinfo 主库判 CN/HK 的，再用 ip-api 复核一次，两库一致才踢
+    # 以 ipinfo 主库判定为准（准确、快速；ip-api 复核已弃用——不一致结果反而制造噪音）
     exclude_ccs = set(output_cfg.get("exclude_countries", ["CN", "HK"]))
 
     def _cc(server):
         info = (ip_info.get(server) or {}).get("info") or {}
         return info.get("countryCode", "")
 
-    def _ip_api_cc(server):
-        """用 ip-api 复核某个 server 的国家代码"""
-        try:
-            ip = socket.gethostbyname(server)
-        except:
-            return ""
-        try:
-            url = f"http://ip-api.com/json/{ip}?fields=status,countryCode"
-            with urllib.request.urlopen(url, timeout=8) as resp:
-                data = json.loads(resp.read())
-                if data.get("status") == "success":
-                    return data.get("countryCode", "")
-        except:
-            pass
-        return ""
-
-    candidates = [n for n in stable_nodes if _cc(n["raw_config"]["server"]) in exclude_ccs]
-    kicked, kept = [], []
-    for n in candidates:
-        cc_second = _ip_api_cc(n["raw_config"]["server"])
-        if cc_second in exclude_ccs:
-            kicked.append(n)
-        else:
-            kept.append(n)
-            log(f"  复核不一致: {n['raw_config']['server']} ipinfo={_cc(n['raw_config']['server'])} / ip-api={cc_second or '失败'} → 保留")
-    if kicked or kept:
-        log(f"排除国家/地区 {sorted(exclude_ccs)}: 候选 {len(candidates)} → 踢 {len(kicked)} / 保留 {len(kept)}")
-    stable_nodes = [n for n in stable_nodes if n not in candidates] + kept
+    before_exclude = len(stable_nodes)
+    excluded = [n for n in stable_nodes if _cc(n["raw_config"]["server"]) in exclude_ccs]
+    stable_nodes = [n for n in stable_nodes if _cc(n["raw_config"]["server"]) not in exclude_ccs]
+    if excluded:
+        log(f"排除国家/地区 {sorted(exclude_ccs)}: {before_exclude} → {len(stable_nodes)} "
+            f"(踢 {len(excluded)}: {[n['raw_config']['server'] for n in excluded]})")
 
     # 7. 分层配额选取（亚洲 + 其他 + HTTP 独立配额）
     #    GitHub Actions runner 在美国 → CF/美加节点延迟极低霸榜 → 亚洲节点被挤出
