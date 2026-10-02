@@ -1,120 +1,63 @@
-# ============================================================
-# Free Nodes Collector 配置文件
-# 所有可调整的参数都在这里
-# ============================================================
-
-# Mihomo 二进制路径（相对脚本目录，GitHub Actions 会自动下载）
-mihomo_bin: "./mihomo"
-
-# 输出目录
-output_dir: "output"
-
-# ============================================================
-# 去重配置
-# ============================================================
+mihomo_bin: ./mihomo
+output_dir: output
 dedup:
-  # 同一真实 IP 最多保留的节点数（不同 SNI/域名挂同一台服务器的只保留前几个）
   max_sni_per_ip: 2
-
-# ============================================================
-# 订阅源配置
-# 支持三种类型: nomorewalls / mibei / yaml_url
-# 新增源只需在这里加一条即可
-# ============================================================
 sources:
-  # NoMoreWalls - GitHub 固定链接，每日自动更新
-  - name: "NoMoreWalls"
-    type: "nomorewalls"
-    url: "https://ghproxy.net/https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/list.meta.yml"
-
-  # 米贝 - 动态抓取最新文章中的订阅链接
-  - name: "米贝"
-    type: "mibei"
-    homepage: "https://www.mibei77.com/"
-
-  # 示例：其他 YAML 订阅源（取消注释即可使用）
-  # - name: "其他源"
-  #   type: "yaml_url"
-  #   url: "https://example.com/sub.yaml"
-
-# ============================================================
-# WireGuard 前置出口（链式代理）
-# 被测节点通过 dialer-proxy 走用户路由器 WireGuard 隧道，
-# 从中国出口做真实测试（GitHub Actions 美国 runner 测出的延迟对中国用户无意义）
-# 私钥/PSK 优先从环境变量 WG_PRIVATE_KEY / WG_PSK 读取（不写入 public 仓库）
-# ============================================================
+- name: NoMoreWalls
+  type: nomorewalls
+  url: https://ghproxy.net/https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/list.meta.yml
+- name: 米贝
+  type: mibei
+  homepage: https://www.mibei77.com/
 wg_egress:
   enabled: false
-  server: "vpn.aivey565.shop"
+  server: vpn.aivey565.shop
   port: 51820
-  ip: "10.0.0.3"
-  public_key: "4cwbtv/nQbfUBtPoTWom3VGPk0zAais7QTMLXJ883lo="
+  ip: 10.0.0.3
+  public_key: 4cwbtv/nQbfUBtPoTWom3VGPk0zAais7QTMLXJ883lo=
   mtu: 1280
-  # private_key / pre_shared_key: 用环境变量 WG_PRIVATE_KEY / WG_PSK 提供
-
-# ============================================================
-# 延迟测试配置
-# ============================================================
 test:
-  # 测试轮数（由 workflow 分3次执行，这里只影响单轮超时等参数）
   rounds: 3
-
-  # 多轮测试之间的间隔（分钟）- 仅本地完整运行时生效，GitHub Actions 由 cron 控制间隔
   interval_minutes: 10
-
-  # 至少几轮有效才算稳定节点（3轮中至少2轮存活）
   min_valid_rounds: 2
-
-  # 多目标测试 URL（全部通过才算存活，延迟取平均值）
-  # Google / ChatGPT / YouTube / Meta 四目标，防止单目标被缓存或劫持
   test_urls:
-    - "http://www.gstatic.com/generate_204"       # Google
-    - "https://chatgpt.com/"                        # ChatGPT (OpenAI)
-    - "https://www.youtube.com/generate_204"       # YouTube (Google)
-    - "https://www.meta.com/"                       # Meta (Facebook)
-
-  # 单个节点超时时间（秒）
-  timeout_seconds: 10
-
-  # TCP 测活预筛：去重后先用 TCP 连通性快速筛掉死节点，减轻 URL test 压力
+  - http://www.gstatic.com/generate_204
+  - https://chatgpt.com/
+  - https://www.youtube.com/generate_204
+  - https://www.meta.com/
+  timeout_seconds: 15
   tcp_alive_check: true
   tcp_timeout_seconds: 5
   tcp_concurrency: 50
-
-# ============================================================
-# 输出配置
-# ============================================================
 output:
-  # 最终输出节点数量
   top_n: 30
-
-  # 优质节点延迟阈值（毫秒），低于此值的进入优质清单
-  good_threshold_ms: 1500
-
-  # 地区分层配额（解决 GitHub Actions 美国服务器测速偏差）
-  # 亚洲节点配额 + 其他地区配额 + HTTP独立配额 = top_n
-  # 亚洲优先：用户实际在亚洲使用，从美国测的延迟对亚洲节点不公平
-  # HTTP 独立配额：HTTP 节点单独成组，优先美国（美区 Apple ID 等需要美国出口）
+  good_threshold_ms: 3000
   region_quota:
     asia: 15
     other: 5
-
-  # HTTP 节点独立配额（不占亚洲/其他名额，美国优先，其余按速度补足）
   http_quota: 10
-  http_prefer_countries: ["US"]
-
-  # 亚洲国家/地区代码（countryCode）
-  asia_countries: ["JP", "SG", "TW", "KR", "TH", "VN", "MY", "PH", "ID", "IN", "MO", "BD", "PK", "LK", "KH", "NP"]
-
-  # 排除国家/地区：对中国大陆/香港等出口无意义的节点直接踢掉
-  # （AI 服务/OpenAI 等在香港与大陆政策一致，出口无区别）
-  exclude_countries: ["CN", "HK"]
-
-  # 同一协议在最终结果中的最大数量（防止 CF vless 等单一协议霸榜）
+  http_prefer_countries:
+  - US
+  asia_countries:
+  - JP
+  - SG
+  - TW
+  - KR
+  - TH
+  - VN
+  - MY
+  - PH
+  - ID
+  - IN
+  - MO
+  - BD
+  - PK
+  - LK
+  - KH
+  - NP
+  exclude_countries:
+  - CN
+  - HK
   max_same_protocol: 8
-
-  # Cloudflare 节点最大数量（CF 节点对中国 IP 通常不可用，限制进最终清单的数量）
   max_cf_nodes: 3
-
-  # 自动选择组的测试 URL
-  test_url: "http://www.gstatic.com/generate_204"
+  test_url: http://www.gstatic.com/generate_204
