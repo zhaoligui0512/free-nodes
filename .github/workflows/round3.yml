@@ -1,9 +1,9 @@
 name: Round 3 Test and Publish
 
 on:
-  # 生产：每天 UTC 16:00（北京 0:00 次日）跑第3轮 + 汇总发布
+  # 生产：每天 UTC 6:05（北京 14:05）跑第3轮 + 汇总发布（密集三轮：13:05→13:35→14:05 一小时跑完）
   schedule:
-    - cron: '0 16 * * *'
+    - cron: '5 6 * * *'
   workflow_dispatch:
 
 permissions:

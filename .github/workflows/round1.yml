@@ -1,9 +1,9 @@
 name: Round 1 Test
 
 on:
-  # 生产：每天 UTC 0:00（北京 8:00）跑第1轮
+  # 生产：每天 UTC 5:05（北京 13:05）跑第1轮（密集三轮：13:05→13:35→14:05 一小时跑完）
   schedule:
-    - cron: '0 0 * * *'
+    - cron: '5 5 * * *'
   workflow_dispatch:
 
 permissions:
