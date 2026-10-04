@@ -649,6 +649,10 @@ def build_clash_yaml(nodes, output_config):
     for n in nodes:
         p = dict(n["raw_config"])
         p["name"] = n["real_name"]
+        # 给 TLS 节点显式设置合法 uTLS fingerprint，避免 sing-box 客户端默认用 unsafe 导致
+        # "unknown uTLS fingerprint: unsafe" 报错（NekoBox/sing-box 不认识 Clash 的 unsafe）
+        if p.get("tls") and not p.get("fingerprint") and not p.get("client-fingerprint"):
+            p["fingerprint"] = "chrome"
         # 清洗：http 节点的 username/password 若为 null/'null'/空则删除
         # （Clash 会把字面 'null' 当作真实认证值导致连接失败）
         for k in ("username", "password"):
