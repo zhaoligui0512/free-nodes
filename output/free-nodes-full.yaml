@@ -5,134 +5,94 @@ mode: rule
 log-level: info
 ipv6: false
 proxies:
-- password: github.com/Alvin9999-newpac/fanqiang
-  port: 30099
-  server: ip5.934618.xyz
+- password: UX82473651
+  port: 443
+  server: musical-terrier.rooster465.autos
   skip-cert-verify: true
-  sni: ip5.934618.xyz
-  type: anytls
+  sni: musical-terrier.rooster465.autos
+  type: trojan
   udp: true
-  name: FR-Paris-Scaleway-anytls-01
-- port: 9002
-  server: 84.17.47.146
+  name: JP-Tokyo-Amazon-trojan-01
+- password: UX82473651
+  port: 443
+  server: dynamic-imp.rooster465.autos
   skip-cert-verify: true
-  tls: true
-  type: http
+  sni: dynamic-imp.rooster465.autos
+  type: trojan
   udp: true
-  name: NL-Amsterda-Datacamp-http-02
-- port: 9002
-  server: 84.17.47.125
-  skip-cert-verify: true
-  tls: true
-  type: http
+  name: JP-Tokyo-Amazon-trojan-02
+- encryption: mlkem768x25519plus.native.0rtt.oEfFlk7NfA_QAF1u_5EXbuXfD_8q-oPbaHXmxAjLAS0
+  network: ws
+  port: 80
+  server: Hshsvshshshs.G44.gymyoga.ir
+  tls: false
+  type: vless
   udp: true
-  name: NL-Amsterda-Datacamp-http-03
-- port: 443
-  server: 149.36.51.129
-  skip-cert-verify: true
-  tls: true
-  type: http
-  udp: true
-  name: NL-Amsterda-Datacamp-http-04
-- port: 9002
-  server: 84.17.47.150
-  skip-cert-verify: true
-  tls: true
-  type: http
-  udp: true
-  name: NL-Amsterda-Datacamp-http-05
-- password: github.com/Alvin9999-newpac/fanqiang
-  port: 19000
-  server: anytls2.864106.xyz
-  skip-cert-verify: true
-  sni: anytls2.864106.xyz
-  type: anytls
-  udp: true
-  name: US-San Jose-PEG-anytls-06
-- port: 9002
-  server: 193.176.84.33
-  skip-cert-verify: true
-  tls: true
-  type: http
-  udp: true
-  name: RO-Buchares-M247-http-07
+  uuid: 03a7ce81-061b-4d22-a057-40a12aa48bae
+  ws-opts:
+    headers:
+      Host: Hshsvshshshs.G44.gymyoga.ir
+    path: /
+  name: DE-Falkenst-Hetzner-vless-03
 - port: 9002
   server: 138.199.35.198
   skip-cert-verify: true
   tls: true
   type: http
   udp: true
-  name: US-Los Ange-Datacamp-http-08
-- port: 9002
-  server: 84.17.47.148
-  skip-cert-verify: true
-  tls: true
-  type: http
-  udp: true
-  name: NL-Amsterda-Datacamp-http-09
-- port: 9002
-  server: 193.176.84.25
-  skip-cert-verify: true
-  tls: true
-  type: http
-  udp: true
-  name: RO-Buchares-M247-http-10
-- port: 443
-  server: fan.365747.xyz
-  skip-cert-verify: true
-  tls: true
-  type: http
-  udp: true
-  name: US-San Jose-PEG-http-11
-- port: 9002
-  server: 193.176.84.39
-  skip-cert-verify: true
-  tls: true
-  type: http
-  udp: true
-  name: RO-Buchares-M247-http-12
-- port: 9002
-  server: 138.199.35.216
-  skip-cert-verify: true
-  tls: true
-  type: http
-  udp: true
-  name: US-Los Ange-Datacamp-http-13
-- port: 9002
-  server: 193.176.84.32
-  skip-cert-verify: true
-  tls: true
-  type: http
-  udp: true
-  name: RO-Buchares-M247-http-14
-- port: 9002
-  server: 193.176.84.17
-  skip-cert-verify: true
-  tls: true
-  type: http
-  udp: true
-  name: RO-Buchares-M247-http-15
-- port: 9002
-  server: 193.176.84.20
-  skip-cert-verify: true
-  tls: true
-  type: http
-  udp: true
-  name: RO-Buchares-M247-http-16
+  name: US-Los Ange-Datacamp-http-04
 - port: 9002
   server: 84.17.47.149
   skip-cert-verify: true
   tls: true
   type: http
   udp: true
-  name: NL-Amsterda-Datacamp-http-17
+  name: NL-Amsterda-Datacamp-http-05
 - port: 9002
-  server: 193.176.84.27
+  server: 84.17.47.150
   skip-cert-verify: true
   tls: true
   type: http
   udp: true
-  name: RO-Buchares-M247-http-18
+  name: NL-Amsterda-Datacamp-http-06
+- port: 9002
+  server: 84.17.47.125
+  skip-cert-verify: true
+  tls: true
+  type: http
+  udp: true
+  name: NL-Amsterda-Datacamp-http-07
+- port: 9002
+  server: 84.17.47.146
+  skip-cert-verify: true
+  tls: true
+  type: http
+  udp: true
+  name: NL-Amsterda-Datacamp-http-08
+- alpn:
+  - h2
+  client-fingerprint: unsafe
+  network: xhttp
+  port: 443
+  server: s3.bamans.uk
+  servername: s3.bamans.uk
+  tls: true
+  type: vless
+  udp: true
+  uuid: 86c0996e-817e-409f-a732-ff9ef94917bd
+  xhttp-opts:
+    host: s3.bamans.uk
+    mode: stream-up
+    path: /3a6b3b038ea34622bd1e13ec5798ab03
+    x-padding-bytes: 100-1000
+  name: US-San Fran-Cloudflare-vless-09
+- port: 9002
+  server: 193.176.84.39
+  skip-cert-verify: true
+  tls: true
+  type: http
+  udp: true
+  name: RO-Buchares-M247-http-10
 - password: None
   port: 9002
   server: 193.176.84.23
@@ -140,28 +100,81 @@ proxies:
   tls: true
   type: http
   udp: true
-  name: RO-Buchares-M247-http-19
+  name: RO-Buchares-M247-http-11
+- port: 9002
+  server: 138.199.35.216
+  skip-cert-verify: true
+  tls: true
+  type: http
+  udp: true
+  name: US-Los Ange-Datacamp-http-12
 - port: 9002
   server: 193.176.84.35
   skip-cert-verify: true
   tls: true
   type: http
   udp: true
-  name: RO-Buchares-M247-http-20
+  name: RO-Buchares-M247-http-13
+- port: 9002
+  server: 84.17.47.148
+  skip-cert-verify: true
+  tls: true
+  type: http
+  udp: true
+  name: NL-Amsterda-Datacamp-http-14
+- port: 9002
+  server: 193.176.84.32
+  skip-cert-verify: true
+  tls: true
+  type: http
+  udp: true
+  name: RO-Buchares-M247-http-15
+- port: 9002
+  server: 193.176.84.27
+  skip-cert-verify: true
+  tls: true
+  type: http
+  udp: true
+  name: RO-Buchares-M247-http-16
+- client-fingerprint: firefox
+  grpc-opts:
+    grpc-service-name: cdn.v1.AssetService
+  network: grpc
+  port: 443
+  server: 201.34.159.221
+  servername: us1.g4m1.biz
+  tls: true
+  type: vless
+  uuid: e0b9fb0f-1bbd-478b-9580-c2294778338b
+  name: RU-Novosibi-AS57494-vless-17
+- port: 443
+  server: 38.28.193.188
+  skip-cert-verify: true
+  tls: true
+  type: http
+  udp: true
+  name: US-San Jose-PEG-http-18
+- port: 443
+  server: fan.365747.xyz
+  skip-cert-verify: true
+  tls: true
+  type: http
+  udp: true
+  name: US-San Jose-PEG-http-19
 - port: 9002
   server: 193.176.84.30
   skip-cert-verify: true
   tls: true
   type: http
   udp: true
-  name: RO-Buchares-M247-http-21
+  name: RO-Buchares-M247-http-20
 - port: 9002
-  server: 193.176.84.24
+  server: 193.176.84.25
   skip-cert-verify: true
   tls: true
   type: http
   udp: true
-  name: RO-Buchares-M247-http-22
+  name: RO-Buchares-M247-http-21
 - password: None
   port: 9002
   server: 193.176.84.31
@@ -169,62 +182,125 @@ proxies:
   tls: true
   type: http
   udp: true
+  name: RO-Buchares-M247-http-22
+- port: 9002
+  server: 193.176.84.24
+  skip-cert-verify: true
+  tls: true
+  type: http
+  udp: true
   name: RO-Buchares-M247-http-23
+- port: 9002
+  server: 193.176.84.20
+  skip-cert-verify: true
+  tls: true
+  type: http
+  udp: true
+  name: RO-Buchares-M247-http-24
+- port: 9002
+  server: 193.176.84.33
+  skip-cert-verify: true
+  tls: true
+  type: http
+  udp: true
+  name: RO-Buchares-M247-http-25
+- client-fingerprint: chrome
+  network: ws
+  port: 8443
+  server: shop.neexbyte.ir
+  tls: true
+  type: vless
+  udp: true
+  uuid: 8bb52771-052e-40b5-ab53-c6e151ad2290
+  ws-opts:
+    headers:
+      Host: shop.neexbyte.ir
+    path: /
+  name: US-San Fran-Cloudflare-vless-26
+- port: 9002
+  server: 193.176.84.17
+  skip-cert-verify: true
+  tls: true
+  type: http
+  udp: true
+  name: RO-Buchares-M247-http-27
+- type: vless
+  server: 34.35.174.85
+  port: 443
+  uuid: 4758aee6-6d1a-4306-b460-2398b5af4e35
+  network: tcp
+  tls: true
+  servername: www.cloudflare.com
+  reality-opts:
+    public-key: dcox8XXfkOCmKn3kgrloj6wY5o1_0brJOi2mczYmAT4
+    short-id: 5ced03e42cc31aab
+  client-fingerprint: chrome
+  name: ZA-Johannes-Google-vless-28
 proxy-groups:
 - name: 🚀 节点选择
   type: select
   proxies:
   - ♻️ 自动选择
   - DIRECT
-  - FR-Paris-Scaleway-anytls-01
-  - NL-Amsterda-Datacamp-http-02
-  - NL-Amsterda-Datacamp-http-03
-  - NL-Amsterda-Datacamp-http-04
+  - JP-Tokyo-Amazon-trojan-01
+  - JP-Tokyo-Amazon-trojan-02
+  - DE-Falkenst-Hetzner-vless-03
+  - US-Los Ange-Datacamp-http-04
   - NL-Amsterda-Datacamp-http-05
-  - US-San Jose-PEG-anytls-06
-  - RO-Buchares-M247-http-07
-  - US-Los Ange-Datacamp-http-08
-  - NL-Amsterda-Datacamp-http-09
+  - NL-Amsterda-Datacamp-http-06
+  - NL-Amsterda-Datacamp-http-07
+  - NL-Amsterda-Datacamp-http-08
+  - US-San Fran-Cloudflare-vless-09
   - RO-Buchares-M247-http-10
-  - US-San Jose-PEG-http-11
-  - RO-Buchares-M247-http-12
-  - US-Los Ange-Datacamp-http-13
-  - RO-Buchares-M247-http-14
+  - RO-Buchares-M247-http-11
+  - US-Los Ange-Datacamp-http-12
+  - RO-Buchares-M247-http-13
+  - NL-Amsterda-Datacamp-http-14
   - RO-Buchares-M247-http-15
   - RO-Buchares-M247-http-16
-  - NL-Amsterda-Datacamp-http-17
-  - RO-Buchares-M247-http-18
-  - RO-Buchares-M247-http-19
+  - RU-Novosibi-AS57494-vless-17
+  - US-San Jose-PEG-http-18
+  - US-San Jose-PEG-http-19
   - RO-Buchares-M247-http-20
   - RO-Buchares-M247-http-21
   - RO-Buchares-M247-http-22
   - RO-Buchares-M247-http-23
+  - RO-Buchares-M247-http-24
+  - RO-Buchares-M247-http-25
+  - US-San Fran-Cloudflare-vless-26
+  - RO-Buchares-M247-http-27
+  - ZA-Johannes-Google-vless-28
 - name: ♻️ 自动选择
   type: url-test
   proxies:
-  - FR-Paris-Scaleway-anytls-01
-  - NL-Amsterda-Datacamp-http-02
-  - NL-Amsterda-Datacamp-http-03
-  - NL-Amsterda-Datacamp-http-04
+  - JP-Tokyo-Amazon-trojan-01
+  - JP-Tokyo-Amazon-trojan-02
+  - DE-Falkenst-Hetzner-vless-03
+  - US-Los Ange-Datacamp-http-04
   - NL-Amsterda-Datacamp-http-05
-  - US-San Jose-PEG-anytls-06
-  - RO-Buchares-M247-http-07
-  - US-Los Ange-Datacamp-http-08
-  - NL-Amsterda-Datacamp-http-09
+  - NL-Amsterda-Datacamp-http-06
+  - NL-Amsterda-Datacamp-http-07
+  - NL-Amsterda-Datacamp-http-08
+  - US-San Fran-Cloudflare-vless-09
   - RO-Buchares-M247-http-10
-  - US-San Jose-PEG-http-11
-  - RO-Buchares-M247-http-12
-  - US-Los Ange-Datacamp-http-13
-  - RO-Buchares-M247-http-14
+  - RO-Buchares-M247-http-11
+  - US-Los Ange-Datacamp-http-12
+  - RO-Buchares-M247-http-13
+  - NL-Amsterda-Datacamp-http-14
   - RO-Buchares-M247-http-15
   - RO-Buchares-M247-http-16
-  - NL-Amsterda-Datacamp-http-17
-  - RO-Buchares-M247-http-18
-  - RO-Buchares-M247-http-19
+  - RU-Novosibi-AS57494-vless-17
+  - US-San Jose-PEG-http-18
+  - US-San Jose-PEG-http-19
   - RO-Buchares-M247-http-20
   - RO-Buchares-M247-http-21
   - RO-Buchares-M247-http-22
   - RO-Buchares-M247-http-23
+  - RO-Buchares-M247-http-24
+  - RO-Buchares-M247-http-25
+  - US-San Fran-Cloudflare-vless-26
+  - RO-Buchares-M247-http-27
+  - ZA-Johannes-Google-vless-28
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 50
