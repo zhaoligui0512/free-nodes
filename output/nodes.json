@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-10-04T09:57:39.880505",
+    "generated_at": "2026-10-04T10:20:53.738192",
     "total_rounds": 3,
     "rounds_used": [
       1,
@@ -9,7 +9,7 @@
     ],
     "total_unique_nodes": 372,
     "total_stable": 17,
-    "total_good": 12,
+    "total_good": 13,
     "min_valid_rounds": 2,
     "good_threshold_ms": 3000,
     "region_quota": {
@@ -26,48 +26,19 @@
     {
       "real_name": "JP-Tokyo-Amazon-trojan-01",
       "type": "trojan",
-      "server": "musical-terrier.rooster465.autos",
-      "port": 443,
-      "ip": "13.230.91.226",
-      "country": "日本",
-      "city": "Tokyo",
-      "isp": "AS16509 Amazon.com, Inc.",
-      "avg_delay_ms": 2107,
-      "valid_rounds": 3,
-      "total_rounds": 3,
-      "delays": [
-        1992,
-        2804,
-        1526
-      ],
-      "is_cf": false,
-      "raw_config": {
-        "password": "UX82473651",
-        "port": 443,
-        "server": "musical-terrier.rooster465.autos",
-        "skip-cert-verify": true,
-        "sni": "musical-terrier.rooster465.autos",
-        "type": "trojan",
-        "udp": true,
-        "name": "node_0224"
-      }
-    },
-    {
-      "real_name": "JP-Tokyo-Amazon-trojan-02",
-      "type": "trojan",
       "server": "dynamic-imp.rooster465.autos",
       "port": 443,
       "ip": "3.112.245.255",
       "country": "日本",
       "city": "Tokyo",
       "isp": "AS16509 Amazon.com, Inc.",
-      "avg_delay_ms": 2206,
-      "valid_rounds": 3,
+      "avg_delay_ms": 2288,
+      "valid_rounds": 2,
       "total_rounds": 3,
       "delays": [
         2607,
         1968,
-        2042
+        0
       ],
       "is_cf": false,
       "raw_config": {
@@ -82,6 +53,35 @@
       }
     },
     {
+      "real_name": "JP-Tokyo-Amazon-trojan-02",
+      "type": "trojan",
+      "server": "musical-terrier.rooster465.autos",
+      "port": 443,
+      "ip": "13.230.91.226",
+      "country": "日本",
+      "city": "Tokyo",
+      "isp": "AS16509 Amazon.com, Inc.",
+      "avg_delay_ms": 2398,
+      "valid_rounds": 2,
+      "total_rounds": 3,
+      "delays": [
+        1992,
+        2804,
+        0
+      ],
+      "is_cf": false,
+      "raw_config": {
+        "password": "UX82473651",
+        "port": 443,
+        "server": "musical-terrier.rooster465.autos",
+        "skip-cert-verify": true,
+        "sni": "musical-terrier.rooster465.autos",
+        "type": "trojan",
+        "udp": true,
+        "name": "node_0224"
+      }
+    },
+    {
       "real_name": "DE-Falkenst-Hetzner-vless-03",
       "type": "vless",
       "server": "Hshsvshshshs.G44.gymyoga.ir",
@@ -90,13 +90,13 @@
       "country": "德国",
       "city": "Falkenstein",
       "isp": "AS24940 Hetzner Online GmbH",
-      "avg_delay_ms": 2288,
+      "avg_delay_ms": 2646,
       "valid_rounds": 2,
       "total_rounds": 3,
       "delays": [
         0,
         2627,
-        1950
+        2665
       ],
       "is_cf": false,
       "raw_config": {
@@ -118,11 +118,44 @@
       }
     },
     {
-      "real_name": "US-San Fran-Cloudflare-vless-04",
+      "real_name": "RU-Novosibi-AS57494-vless-04",
+      "type": "vless",
+      "server": "201.34.159.221",
+      "port": 443,
+      "ip": "201.34.159.221",
+      "country": "俄罗斯",
+      "city": "Novosibirsk",
+      "isp": "AS57494 Adman LLC",
+      "avg_delay_ms": 2699,
+      "valid_rounds": 3,
+      "total_rounds": 3,
+      "delays": [
+        4821,
+        1488,
+        1788
+      ],
+      "is_cf": false,
+      "raw_config": {
+        "client-fingerprint": "firefox",
+        "grpc-opts": {
+          "grpc-service-name": "cdn.v1.AssetService"
+        },
+        "network": "grpc",
+        "port": 443,
+        "server": "201.34.159.221",
+        "servername": "us1.g4m1.biz",
+        "tls": true,
+        "type": "vless",
+        "uuid": "e0b9fb0f-1bbd-478b-9580-c2294778338b",
+        "name": "node_0121"
+      }
+    },
+    {
+      "real_name": "US-San Fran-Cloudflare-vless-05",
       "type": "vless",
       "server": "s3.bamans.uk",
       "port": 443,
-      "ip": "104.21.60.101",
+      "ip": "172.67.195.196",
       "country": "美国",
       "city": "San Francisco",
       "isp": "AS13335 Cloudflare, Inc.",
@@ -158,39 +191,6 @@
       }
     },
     {
-      "real_name": "RU-Novosibi-AS57494-vless-05",
-      "type": "vless",
-      "server": "201.34.159.221",
-      "port": 443,
-      "ip": "201.34.159.221",
-      "country": "俄罗斯",
-      "city": "Novosibirsk",
-      "isp": "AS57494 Adman LLC",
-      "avg_delay_ms": 3154,
-      "valid_rounds": 2,
-      "total_rounds": 3,
-      "delays": [
-        4821,
-        1488,
-        0
-      ],
-      "is_cf": false,
-      "raw_config": {
-        "client-fingerprint": "firefox",
-        "grpc-opts": {
-          "grpc-service-name": "cdn.v1.AssetService"
-        },
-        "network": "grpc",
-        "port": 443,
-        "server": "201.34.159.221",
-        "servername": "us1.g4m1.biz",
-        "tls": true,
-        "type": "vless",
-        "uuid": "e0b9fb0f-1bbd-478b-9580-c2294778338b",
-        "name": "node_0121"
-      }
-    },
-    {
       "real_name": "US-San Fran-Cloudflare-vless-06",
       "type": "vless",
       "server": "shop.neexbyte.ir",
@@ -199,13 +199,13 @@
       "country": "美国",
       "city": "San Francisco",
       "isp": "AS13335 Cloudflare, Inc.",
-      "avg_delay_ms": 3715,
+      "avg_delay_ms": 3253,
       "valid_rounds": 3,
       "total_rounds": 3,
       "delays": [
         3910,
         3192,
-        4042
+        2657
       ],
       "is_cf": false,
       "raw_config": {
@@ -235,13 +235,13 @@
       "country": "ZA",
       "city": "Johannesburg",
       "isp": "AS396982 Google LLC",
-      "avg_delay_ms": 4274,
-      "valid_rounds": 2,
+      "avg_delay_ms": 3822,
+      "valid_rounds": 3,
       "total_rounds": 3,
       "delays": [
         4081,
         4468,
-        0
+        2917
       ],
       "is_cf": false,
       "raw_config": {
@@ -269,13 +269,13 @@
       "country": "美国",
       "city": "Los Angeles",
       "isp": "AS212238 Datacamp Limited",
-      "avg_delay_ms": 2337,
+      "avg_delay_ms": 2332,
       "valid_rounds": 3,
       "total_rounds": 3,
       "delays": [
         2264,
         2434,
-        2312
+        2298
       ],
       "is_cf": false,
       "raw_config": {
@@ -297,13 +297,13 @@
       "country": "美国",
       "city": "Los Angeles",
       "isp": "AS212238 Datacamp Limited",
-      "avg_delay_ms": 2877,
+      "avg_delay_ms": 2893,
       "valid_rounds": 3,
       "total_rounds": 3,
       "delays": [
         3572,
         3102,
-        1958
+        2005
       ],
       "is_cf": false,
       "raw_config": {
@@ -319,7 +319,34 @@
       }
     },
     {
-      "real_name": "US-San Jose-PEG-http-10",
+      "real_name": "US-Fremont-Hurricane-http-10",
+      "type": "http",
+      "server": "voteshirleysew.club",
+      "port": 443,
+      "ip": "72.52.87.61",
+      "country": "美国",
+      "city": "Fremont",
+      "isp": "AS6939 Hurricane Electric LLC",
+      "avg_delay_ms": 2906,
+      "valid_rounds": 2,
+      "total_rounds": 3,
+      "delays": [
+        0,
+        3394,
+        2417
+      ],
+      "is_cf": false,
+      "raw_config": {
+        "port": 443,
+        "server": "voteshirleysew.club",
+        "tls": true,
+        "type": "http",
+        "udp": true,
+        "name": "node_0276"
+      }
+    },
+    {
+      "real_name": "US-San Jose-PEG-http-11",
       "type": "http",
       "server": "38.28.193.188",
       "port": 443,
@@ -327,13 +354,13 @@
       "country": "美国",
       "city": "San Jose",
       "isp": "AS398823 PEG TECH INC",
-      "avg_delay_ms": 3160,
+      "avg_delay_ms": 3057,
       "valid_rounds": 3,
       "total_rounds": 3,
       "delays": [
         3227,
         3716,
-        2537
+        2229
       ],
       "is_cf": false,
       "raw_config": {
@@ -347,7 +374,7 @@
       }
     },
     {
-      "real_name": "US-San Jose-PEG-http-11",
+      "real_name": "US-San Jose-PEG-http-12",
       "type": "http",
       "server": "fan.365747.xyz",
       "port": 443,
@@ -355,13 +382,13 @@
       "country": "美国",
       "city": "San Jose",
       "isp": "AS54600 PEG TECH INC",
-      "avg_delay_ms": 3191,
+      "avg_delay_ms": 3310,
       "valid_rounds": 3,
       "total_rounds": 3,
       "delays": [
         4892,
         2814,
-        1867
+        2223
       ],
       "is_cf": false,
       "raw_config": {
@@ -375,63 +402,7 @@
       }
     },
     {
-      "real_name": "NL-Amsterda-Datacamp-http-12",
-      "type": "http",
-      "server": "84.17.47.149",
-      "port": 9002,
-      "ip": "84.17.47.149",
-      "country": "荷兰",
-      "city": "Amsterdam",
-      "isp": "AS60068 Datacamp Limited",
-      "avg_delay_ms": 2483,
-      "valid_rounds": 3,
-      "total_rounds": 3,
-      "delays": [
-        2354,
-        2770,
-        2326
-      ],
-      "is_cf": false,
-      "raw_config": {
-        "port": 9002,
-        "server": "84.17.47.149",
-        "skip-cert-verify": true,
-        "tls": true,
-        "type": "http",
-        "udp": true,
-        "name": "node_0244"
-      }
-    },
-    {
       "real_name": "NL-Amsterda-Datacamp-http-13",
-      "type": "http",
-      "server": "84.17.47.150",
-      "port": 9002,
-      "ip": "84.17.47.150",
-      "country": "荷兰",
-      "city": "Amsterdam",
-      "isp": "AS60068 Datacamp Limited",
-      "avg_delay_ms": 2561,
-      "valid_rounds": 3,
-      "total_rounds": 3,
-      "delays": [
-        2874,
-        2642,
-        2166
-      ],
-      "is_cf": false,
-      "raw_config": {
-        "port": 9002,
-        "server": "84.17.47.150",
-        "skip-cert-verify": true,
-        "tls": true,
-        "type": "http",
-        "udp": true,
-        "name": "node_0241"
-      }
-    },
-    {
-      "real_name": "NL-Amsterda-Datacamp-http-14",
       "type": "http",
       "server": "84.17.47.125",
       "port": 9002,
@@ -439,13 +410,13 @@
       "country": "荷兰",
       "city": "Amsterdam",
       "isp": "AS60068 Datacamp Limited",
-      "avg_delay_ms": 2617,
+      "avg_delay_ms": 2547,
       "valid_rounds": 3,
       "total_rounds": 3,
       "delays": [
         2568,
         2870,
-        2412
+        2202
       ],
       "is_cf": false,
       "raw_config": {
@@ -459,63 +430,63 @@
       }
     },
     {
-      "real_name": "NL-Amsterda-Datacamp-http-15",
+      "real_name": "NL-Amsterda-Datacamp-http-14",
       "type": "http",
-      "server": "84.17.47.146",
+      "server": "84.17.47.150",
       "port": 9002,
-      "ip": "84.17.47.146",
+      "ip": "84.17.47.150",
       "country": "荷兰",
       "city": "Amsterdam",
       "isp": "AS60068 Datacamp Limited",
-      "avg_delay_ms": 2696,
+      "avg_delay_ms": 2562,
       "valid_rounds": 3,
       "total_rounds": 3,
       "delays": [
-        2590,
-        3072,
-        2427
+        2874,
+        2642,
+        2171
       ],
       "is_cf": false,
       "raw_config": {
         "port": 9002,
-        "server": "84.17.47.146",
+        "server": "84.17.47.150",
         "skip-cert-verify": true,
         "tls": true,
         "type": "http",
         "udp": true,
-        "name": "node_0242"
+        "name": "node_0241"
+      }
+    },
+    {
+      "real_name": "NL-Amsterda-Datacamp-http-15",
+      "type": "http",
+      "server": "84.17.47.149",
+      "port": 9002,
+      "ip": "84.17.47.149",
+      "country": "荷兰",
+      "city": "Amsterdam",
+      "isp": "AS60068 Datacamp Limited",
+      "avg_delay_ms": 2586,
+      "valid_rounds": 3,
+      "total_rounds": 3,
+      "delays": [
+        2354,
+        2770,
+        2635
+      ],
+      "is_cf": false,
+      "raw_config": {
+        "port": 9002,
+        "server": "84.17.47.149",
+        "skip-cert-verify": true,
+        "tls": true,
+        "type": "http",
+        "udp": true,
+        "name": "node_0244"
       }
     },
     {
       "real_name": "RO-Buchares-M247-http-16",
-      "type": "http",
-      "server": "193.176.84.39",
-      "port": 9002,
-      "ip": "193.176.84.39",
-      "country": "罗马尼亚",
-      "city": "Bucharest",
-      "isp": "AS9009 M247 Europe SRL",
-      "avg_delay_ms": 2830,
-      "valid_rounds": 3,
-      "total_rounds": 3,
-      "delays": [
-        3200,
-        2918,
-        2371
-      ],
-      "is_cf": false,
-      "raw_config": {
-        "port": 9002,
-        "server": "193.176.84.39",
-        "skip-cert-verify": true,
-        "tls": true,
-        "type": "http",
-        "udp": true,
-        "name": "node_0277"
-      }
-    },
-    {
-      "real_name": "RO-Buchares-M247-http-17",
       "type": "http",
       "server": "193.176.84.23",
       "port": 9002,
@@ -523,13 +494,13 @@
       "country": "罗马尼亚",
       "city": "Bucharest",
       "isp": "AS9009 M247 Europe SRL",
-      "avg_delay_ms": 2840,
+      "avg_delay_ms": 2691,
       "valid_rounds": 3,
       "total_rounds": 3,
       "delays": [
         2912,
         2666,
-        2942
+        2496
       ],
       "is_cf": false,
       "raw_config": {
@@ -541,6 +512,34 @@
         "type": "http",
         "udp": true,
         "name": "node_0268"
+      }
+    },
+    {
+      "real_name": "NL-Amsterda-Datacamp-http-17",
+      "type": "http",
+      "server": "84.17.47.146",
+      "port": 9002,
+      "ip": "84.17.47.146",
+      "country": "荷兰",
+      "city": "Amsterdam",
+      "isp": "AS60068 Datacamp Limited",
+      "avg_delay_ms": 2717,
+      "valid_rounds": 3,
+      "total_rounds": 3,
+      "delays": [
+        2590,
+        3072,
+        2490
+      ],
+      "is_cf": false,
+      "raw_config": {
+        "port": 9002,
+        "server": "84.17.47.146",
+        "skip-cert-verify": true,
+        "tls": true,
+        "type": "http",
+        "udp": true,
+        "name": "node_0242"
       }
     }
   ]
