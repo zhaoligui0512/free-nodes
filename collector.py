@@ -1040,15 +1040,16 @@ def run_finalize(config):
          "MO", "BD", "PK", "LK", "KH", "NP"]))
 
     # HTTP 节点独立分组（不占亚洲/其他名额）
-    # 路由版要求三轮全通（更稳定），全量版保留 ≥2 轮通
+    # 路由版要求全轮次全通（有几轮数据就要求几轮，最多3轮），全量版保留 ≥2 轮通
     http_nodes = [n for n in stable_nodes if n["raw_config"]["type"] == "http"]
-    http_3round = [n for n in http_nodes if n["valid_rounds"] >= 3]
+    http_required_rounds = min(3, len(rounds))  # 动态：2轮数据→2轮全通，3轮→3轮全通
+    http_3round = [n for n in http_nodes if n["valid_rounds"] >= http_required_rounds]
     non_http = [n for n in stable_nodes if n["raw_config"]["type"] != "http"]
     asia_nodes = [n for n in non_http if _cc(n["raw_config"]["server"]) in asia_ccs]
     other_nodes = [n for n in non_http if _cc(n["raw_config"]["server"]) not in asia_ccs]
     asia_nodes.sort(key=lambda x: x["avg_delay"])
     other_nodes.sort(key=lambda x: x["avg_delay"])
-    log(f"地区分组: 亚洲 {len(asia_nodes)} 个, 其他 {len(other_nodes)} 个, HTTP {len(http_nodes)} 个 (三轮全通 {len(http_3round)} 个)")
+    log(f"地区分组: 亚洲 {len(asia_nodes)} 个, 其他 {len(other_nodes)} 个, HTTP {len(http_nodes)} 个 ({http_required_rounds}轮全通 {len(http_3round)} 个)")
 
     def _quota_select(nodes, quota):
         """按延迟选取节点，同协议最多 max_same_proto 个（协议多样性保护），CF 节点最多 cf_limit 个"""
