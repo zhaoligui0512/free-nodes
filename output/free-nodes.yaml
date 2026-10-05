@@ -73,11 +73,12 @@ proxies:
   name: US-Seattle-AS201106-http-05
   fingerprint: chrome
 - port: 443
-  server: 148.135.10.80
+  server: 38.28.193.188
   skip-cert-verify: true
   tls: true
   type: http
-  name: US-Los Ange-AS35916-http-06
+  udp: true
+  name: US-San Jose-PEG-http-06
   fingerprint: chrome
 - password: None
   port: 9002
@@ -88,19 +89,18 @@ proxies:
   name: US-Los Ange-Datacamp-http-07
   fingerprint: chrome
 - port: 443
-  server: 38.28.193.188
+  server: 148.135.10.80
+  skip-cert-verify: true
+  tls: true
+  type: http
+  name: US-Los Ange-AS35916-http-08
+  fingerprint: chrome
+- port: 9002
+  server: 138.199.35.198
   skip-cert-verify: true
   tls: true
   type: http
   udp: true
-  name: US-San Jose-PEG-http-08
-  fingerprint: chrome
-- password: None
-  port: 9002
-  server: 138.199.35.195
-  skip-cert-verify: true
-  tls: true
-  type: http
   name: US-Los Ange-Datacamp-http-09
   fingerprint: chrome
 - password: None
@@ -112,20 +112,12 @@ proxies:
   name: US-Los Ange-Datacamp-http-10
   fingerprint: chrome
 - port: 9002
-  server: 138.199.35.198
-  skip-cert-verify: true
-  tls: true
-  type: http
-  udp: true
-  name: US-Los Ange-Datacamp-http-11
-  fingerprint: chrome
-- port: 9002
   server: 84.17.47.146
   skip-cert-verify: true
   tls: true
   type: http
   udp: true
-  name: NL-Amsterda-Datacamp-http-12
+  name: NL-Amsterda-Datacamp-http-11
   fingerprint: chrome
 - port: 9002
   server: 84.17.47.148
@@ -133,14 +125,22 @@ proxies:
   tls: true
   type: http
   udp: true
-  name: NL-Amsterda-Datacamp-http-13
+  name: NL-Amsterda-Datacamp-http-12
   fingerprint: chrome
 - port: 443
-  server: 5.255.125.187
+  server: 51.210.167.149
   skip-cert-verify: true
   tls: true
   type: http
-  name: NL-Lelystad-AS60404-http-14
+  name: FR-Gravelin-OVH-http-13
+  fingerprint: chrome
+- port: 9002
+  server: 193.176.84.24
+  skip-cert-verify: true
+  tls: true
+  type: http
+  udp: true
+  name: RO-Buchares-M247-http-14
   fingerprint: chrome
 proxy-groups:
 - name: 🚀 节点选择
@@ -153,15 +153,15 @@ proxy-groups:
   - US-San Fran-AS54113-vless-03
   - RU-Moscow-AS204720-vless-04
   - US-Seattle-AS201106-http-05
-  - US-Los Ange-AS35916-http-06
+  - US-San Jose-PEG-http-06
   - US-Los Ange-Datacamp-http-07
-  - US-San Jose-PEG-http-08
+  - US-Los Ange-AS35916-http-08
   - US-Los Ange-Datacamp-http-09
   - US-Los Ange-Datacamp-http-10
-  - US-Los Ange-Datacamp-http-11
+  - NL-Amsterda-Datacamp-http-11
   - NL-Amsterda-Datacamp-http-12
-  - NL-Amsterda-Datacamp-http-13
-  - NL-Lelystad-AS60404-http-14
+  - FR-Gravelin-OVH-http-13
+  - RO-Buchares-M247-http-14
 - name: ♻️ 自动选择
   type: url-test
   proxies:
@@ -170,15 +170,15 @@ proxy-groups:
   - US-San Fran-AS54113-vless-03
   - RU-Moscow-AS204720-vless-04
   - US-Seattle-AS201106-http-05
-  - US-Los Ange-AS35916-http-06
+  - US-San Jose-PEG-http-06
   - US-Los Ange-Datacamp-http-07
-  - US-San Jose-PEG-http-08
+  - US-Los Ange-AS35916-http-08
   - US-Los Ange-Datacamp-http-09
   - US-Los Ange-Datacamp-http-10
-  - US-Los Ange-Datacamp-http-11
+  - NL-Amsterda-Datacamp-http-11
   - NL-Amsterda-Datacamp-http-12
-  - NL-Amsterda-Datacamp-http-13
-  - NL-Lelystad-AS60404-http-14
+  - FR-Gravelin-OVH-http-13
+  - RO-Buchares-M247-http-14
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 50
