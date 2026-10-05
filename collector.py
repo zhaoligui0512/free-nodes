@@ -1040,13 +1040,15 @@ def run_finalize(config):
          "MO", "BD", "PK", "LK", "KH", "NP"]))
 
     # HTTP 节点独立分组（不占亚洲/其他名额）
+    # 路由版要求三轮全通（更稳定），全量版保留 ≥2 轮通
     http_nodes = [n for n in stable_nodes if n["raw_config"]["type"] == "http"]
+    http_3round = [n for n in http_nodes if n["valid_rounds"] >= 3]
     non_http = [n for n in stable_nodes if n["raw_config"]["type"] != "http"]
     asia_nodes = [n for n in non_http if _cc(n["raw_config"]["server"]) in asia_ccs]
     other_nodes = [n for n in non_http if _cc(n["raw_config"]["server"]) not in asia_ccs]
     asia_nodes.sort(key=lambda x: x["avg_delay"])
     other_nodes.sort(key=lambda x: x["avg_delay"])
-    log(f"地区分组: 亚洲 {len(asia_nodes)} 个, 其他 {len(other_nodes)} 个, HTTP {len(http_nodes)} 个")
+    log(f"地区分组: 亚洲 {len(asia_nodes)} 个, 其他 {len(other_nodes)} 个, HTTP {len(http_nodes)} 个 (三轮全通 {len(http_3round)} 个)")
 
     def _quota_select(nodes, quota):
         """按延迟选取节点，同协议最多 max_same_proto 个（协议多样性保护），CF 节点最多 cf_limit 个"""
@@ -1083,10 +1085,10 @@ def run_finalize(config):
         # 其他不足，缺额补回亚洲
         selected += _quota_select(asia_nodes, asia_quota + other_quota - len(selected))
 
-    # HTTP 独立配额（美国优先）
-    selected_http = _select_http(http_nodes, http_quota)
+    # HTTP 独立配额（路由版：三轮全通，美国优先，按平均延迟排序）
+    selected_http = _select_http(http_3round, http_quota)
     selected += selected_http
-    log(f"HTTP 选取: {len(selected_http)} 个 (优先 {sorted(http_prefer_ccs)}, 目标 {http_quota})")
+    log(f"HTTP 选取: {len(selected_http)} 个 (三轮全通 {len(http_3round)}/{len(http_nodes)}, 优先 {sorted(http_prefer_ccs)}, 目标 {http_quota})")
 
     # 去重（互补时可能重叠）
     seen_ids, final_selected = set(), []
