@@ -5,89 +5,97 @@ mode: rule
 log-level: info
 ipv6: false
 proxies:
-- client-fingerprint: firefox
-  network: xhttp
-  port: 443
-  server: 50.7.29.181
-  servername: id-24f9d11d.ferrin.uk
-  tls: true
-  type: vless
+- password: e26a229d-e8f2-4ff9-8c7d-58a9d83ee437
+  port: 8886
+  server: 45.32.52.173
+  skip-cert-verify: true
+  sni: 45.32.52.173
+  type: trojan
+  name: JP-Ebara-AS20473-trojan-01
+- client-fingerprint: chrome
+  idle-session-check-interval: 30
+  idle-session-timeout: 30
+  password: 776b4834-caaf-4006-ab21-409e958867af
+  port: 33091
+  server: 45.202.240.4
+  skip-cert-verify: true
+  sni: www.bing.com
+  type: anytls
   udp: true
-  uuid: 24f9d11d-ceca-4f75-93ca-ad143ca18b28
-  xhttp-opts:
-    host: de.vmagnum.win
-    path: /
-  name: DE-Frankfur-AS30058-vless-01
-- network: ws
-  port: 8080
-  server: 172.67.210.250
-  type: vless
-  udp: true
-  uuid: f85183cf-af02-4656-b1e9-3a61dced201f
-  ws-opts:
-    headers:
-      Host: freeworld.aliaicode47649.workers.dev
-      User-Agent: Mozilla/5.0 (Windows NT 10.0) AppleWebKit/537.36 (KHTML, like Gecko)
-        Chrome/70.0.3538.102 Safari/537.36
-    path: /vl/uyXT65o0H9U3hDBrVjJ9E?ed=2560
-  xudp: true
-  name: US-San Fran-Cloudflare-vless-02
+  name: US-Los Ange-AS61112-anytls-02
 - client-fingerprint: firefox
-  encryption: mlkem768x25519plus.native.0rtt.utmP6WzJcusvh2bhbu1aSLgzVMzmWQ_TklG3xFU4Jk0
-  network: xhttp
+  network: ws
   port: 443
-  server: 199.232.77.187
+  server: 199.232.239.239
   servername: ssl.fastly.com
   tls: true
   type: vless
   udp: true
-  uuid: 5e2e35f9-512b-482e-ad12-bce69590f8d4
-  xhttp-opts:
-    host: ded1.global.ssl.fastly.net
-    mode: auto
-    path: /v2
-    x-padding-bytes: 100-1000
+  uuid: 31608e93-a701-4604-b8de-c55baa393937
+  ws-opts:
+    headers:
+      Host: uol258ehdmsohzh.global.ssl.fastly.net
+    path: /?ed=2056/?TELEGRAM--BYA--CHANEL---@GHOFLSHCAN---@GHOFLSHCAN---@GHOFLSHCAN---@GHOFLSHCAN---@GHOFLSHCAN---@GHOFLSHCAN---@GHOFLSHCAN---@GHOFLSHCAN---@GHOFLSHCAN---@GHOFLSHCAN---@GHOFLSHCAN---@GHOFLSHCAN---@GHOFLSHCAN---@GHOFLSHCAN---@GHOFLSHCAN---@GHOFLSHCAN---@GHOFLSHCAN---@GHOFLSHCAN---@GHOFLSHCAN---@GHOFLSHCAN---@GHOFLSHCAN---@GHOFLSHCAN---@GHOFLSHCAN---@GHOFLSHCAN---@GHOFLSHCAN---@GHOFLSHCAN---@GHOFLSHCAN---@GHOFLSHCAN---@GHOFLSHCAN---@GHOFLSHCAN---@GHOFLSHCAN---@GHOFLSHCAN---@GHOFLSHCAN---@GHOFLSHCAN---@GHOFLSHCAN---@GHOFLSHCAN---@GHOFLSHCAN---@GHOFLSHCAN---@GHOFLSHCAN---@GHOFLSHCAN---@GHOFLSHCAN---@GHOFLSHCAN---@GHOFLSHCAN---@GHOFLSHCAN---@GHOFLSHCAN---@GHOFLSHCAN---@GHOFLSHCAN---@GHOFLSHCAN---@GHOFLSHCAN---@GHOFLSHCAN---@GHOFLSHCAN---@GHOFLSHCAN---@GHOFLSHCAN---@GHOFLSHCAN---@GHOFLSHCAN---@GHOFLSHCAN---@GHOFLSHCAN---@GHOFLSHCAN---@GHOFLSHCAN---@GHOFLSHCAN---@GHOFLSHCAN---@GHOFLSHCAN
   name: US-San Fran-AS54113-vless-03
-- alpn:
-  - http/1.1
-  client-fingerprint: chrome
+- client-fingerprint: chrome
+  network: ws
+  port: 8443
+  server: news.zoom.us
+  servername: asia.csmaster.site
+  tls: true
+  type: vless
+  udp: true
+  uuid: 799b1006-3255-4e36-8ea0-64fe24d2bfa7
+  ws-opts:
+    headers:
+      Host: asia.csmaster.site
+      User-Agent: Mozilla/5.0 (Linux; Android 6.0; vivo 1606 Build/MMB29M) AppleWebKit/537.36
+        (KHTML, like Gecko) Chrome/53.0.2785.124 Mobile Safari/537.36
+    path: ''
+  xudp: true
+  name: US-Austin-Cloudflare-vless-04
+- password: github.com/Alvin9999-newpac/fanqiang
+  port: 30099
+  server: ip5.934618.xyz
+  skip-cert-verify: true
+  sni: ip5.934618.xyz
+  type: anytls
+  udp: true
+  name: FR-Paris-Scaleway-anytls-05
+- client-fingerprint: chrome
   encryption: none
   network: ws
   port: 443
-  server: fbsv6.guardora.pro
-  servername: fbsv6.guardora.pro
-  skip-cert-verify: false
+  server: 2.56.172.107
+  servername: x.m-90.xyz
   tls: true
   type: vless
-  uuid: bc5ec86c-3e65-4272-994c-59a924c72a68
+  udp: true
+  uuid: 489f1717-d3c7-4940-ad68-bdbdbab857f4
   ws-opts:
     headers:
-      Host: fbsv6.guardora.pro
-    path: /ws
-  name: RU-Moscow-AS204720-vless-04
-- port: 8443
-  server: 45.145.72.122
-  skip-cert-verify: true
+      Host: x.m-90.xyz
+      User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/59.0.3071.115 Safari/537.36
+    path: t.me/TEAMNETGRATISCOL
+  xudp: true
+  name: PL-Warsaw-AS203273-vless-06
+- client-fingerprint: chrome
+  network: ws
+  port: 443
+  server: 170.114.52.22
   tls: true
-  type: http
-  name: US-Seattle-AS201106-http-05
-  fingerprint: chrome
-- port: 443
-  server: 38.28.193.188
-  skip-cert-verify: true
-  tls: true
-  type: http
+  type: vless
   udp: true
-  name: US-San Jose-PEG-http-06
-  fingerprint: chrome
-- password: None
-  port: 9002
-  server: 138.199.35.208
-  skip-cert-verify: true
-  tls: true
-  type: http
-  name: US-Los Ange-Datacamp-http-07
-  fingerprint: chrome
+  uuid: a853e120-3570-462b-aec1-e8f3d4f92d24
+  ws-opts:
+    headers:
+      Host: asia.csmaster.site
+      User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like
+        Gecko) Chrome/44.0.2403.157 Safari/537.36
+    path: ''
+  xudp: true
+  name: US-San Jose-Cloudflare-vless-07
 - port: 443
   server: 148.135.10.80
   skip-cert-verify: true
@@ -95,52 +103,20 @@ proxies:
   type: http
   name: US-Los Ange-AS35916-http-08
   fingerprint: chrome
-- port: 9002
-  server: 138.199.35.198
+- password: None
+  port: 9002
+  server: 138.199.35.195
   skip-cert-verify: true
   tls: true
   type: http
-  udp: true
   name: US-Los Ange-Datacamp-http-09
   fingerprint: chrome
-- password: None
-  port: 9002
-  server: 138.199.35.200
+- port: 9002
+  server: 138.199.35.203
   skip-cert-verify: true
   tls: true
   type: http
   name: US-Los Ange-Datacamp-http-10
-  fingerprint: chrome
-- port: 9002
-  server: 84.17.47.146
-  skip-cert-verify: true
-  tls: true
-  type: http
-  udp: true
-  name: NL-Amsterda-Datacamp-http-11
-  fingerprint: chrome
-- port: 9002
-  server: 84.17.47.148
-  skip-cert-verify: true
-  tls: true
-  type: http
-  udp: true
-  name: NL-Amsterda-Datacamp-http-12
-  fingerprint: chrome
-- port: 443
-  server: 51.210.167.149
-  skip-cert-verify: true
-  tls: true
-  type: http
-  name: FR-Gravelin-OVH-http-13
-  fingerprint: chrome
-- port: 9002
-  server: 193.176.84.24
-  skip-cert-verify: true
-  tls: true
-  type: http
-  udp: true
-  name: RO-Buchares-M247-http-14
   fingerprint: chrome
 proxy-groups:
 - name: 🚀 节点选择
@@ -148,37 +124,29 @@ proxy-groups:
   proxies:
   - ♻️ 自动选择
   - DIRECT
-  - DE-Frankfur-AS30058-vless-01
-  - US-San Fran-Cloudflare-vless-02
+  - JP-Ebara-AS20473-trojan-01
+  - US-Los Ange-AS61112-anytls-02
   - US-San Fran-AS54113-vless-03
-  - RU-Moscow-AS204720-vless-04
-  - US-Seattle-AS201106-http-05
-  - US-San Jose-PEG-http-06
-  - US-Los Ange-Datacamp-http-07
+  - US-Austin-Cloudflare-vless-04
+  - FR-Paris-Scaleway-anytls-05
+  - PL-Warsaw-AS203273-vless-06
+  - US-San Jose-Cloudflare-vless-07
   - US-Los Ange-AS35916-http-08
   - US-Los Ange-Datacamp-http-09
   - US-Los Ange-Datacamp-http-10
-  - NL-Amsterda-Datacamp-http-11
-  - NL-Amsterda-Datacamp-http-12
-  - FR-Gravelin-OVH-http-13
-  - RO-Buchares-M247-http-14
 - name: ♻️ 自动选择
   type: url-test
   proxies:
-  - DE-Frankfur-AS30058-vless-01
-  - US-San Fran-Cloudflare-vless-02
+  - JP-Ebara-AS20473-trojan-01
+  - US-Los Ange-AS61112-anytls-02
   - US-San Fran-AS54113-vless-03
-  - RU-Moscow-AS204720-vless-04
-  - US-Seattle-AS201106-http-05
-  - US-San Jose-PEG-http-06
-  - US-Los Ange-Datacamp-http-07
+  - US-Austin-Cloudflare-vless-04
+  - FR-Paris-Scaleway-anytls-05
+  - PL-Warsaw-AS203273-vless-06
+  - US-San Jose-Cloudflare-vless-07
   - US-Los Ange-AS35916-http-08
   - US-Los Ange-Datacamp-http-09
   - US-Los Ange-Datacamp-http-10
-  - NL-Amsterda-Datacamp-http-11
-  - NL-Amsterda-Datacamp-http-12
-  - FR-Gravelin-OVH-http-13
-  - RO-Buchares-M247-http-14
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 50
