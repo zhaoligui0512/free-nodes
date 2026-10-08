@@ -5,157 +5,170 @@ mode: rule
 log-level: info
 ipv6: false
 proxies:
-- alpn:
-  - h2
-  - http/
-  client-fingerprint: chrome
-  network: ws
-  port: 443
-  server: 170.114.52.22
-  tls: true
-  type: vless
-  udp: true
-  uuid: dd2e8c8c-abf4-48bf-9798-c8a9af94d99f
-  ws-opts:
-    headers:
-      Host: asia.csmaster.site
-    path: /
-  name: US-San Jose-Cloudflare-vless-01
-- alpn:
-  - ''
-  alterId: 0
-  cipher: auto
-  http-opts:
-    headers:
-      Host:
-      - down-cdn.dingtalk.com
-    method: GET
-    path:
-    - /3x
-  network: http
-  port: 52080
-  server: 185.212.149.7
+- auth: 5d0a6445-a30d-4522-bb1f-94f1d3ad63be
+  password: 5d0a6445-a30d-4522-bb1f-94f1d3ad63be
+  port: 2060
+  server: rb.mangshe.xyz
   skip-cert-verify: true
+  sni: 127.0.0.1
   tls: false
-  type: vmess
+  type: hysteria2
+  name: JP-Tokyo-Baxet-hysteria2-01
+- auth: 9Me_Jx935gnHx13_Nx45M_NYXe037js_Be4z
+  password: 9Me_Jx935gnHx13_Nx45M_NYXe037js_Be4z
+  port: 8443
+  server: 162.249.126.39
+  skip-cert-verify: true
+  sni: hop-germany-september.dynuddns.com
+  tls: false
+  type: hysteria2
+  name: DE-Frankfur-AS25198-hysteria2-02
+- password: github.com/Alvin9999-newpac/fanqiang
+  port: 30099
+  server: ip5.934618.xyz
+  skip-cert-verify: true
+  sni: ip5.934618.xyz
+  type: anytls
   udp: true
-  uuid: ec3c8b97-f308-4fee-aa16-95e2c7595acd
-  name: FI-Helsinki-AS51765-vmess-02
-- type: vless
-  server: 8.47.69.0
-  port: 2053
-  uuid: 9d672694-c146-422e-b3b5-3717a38a0fcc
-  network: ws
+  name: FR-Paris-Scaleway-anytls-03
+- auth: s0_sdK93x9wer_D02Lz9cvK3_Sa014Oakl_C2z
+  password: s0_sdK93x9wer_D02Lz9cvK3_Sa014Oakl_C2z
+  port: 8443
+  server: 77.74.123.109
+  skip-cert-verify: true
+  sni: grape-test-italy.dynuddns.net
+  tls: false
+  type: hysteria2
+  name: NL-Amsterda-AS25198-hysteria2-04
+- auth: s0_sdK93x9wer_D02Lz9cvK3_Sa014Oakl_C2z
+  password: s0_sdK93x9wer_D02Lz9cvK3_Sa014Oakl_C2z
+  port: 8443
+  server: 77.74.123.107
+  skip-cert-verify: true
+  sni: grape-test-italy.dynuddns.net
+  tls: false
+  type: hysteria2
+  name: NL-Amsterda-AS25198-hysteria2-05
+- auth: c-E0lamG8OnEj9M_uh3oJPmIXqYIVGctO-NHELF1TmNYs7Jl
+  password: c-E0lamG8OnEj9M_uh3oJPmIXqYIVGctO-NHELF1TmNYs7Jl
+  port: 443
+  server: cz.h2.cleanersaz.help
+  skip-cert-verify: true
+  sni: cz.h2.cleanersaz.help
+  tls: false
+  type: hysteria2
+  name: DE-Frankfur-AS218688-hysteria2-06
+- type: anytls
+  server: anytls2.864106.xyz
+  port: 19000
+  password: github.com/Alvin9999-newpac/fanqiang
+  sni: anytls2.864106.xyz
+  skip-cert-verify: true
   tls: true
-  servername: vless.api-music-fa.com
-  ws-opts:
-    path: /api/voip/updates/static/fr2035
-    headers:
-      Host: fr.api-music-fa.com
-  name: US-San Fran-Cloudflare-vless-03
+  udp: true
+  name: US-San Jose-PEG-anytls-07
   fingerprint: chrome
 - client-fingerprint: chrome
+  encryption: none
   network: ws
   port: 443
-  server: 85.192.60.46
-  servername: bab-6.site
+  server: 217.60.6.103
+  servername: x.m-90.xyz
   tls: true
   type: vless
   udp: true
-  uuid: b585dc5e-55bf-4a8b-913a-27c9ccac05c3
+  uuid: 489f1717-d3c7-4940-ad68-bdbdbab857f4
   ws-opts:
     headers:
-      Host: bab-6.site
-    path: /vws/
-  name: NL-Amsterda-AS210644-vless-04
-- client-fingerprint: firefox
-  network: ws
-  port: 443
-  server: fr2.vip-get.ru
-  servername: fr2.vip-get.ru
-  tls: true
-  type: vless
-  udp: true
-  uuid: db4fb2a7-a31d-46d8-b6d2-76eafe8cfe2a
-  ws-opts:
-    headers:
-      Host: fr2.vip-get.ru
-    path: /api/download
-  name: DE-Frankfur-AS207957-vless-05
-- port: 9002
-  server: 138.199.35.209
+      Host: x.m-90.xyz
+      User-Agent: Mozilla/5.0 (Windows NT 6.0; WOW64) AppleWebKit/537.36 (KHTML, like
+        Gecko) Chrome/46.0.2490.80 Safari/537.36
+    path: t.me/TEAMNETGRATISCOL
+  xudp: true
+  name: LV-Riga-AS56971-vless-08
+- alpn:
+  - h3
+  auth-str: github.com/Alvin9999-newpac/fanqiang
+  down: 55 Mbps
+  port: 23556
+  protocol: udp
+  server: 62.210.70.191
   skip-cert-verify: true
-  tls: true
-  type: http
-  name: US-Los Ange-Datacamp-http-06
-  fingerprint: chrome
-- port: 9002
-  server: 138.199.35.200
-  skip-cert-verify: true
-  tls: true
-  type: http
-  name: US-Los Ange-Datacamp-http-07
-  fingerprint: chrome
+  sni: bing.com
+  type: hysteria
+  up: 11 Mbps
+  name: FR-Paris-Scaleway-hysteria-09
 - password: None
   port: 9002
-  server: 138.199.35.195
-  skip-cert-verify: true
-  tls: true
-  type: http
-  name: US-Los Ange-Datacamp-http-08
-  fingerprint: chrome
-- password: None
-  port: 9002
-  server: 138.199.35.197
-  skip-cert-verify: true
-  tls: true
-  type: http
-  name: US-Los Ange-Datacamp-http-09
-  fingerprint: chrome
-- password: None
-  port: 9002
-  server: 138.199.35.211
+  server: 138.199.35.206
   skip-cert-verify: true
   tls: true
   type: http
   name: US-Los Ange-Datacamp-http-10
   fingerprint: chrome
-- port: 9002
-  server: 138.199.35.215
+- port: 443
+  server: 64.98.50.100
   skip-cert-verify: true
   tls: true
   type: http
-  udp: true
-  name: US-Los Ange-Datacamp-http-11
+  name: US-Englewoo-AS32133-http-11
+  fingerprint: chrome
+- port: 443
+  server: 44.239.226.15
+  skip-cert-verify: true
+  tls: true
+  type: http
+  name: US-Boardman-Amazon-http-12
+  fingerprint: chrome
+- port: 443
+  server: 38.247.141.135
+  skip-cert-verify: true
+  tls: true
+  type: http
+  name: US-Dallas-AS393398-http-13
+  fingerprint: chrome
+- port: 443
+  server: 172.64.68.89
+  skip-cert-verify: true
+  tls: true
+  type: http
+  name: US-San Fran-Cloudflare-http-14
+  fingerprint: chrome
+- port: 443
+  server: 44.198.49.169
+  skip-cert-verify: true
+  tls: true
+  type: http
+  name: US-Ashburn-Amazon-http-15
   fingerprint: chrome
 - port: 443
   server: 185.4.114.7
   skip-cert-verify: true
   tls: true
   type: http
-  name: NL-Naaldwij-AS49981-http-12
+  name: NL-Naaldwij-AS49981-http-16
   fingerprint: chrome
 - port: 443
-  server: 87.106.223.158
+  server: 213.109.163.119
   skip-cert-verify: true
   tls: true
   type: http
-  name: DE-Berlin-AS8560-http-13
+  name: DE-Nurember-AS197540-http-17
   fingerprint: chrome
-- port: 8081
-  server: 31.32.19.111
+- port: 443
+  server: 94.177.163.156
   skip-cert-verify: true
   tls: true
   type: http
-  name: FR-Paris-AS5410-http-14
+  name: IT-Arezzo-AS31034-http-18
   fingerprint: chrome
 - port: 9002
-  server: 84.17.47.149
+  server: 84.17.47.148
   skip-cert-verify: true
   tls: true
   type: http
   udp: true
-  name: NL-Amsterda-Datacamp-http-15
+  name: NL-Amsterda-Datacamp-http-19
   fingerprint: chrome
 proxy-groups:
 - name: 🚀 节点选择
@@ -163,39 +176,47 @@ proxy-groups:
   proxies:
   - ♻️ 自动选择
   - DIRECT
-  - US-San Jose-Cloudflare-vless-01
-  - FI-Helsinki-AS51765-vmess-02
-  - US-San Fran-Cloudflare-vless-03
-  - NL-Amsterda-AS210644-vless-04
-  - DE-Frankfur-AS207957-vless-05
-  - US-Los Ange-Datacamp-http-06
-  - US-Los Ange-Datacamp-http-07
-  - US-Los Ange-Datacamp-http-08
-  - US-Los Ange-Datacamp-http-09
+  - JP-Tokyo-Baxet-hysteria2-01
+  - DE-Frankfur-AS25198-hysteria2-02
+  - FR-Paris-Scaleway-anytls-03
+  - NL-Amsterda-AS25198-hysteria2-04
+  - NL-Amsterda-AS25198-hysteria2-05
+  - DE-Frankfur-AS218688-hysteria2-06
+  - US-San Jose-PEG-anytls-07
+  - LV-Riga-AS56971-vless-08
+  - FR-Paris-Scaleway-hysteria-09
   - US-Los Ange-Datacamp-http-10
-  - US-Los Ange-Datacamp-http-11
-  - NL-Naaldwij-AS49981-http-12
-  - DE-Berlin-AS8560-http-13
-  - FR-Paris-AS5410-http-14
-  - NL-Amsterda-Datacamp-http-15
+  - US-Englewoo-AS32133-http-11
+  - US-Boardman-Amazon-http-12
+  - US-Dallas-AS393398-http-13
+  - US-San Fran-Cloudflare-http-14
+  - US-Ashburn-Amazon-http-15
+  - NL-Naaldwij-AS49981-http-16
+  - DE-Nurember-AS197540-http-17
+  - IT-Arezzo-AS31034-http-18
+  - NL-Amsterda-Datacamp-http-19
 - name: ♻️ 自动选择
   type: url-test
   proxies:
-  - US-San Jose-Cloudflare-vless-01
-  - FI-Helsinki-AS51765-vmess-02
-  - US-San Fran-Cloudflare-vless-03
-  - NL-Amsterda-AS210644-vless-04
-  - DE-Frankfur-AS207957-vless-05
-  - US-Los Ange-Datacamp-http-06
-  - US-Los Ange-Datacamp-http-07
-  - US-Los Ange-Datacamp-http-08
-  - US-Los Ange-Datacamp-http-09
+  - JP-Tokyo-Baxet-hysteria2-01
+  - DE-Frankfur-AS25198-hysteria2-02
+  - FR-Paris-Scaleway-anytls-03
+  - NL-Amsterda-AS25198-hysteria2-04
+  - NL-Amsterda-AS25198-hysteria2-05
+  - DE-Frankfur-AS218688-hysteria2-06
+  - US-San Jose-PEG-anytls-07
+  - LV-Riga-AS56971-vless-08
+  - FR-Paris-Scaleway-hysteria-09
   - US-Los Ange-Datacamp-http-10
-  - US-Los Ange-Datacamp-http-11
-  - NL-Naaldwij-AS49981-http-12
-  - DE-Berlin-AS8560-http-13
-  - FR-Paris-AS5410-http-14
-  - NL-Amsterda-Datacamp-http-15
+  - US-Englewoo-AS32133-http-11
+  - US-Boardman-Amazon-http-12
+  - US-Dallas-AS393398-http-13
+  - US-San Fran-Cloudflare-http-14
+  - US-Ashburn-Amazon-http-15
+  - NL-Naaldwij-AS49981-http-16
+  - DE-Nurember-AS197540-http-17
+  - IT-Arezzo-AS31034-http-18
+  - NL-Amsterda-Datacamp-http-19
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 50
