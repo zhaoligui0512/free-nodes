@@ -5,115 +5,197 @@ mode: rule
 log-level: info
 ipv6: false
 proxies:
-- port: 8443
-  server: 45.145.73.240
+- encryption: mlkem768x25519plus.native.0rtt.4KdihKDYMW0oVNhapx5xMK_dLk5YOAB41kZYlC_mnHY
+  http-opts:
+    headers:
+      Host:
+      - testspeed-foreign.tci.ir
+    method: GET
+    path:
+    - /@TurboConfigs---@TurboConfigs---@TurboConfigs---@TurboConfigs---@TurboConfigs--@TurboConfigs---@TurboConfigs---@TurboConfigs---@TurboConfigs---@TurboConfigs---@TurboConfigs--@TurboConfigs---@TurboConfigs---@TurboConfigs---@TurboConfigs---@TurboConfigs---@TurboConfigs--@TurboConfigs---@TurboConfigs---@TurboConfigs---
+  network: http
+  port: 9090
+  server: 91.107.152.245
+  tls: false
+  type: vless
+  udp: true
+  uuid: 5c19d97e-6f02-4ca8-91b7-d3ef4341c95e
+  name: DE-Nurember-Hetzner-vless-01
+- password: github.com/Alvin9999-newpac/fanqiang
+  port: 30099
+  server: ip5.934618.xyz
+  skip-cert-verify: true
+  sni: ip5.934618.xyz
+  type: anytls
+  udp: true
+  name: FR-Paris-Scaleway-anytls-02
+- password: None
+  port: 9002
+  server: 193.176.84.20
   skip-cert-verify: true
   tls: true
   type: http
-  name: US-Seattle-AS201106-http-01
+  name: RO-Buchares-M247-http-03
   fingerprint: chrome
 - port: 9002
-  server: 193.176.84.30
+  server: 84.17.47.150
   skip-cert-verify: true
   tls: true
   type: http
   udp: true
-  name: RO-Buchares-M247-http-02
+  name: NL-Amsterda-Datacamp-http-04
+  fingerprint: chrome
+- password: None
+  port: 443
+  server: 149.36.51.129
+  skip-cert-verify: true
+  tls: true
+  type: http
+  name: NL-Amsterda-Datacamp-http-05
   fingerprint: chrome
 - port: 443
-  server: 79.76.126.155
+  server: 146.70.242.146
   skip-cert-verify: true
   tls: true
   type: http
-  name: DE-Frankfur-Oracle-http-03
+  name: SE-Stockhol-M247-http-06
   fingerprint: chrome
 - port: 443
-  server: 82.64.255.151
+  server: 37.120.156.34
   skip-cert-verify: true
   tls: true
   type: http
-  name: FR-Marseill-AS12322-http-04
+  name: PL-Ursynów-M247-http-07
   fingerprint: chrome
-- port: 443
-  server: 87.106.223.158
-  skip-cert-verify: true
-  tls: true
-  type: http
-  name: DE-Berlin-AS8560-http-05
-  fingerprint: chrome
-- port: 443
-  server: 38.247.141.135
-  skip-cert-verify: true
-  tls: true
-  type: http
-  name: US-Dallas-AS393398-http-06
-  fingerprint: chrome
-- port: 9002
-  server: 138.199.35.197
-  skip-cert-verify: true
-  tls: true
-  type: http
-  name: US-Los Ange-Datacamp-http-07
-  fingerprint: chrome
-- port: 9002
-  server: 193.176.84.36
-  skip-cert-verify: true
-  sni: www.bing.com
-  tls: true
-  type: http
-  name: RO-Buchares-M247-http-08
-  fingerprint: chrome
-- port: 9002
-  server: 84.17.47.146
-  skip-cert-verify: true
-  tls: true
-  type: http
-  udp: true
-  name: NL-Amsterda-Datacamp-http-09
-  fingerprint: chrome
-- port: 9002
+- password: None
+  port: 9002
   server: 84.17.47.148
   skip-cert-verify: true
   tls: true
   type: http
   udp: true
-  name: NL-Amsterda-Datacamp-http-10
+  name: NL-Amsterda-Datacamp-http-08
+  fingerprint: chrome
+- password: None
+  port: 443
+  server: 185.216.35.130
+  skip-cert-verify: true
+  tls: true
+  type: http
+  name: CZ-Prague-M247-http-09
+  fingerprint: chrome
+- password: None
+  port: 443
+  server: 146.70.242.130
+  skip-cert-verify: true
+  tls: true
+  type: http
+  name: SE-Stockhol-M247-http-10
   fingerprint: chrome
 - port: 443
-  server: 103.97.88.154
+  server: 64.98.50.100
   skip-cert-verify: true
-  sni: 4a8c2906c96058315dffbc2b0e7ff19b-98005bea43f9ac33.apache-iv.com
   tls: true
   type: http
-  name: NL-Amsterda-AS56630-http-11
+  name: US-Englewoo-AS32133-http-11
   fingerprint: chrome
-- port: 9002
-  server: 138.199.35.217
+- port: 9443
+  server: 84.17.50.214
   skip-cert-verify: true
   tls: true
   type: http
-  name: US-Los Ange-Datacamp-http-12
+  name: GB-London-Datacamp-http-12
   fingerprint: chrome
 - port: 443
-  server: 152.53.107.196
+  server: 35.183.131.26
   skip-cert-verify: true
   tls: true
   type: http
-  name: NL-Amsterda-AS197540-http-13
+  name: CA-Montréal-Amazon-http-13
+  fingerprint: chrome
+- port: 443
+  server: 185.164.138.156
+  skip-cert-verify: true
+  tls: true
+  type: http
+  name: GB-London-AS62240-http-14
+  fingerprint: chrome
+- port: 443
+  server: 167.88.60.242
+  skip-cert-verify: true
+  tls: true
+  type: http
+  name: US-Santa Cl-AS63023-http-15
   fingerprint: chrome
 - port: 9002
-  server: 138.199.35.196
+  server: 84.17.47.149
   skip-cert-verify: true
   tls: true
   type: http
-  name: US-Los Ange-Datacamp-http-14
+  udp: true
+  name: NL-Amsterda-Datacamp-http-16
+  fingerprint: chrome
+- port: 443
+  server: 5.255.118.82
+  skip-cert-verify: true
+  tls: true
+  type: http
+  name: NL-Lelystad-AS60404-http-17
+  fingerprint: chrome
+- port: 443
+  server: 213.207.130.34
+  skip-cert-verify: true
+  tls: true
+  type: http
+  name: CY-Nicosia-AS15805-http-18
+  fingerprint: chrome
+- password: None
+  port: 443
+  server: 109.248.149.34
+  skip-cert-verify: true
+  tls: true
+  type: http
+  name: LV-Riga-AS52048-http-19
   fingerprint: chrome
 - port: 9002
-  server: 138.199.35.203
+  server: 193.176.84.27
+  skip-cert-verify: true
+  sni: www.bing.com
+  tls: true
+  type: http
+  udp: true
+  name: RO-Buchares-M247-http-20
+  fingerprint: chrome
+- port: 8090
+  server: 82.96.128.175
   skip-cert-verify: true
   tls: true
   type: http
-  name: US-Los Ange-Datacamp-http-15
+  name: FR-Paris-AS199636-http-21
+  fingerprint: chrome
+- port: 443
+  server: 149.22.85.78
+  skip-cert-verify: true
+  tls: true
+  type: http
+  udp: true
+  name: GR-Athens-Datacamp-http-22
+  fingerprint: chrome
+- password: None
+  port: 443
+  server: 130.195.250.18
+  skip-cert-verify: true
+  tls: true
+  type: http
+  name: ES-Barcelon-M247-http-23
+  fingerprint: chrome
+- password: None
+  port: 443
+  server: 109.248.147.66
+  skip-cert-verify: true
+  tls: true
+  type: http
+  name: LV-Riga-AS52048-http-24
   fingerprint: chrome
 - password: None
   port: 9002
@@ -122,53 +204,285 @@ proxies:
   tls: true
   type: http
   udp: true
-  name: NL-Amsterda-Datacamp-http-16
+  name: NL-Amsterda-Datacamp-http-25
+  fingerprint: chrome
+- password: None
+  port: 443
+  server: 37.120.233.34
+  skip-cert-verify: true
+  tls: true
+  type: http
+  name: GB-Manchest-M247-http-26
   fingerprint: chrome
 - port: 443
-  server: 172.64.68.89
+  server: 31.171.154.66
   skip-cert-verify: true
   tls: true
   type: http
-  name: US-San Fran-Cloudflare-http-17
-  fingerprint: chrome
-- port: 8090
-  server: 80.124.109.22
-  skip-cert-verify: true
-  tls: true
-  type: http
-  name: FR-Orléans-AS15557-http-18
+  name: AL-Tirana-AS197706-http-27
   fingerprint: chrome
 - port: 9002
-  server: 193.176.84.37
+  server: 138.199.35.203
   skip-cert-verify: true
-  sni: www.bing.com
   tls: true
   type: http
-  name: RO-Buchares-M247-http-19
+  name: US-Los Ange-Datacamp-http-28
   fingerprint: chrome
-- port: 9002
-  server: 84.17.47.150
+- password: None
+  port: 443
+  server: 82.102.17.178
+  skip-cert-verify: true
+  tls: true
+  type: http
+  name: ES-Madrid-M247-http-29
+  fingerprint: chrome
+- port: 443
+  server: 185.216.35.66
   skip-cert-verify: true
   tls: true
   type: http
   udp: true
-  name: NL-Amsterda-Datacamp-http-20
+  name: CZ-Prague-M247-http-30
   fingerprint: chrome
-- port: 9002
-  server: 138.199.35.199
+- password: None
+  port: 443
+  server: 146.70.244.2
+  skip-cert-verify: true
+  tls: true
+  type: http
+  name: AT-Vienna-M247-http-31
+  fingerprint: chrome
+- password: None
+  port: 443
+  server: 146.70.123.98
+  skip-cert-verify: true
+  tls: true
+  type: http
+  name: BE-Zaventem-M247-http-32
+  fingerprint: chrome
+- port: 9443
+  server: 138.199.47.247
+  skip-cert-verify: true
+  tls: true
+  type: http
+  name: FR-Paris-Datacamp-http-33
+  fingerprint: chrome
+- port: 9443
+  server: 213.177.229.161
+  skip-cert-verify: true
+  tls: true
+  type: http
+  name: DE-Berlin-Datacamp-http-34
+  fingerprint: chrome
+- port: 443
+  server: 149.22.85.65
   skip-cert-verify: true
   tls: true
   type: http
   udp: true
-  name: US-Los Ange-Datacamp-http-21
+  name: GR-Athens-Datacamp-http-35
+  fingerprint: chrome
+- password: None
+  port: 443
+  server: 37.120.233.18
+  skip-cert-verify: true
+  tls: true
+  type: http
+  name: GB-Manchest-M247-http-36
+  fingerprint: chrome
+- password: None
+  port: 443
+  server: 185.245.84.50
+  skip-cert-verify: true
+  tls: true
+  type: http
+  name: DK-Ballerup-M247-http-37
+  fingerprint: chrome
+- port: 443
+  server: 18.200.158.139
+  skip-cert-verify: true
+  tls: true
+  type: http
+  name: IE-Dublin-Amazon-http-38
+  fingerprint: chrome
+- port: 443
+  server: 146.70.221.18
+  skip-cert-verify: true
+  tls: true
+  type: http
+  name: RS-Belgrade-M247-http-39
   fingerprint: chrome
 - port: 9002
-  server: 193.176.84.33
+  server: 193.176.84.32
   skip-cert-verify: true
   tls: true
   type: http
   udp: true
-  name: RO-Buchares-M247-http-22
+  name: RO-Buchares-M247-http-40
+  fingerprint: chrome
+- password: None
+  port: 9002
+  server: 138.199.35.213
+  skip-cert-verify: true
+  tls: true
+  type: http
+  name: US-Los Ange-Datacamp-http-41
+  fingerprint: chrome
+- password: None
+  port: 443
+  server: 87.249.132.97
+  skip-cert-verify: true
+  tls: true
+  type: http
+  name: DE-法兰克福-Datacamp-http-42
+  fingerprint: chrome
+- port: 443
+  server: 23.133.176.14
+  skip-cert-verify: true
+  tls: true
+  type: http
+  name: US-Dallas-AS29802-http-43
+  fingerprint: chrome
+- password: None
+  port: 9002
+  server: 193.176.84.26
+  skip-cert-verify: true
+  tls: true
+  type: http
+  name: RO-Buchares-M247-http-44
+  fingerprint: chrome
+- port: 9443
+  server: 198.44.135.19
+  skip-cert-verify: true
+  tls: true
+  type: http
+  name: US-Ashburn-AS11878-http-45
+  fingerprint: chrome
+- port: 443
+  server: 38.28.193.188
+  skip-cert-verify: true
+  tls: true
+  type: http
+  udp: true
+  name: US-San Jose-PEG-http-46
+  fingerprint: chrome
+- port: 9443
+  server: 95.153.31.66
+  skip-cert-verify: true
+  tls: true
+  type: http
+  name: EE-Tallinn-AS1257-http-47
+  fingerprint: chrome
+- password: None
+  port: 443
+  server: 149.36.50.157
+  skip-cert-verify: true
+  tls: true
+  type: http
+  name: DE-Frankfur-Datacamp-http-48
+  fingerprint: chrome
+- port: 443
+  server: 212.102.63.61
+  skip-cert-verify: true
+  tls: true
+  type: http
+  name: GB-London-Datacamp-http-49
+  fingerprint: chrome
+- port: 9443
+  server: 146.70.170.210
+  skip-cert-verify: true
+  tls: true
+  type: http
+  name: NO-Oslo-M247-http-50
+  fingerprint: chrome
+- port: 9443
+  server: 149.88.27.46
+  skip-cert-verify: true
+  tls: true
+  type: http
+  name: CH-Zürich-Datacamp-http-51
+  fingerprint: chrome
+- port: 9002
+  server: 84.17.47.146
+  skip-cert-verify: true
+  tls: true
+  type: http
+  udp: true
+  name: NL-Amsterda-Datacamp-http-52
+  fingerprint: chrome
+- port: 9002
+  server: 138.199.35.216
+  skip-cert-verify: true
+  tls: true
+  type: http
+  udp: true
+  name: US-Los Ange-Datacamp-http-53
+  fingerprint: chrome
+- port: 443
+  server: 216.107.139.82
+  skip-cert-verify: true
+  sni: 991cc80f13caf81d3426ddebb2da7f49-92ff472ddc24e5b7.apache-iv.com
+  tls: true
+  type: http
+  name: US-New York-AS396356-http-54
+  fingerprint: chrome
+- port: 9002
+  server: 193.176.84.30
+  skip-cert-verify: true
+  tls: true
+  type: http
+  udp: true
+  name: RO-Buchares-M247-http-55
+  fingerprint: chrome
+- port: 443
+  server: 185.219.159.16
+  skip-cert-verify: true
+  tls: true
+  type: http
+  name: LV-Riga-AS215373-http-56
+  fingerprint: chrome
+- port: 443
+  server: 87.120.103.226
+  skip-cert-verify: true
+  tls: true
+  type: http
+  name: AL-Tirana-AS198890-http-57
+  fingerprint: chrome
+- port: 443
+  server: 154.47.29.161
+  skip-cert-verify: true
+  tls: true
+  type: http
+  name: HR-Zagreb-Datacamp-http-58
+  fingerprint: chrome
+- port: 443
+  server: 146.70.176.242
+  skip-cert-verify: true
+  tls: true
+  type: http
+  name: BE-Zaventem-M247-http-59
+  fingerprint: chrome
+- port: 443
+  server: 23.169.224.34
+  skip-cert-verify: true
+  tls: true
+  type: http
+  name: CA-Halifax-AS53356-http-60
+  fingerprint: chrome
+- port: 9002
+  server: 138.199.35.214
+  skip-cert-verify: true
+  tls: true
+  type: http
+  name: US-Los Ange-Datacamp-http-61
+  fingerprint: chrome
+- port: 9002
+  server: 138.199.35.198
+  skip-cert-verify: true
+  tls: true
+  type: http
+  udp: true
+  name: US-Los Ange-Datacamp-http-62
   fingerprint: chrome
 - password: None
   port: 9002
@@ -177,340 +491,201 @@ proxies:
   tls: true
   type: http
   udp: true
-  name: RO-Buchares-M247-http-23
-  fingerprint: chrome
-- port: 9002
-  server: 84.17.47.124
-  skip-cert-verify: true
-  tls: true
-  type: http
-  name: NL-Amsterda-Datacamp-http-24
-  fingerprint: chrome
-- password: None
-  port: 9002
-  server: 193.176.84.22
-  skip-cert-verify: true
-  tls: true
-  type: http
-  name: RO-Buchares-M247-http-25
-  fingerprint: chrome
-- port: 443
-  server: 213.109.163.119
-  skip-cert-verify: true
-  tls: true
-  type: http
-  name: DE-Nurember-AS197540-http-26
-  fingerprint: chrome
-- password: github.com/Alvin9999-newpac/fanqiang
-  port: 19000
-  server: anytls2.864106.xyz
-  skip-cert-verify: true
-  sni: anytls2.864106.xyz
-  type: anytls
-  udp: true
-  name: US-San Jose-PEG-anytls-27
-- port: 9002
-  server: 138.199.35.198
-  skip-cert-verify: true
-  sni: 138.199.35.198
-  tls: true
-  type: http
-  name: US-Los Ange-Datacamp-http-28
-  fingerprint: chrome
-- password: None
-  port: 9002
-  server: 138.199.35.213
-  skip-cert-verify: true
-  tls: true
-  type: http
-  name: US-Los Ange-Datacamp-http-29
-  fingerprint: chrome
-- port: 443
-  server: 185.219.159.16
-  skip-cert-verify: true
-  tls: true
-  type: http
-  name: LV-Riga-AS215373-http-30
-  fingerprint: chrome
-- port: 443
-  server: 193.233.75.115
-  skip-cert-verify: true
-  tls: true
-  type: http
-  name: DE-Frankfur-AS209207-http-31
-  fingerprint: chrome
-- port: 9002
-  server: 193.176.84.18
-  skip-cert-verify: true
-  tls: true
-  type: http
-  name: RO-Buchares-M247-http-32
-  fingerprint: chrome
-- port: 443
-  server: 217.210.129.243
-  skip-cert-verify: true
-  tls: true
-  type: http
-  name: SE-Huskvarn-AS3301-http-33
-  fingerprint: chrome
-- port: 9002
-  server: 138.199.35.216
-  skip-cert-verify: true
-  tls: true
-  type: http
-  udp: true
-  name: US-Los Ange-Datacamp-http-34
-  fingerprint: chrome
-- port: 443
-  server: 5.255.118.82
-  skip-cert-verify: true
-  tls: true
-  type: http
-  name: NL-Lelystad-AS60404-http-35
-  fingerprint: chrome
-- port: 443
-  server: 51.210.167.149
-  skip-cert-verify: true
-  tls: true
-  type: http
-  name: FR-Gravelin-OVH-http-36
-  fingerprint: chrome
-- port: 443
-  server: 185.198.58.200
-  skip-cert-verify: true
-  tls: true
-  type: http
-  name: NL-Amsterda-AS60117-http-37
-  fingerprint: chrome
-- port: 9002
-  server: 84.17.47.149
-  skip-cert-verify: true
-  tls: true
-  type: http
-  name: NL-Amsterda-Datacamp-http-38
-  fingerprint: chrome
-- port: 9002
-  server: 193.176.84.20
-  skip-cert-verify: true
-  sni: www.bing.com
-  tls: true
-  type: http
-  udp: true
-  name: RO-Buchares-M247-http-39
-  fingerprint: chrome
-- port: 9002
-  server: 193.176.84.26
-  skip-cert-verify: true
-  sni: www.bing.com
-  tls: true
-  type: http
-  name: RO-Buchares-M247-http-40
-  fingerprint: chrome
-- port: 9002
-  server: 158.173.154.1
-  skip-cert-verify: true
-  tls: true
-  type: http
-  name: DE-Frankfur-Datacamp-http-41
-  fingerprint: chrome
-- port: 9002
-  server: 138.199.35.200
-  skip-cert-verify: true
-  tls: true
-  type: http
-  udp: true
-  name: US-Los Ange-Datacamp-http-42
-  fingerprint: chrome
-- port: 443
-  server: 170.199.233.89
-  skip-cert-verify: true
-  tls: true
-  type: http
-  name: US-Atlanta-AS62642-http-43
-  fingerprint: chrome
-- port: 443
-  server: 192.227.176.234
-  skip-cert-verify: true
-  tls: true
-  type: http
-  name: US-Buffalo-AS36352-http-44
-  fingerprint: chrome
-- port: 9002
-  server: 138.199.35.206
-  skip-cert-verify: true
-  tls: true
-  type: http
-  name: US-Los Ange-Datacamp-http-45
+  name: RO-Buchares-M247-http-63
   fingerprint: chrome
 - port: 9002
   server: 138.199.35.212
   skip-cert-verify: true
   tls: true
   type: http
-  udp: true
-  name: US-Los Ange-Datacamp-http-46
+  name: US-Los Ange-Datacamp-http-64
   fingerprint: chrome
-- cipher: chacha20-ietf-poly1305
-  password: 7e68e32f-8015-4f37-9082-70e8b0b58043
-  port: 8443
-  server: 13.212.141.33
-  type: ss
-  udp: true
-  name: SG-Singapor-Amazon-ss-47
 - port: 9002
-  server: 193.176.84.34
+  server: 193.176.84.39
+  skip-cert-verify: true
+  tls: true
+  type: http
+  udp: true
+  name: RO-Buchares-M247-http-65
+  fingerprint: chrome
+- port: 9443
+  server: 149.36.51.161
+  skip-cert-verify: true
+  tls: true
+  type: http
+  name: NL-Amsterda-Datacamp-http-66
+  fingerprint: chrome
+- port: 9002
+  server: 193.176.84.31
   skip-cert-verify: true
   sni: www.bing.com
   tls: true
   type: http
-  name: RO-Buchares-M247-http-48
+  name: RO-Buchares-M247-http-67
   fingerprint: chrome
 - port: 9002
-  server: 193.176.84.35
+  server: 193.176.84.24
   skip-cert-verify: true
-  sni: www.bing.com
   tls: true
   type: http
   udp: true
-  name: RO-Buchares-M247-http-49
+  name: RO-Buchares-M247-http-68
   fingerprint: chrome
-- port: 8443
-  server: 129.212.181.253
+- port: 9002
+  server: 193.176.84.17
   skip-cert-verify: true
   tls: true
   type: http
-  name: US-Douglasv-DigitalOcean-http-50
+  udp: true
+  name: RO-Buchares-M247-http-69
   fingerprint: chrome
-- password: None
-  port: 443
-  server: 159.13.44.228
-  skip-cert-verify: true
-  tls: true
-  type: http
-  name: AU-Sydney-Oracle-http-51
-  fingerprint: chrome
-- alterId: 2
-  cipher: auto
-  port: 11267
-  server: goldcnmltyljgfwgov.vip67.wogcnmnnagfwgov.com
-  skip-cert-verify: true
-  tls: false
-  type: vmess
-  uuid: 605956ee-544d-308e-8b90-51e67c6ea8da
-  name: CN-Guangzho-Shenzhen-vmess-52
 proxy-groups:
 - name: 🚀 节点选择
   type: select
   proxies:
   - ♻️ 自动选择
   - DIRECT
-  - US-Seattle-AS201106-http-01
-  - RO-Buchares-M247-http-02
-  - DE-Frankfur-Oracle-http-03
-  - FR-Marseill-AS12322-http-04
-  - DE-Berlin-AS8560-http-05
-  - US-Dallas-AS393398-http-06
-  - US-Los Ange-Datacamp-http-07
-  - RO-Buchares-M247-http-08
-  - NL-Amsterda-Datacamp-http-09
-  - NL-Amsterda-Datacamp-http-10
-  - NL-Amsterda-AS56630-http-11
-  - US-Los Ange-Datacamp-http-12
-  - NL-Amsterda-AS197540-http-13
-  - US-Los Ange-Datacamp-http-14
-  - US-Los Ange-Datacamp-http-15
+  - DE-Nurember-Hetzner-vless-01
+  - FR-Paris-Scaleway-anytls-02
+  - RO-Buchares-M247-http-03
+  - NL-Amsterda-Datacamp-http-04
+  - NL-Amsterda-Datacamp-http-05
+  - SE-Stockhol-M247-http-06
+  - PL-Ursynów-M247-http-07
+  - NL-Amsterda-Datacamp-http-08
+  - CZ-Prague-M247-http-09
+  - SE-Stockhol-M247-http-10
+  - US-Englewoo-AS32133-http-11
+  - GB-London-Datacamp-http-12
+  - CA-Montréal-Amazon-http-13
+  - GB-London-AS62240-http-14
+  - US-Santa Cl-AS63023-http-15
   - NL-Amsterda-Datacamp-http-16
-  - US-San Fran-Cloudflare-http-17
-  - FR-Orléans-AS15557-http-18
-  - RO-Buchares-M247-http-19
-  - NL-Amsterda-Datacamp-http-20
-  - US-Los Ange-Datacamp-http-21
-  - RO-Buchares-M247-http-22
-  - RO-Buchares-M247-http-23
-  - NL-Amsterda-Datacamp-http-24
-  - RO-Buchares-M247-http-25
-  - DE-Nurember-AS197540-http-26
-  - US-San Jose-PEG-anytls-27
+  - NL-Lelystad-AS60404-http-17
+  - CY-Nicosia-AS15805-http-18
+  - LV-Riga-AS52048-http-19
+  - RO-Buchares-M247-http-20
+  - FR-Paris-AS199636-http-21
+  - GR-Athens-Datacamp-http-22
+  - ES-Barcelon-M247-http-23
+  - LV-Riga-AS52048-http-24
+  - NL-Amsterda-Datacamp-http-25
+  - GB-Manchest-M247-http-26
+  - AL-Tirana-AS197706-http-27
   - US-Los Ange-Datacamp-http-28
-  - US-Los Ange-Datacamp-http-29
-  - LV-Riga-AS215373-http-30
-  - DE-Frankfur-AS209207-http-31
-  - RO-Buchares-M247-http-32
-  - SE-Huskvarn-AS3301-http-33
-  - US-Los Ange-Datacamp-http-34
-  - NL-Lelystad-AS60404-http-35
-  - FR-Gravelin-OVH-http-36
-  - NL-Amsterda-AS60117-http-37
-  - NL-Amsterda-Datacamp-http-38
-  - RO-Buchares-M247-http-39
+  - ES-Madrid-M247-http-29
+  - CZ-Prague-M247-http-30
+  - AT-Vienna-M247-http-31
+  - BE-Zaventem-M247-http-32
+  - FR-Paris-Datacamp-http-33
+  - DE-Berlin-Datacamp-http-34
+  - GR-Athens-Datacamp-http-35
+  - GB-Manchest-M247-http-36
+  - DK-Ballerup-M247-http-37
+  - IE-Dublin-Amazon-http-38
+  - RS-Belgrade-M247-http-39
   - RO-Buchares-M247-http-40
-  - DE-Frankfur-Datacamp-http-41
-  - US-Los Ange-Datacamp-http-42
-  - US-Atlanta-AS62642-http-43
-  - US-Buffalo-AS36352-http-44
-  - US-Los Ange-Datacamp-http-45
-  - US-Los Ange-Datacamp-http-46
-  - SG-Singapor-Amazon-ss-47
-  - RO-Buchares-M247-http-48
-  - RO-Buchares-M247-http-49
-  - US-Douglasv-DigitalOcean-http-50
-  - AU-Sydney-Oracle-http-51
-  - CN-Guangzho-Shenzhen-vmess-52
+  - US-Los Ange-Datacamp-http-41
+  - DE-法兰克福-Datacamp-http-42
+  - US-Dallas-AS29802-http-43
+  - RO-Buchares-M247-http-44
+  - US-Ashburn-AS11878-http-45
+  - US-San Jose-PEG-http-46
+  - EE-Tallinn-AS1257-http-47
+  - DE-Frankfur-Datacamp-http-48
+  - GB-London-Datacamp-http-49
+  - NO-Oslo-M247-http-50
+  - CH-Zürich-Datacamp-http-51
+  - NL-Amsterda-Datacamp-http-52
+  - US-Los Ange-Datacamp-http-53
+  - US-New York-AS396356-http-54
+  - RO-Buchares-M247-http-55
+  - LV-Riga-AS215373-http-56
+  - AL-Tirana-AS198890-http-57
+  - HR-Zagreb-Datacamp-http-58
+  - BE-Zaventem-M247-http-59
+  - CA-Halifax-AS53356-http-60
+  - US-Los Ange-Datacamp-http-61
+  - US-Los Ange-Datacamp-http-62
+  - RO-Buchares-M247-http-63
+  - US-Los Ange-Datacamp-http-64
+  - RO-Buchares-M247-http-65
+  - NL-Amsterda-Datacamp-http-66
+  - RO-Buchares-M247-http-67
+  - RO-Buchares-M247-http-68
+  - RO-Buchares-M247-http-69
 - name: ♻️ 自动选择
   type: url-test
   proxies:
-  - US-Seattle-AS201106-http-01
-  - RO-Buchares-M247-http-02
-  - DE-Frankfur-Oracle-http-03
-  - FR-Marseill-AS12322-http-04
-  - DE-Berlin-AS8560-http-05
-  - US-Dallas-AS393398-http-06
-  - US-Los Ange-Datacamp-http-07
-  - RO-Buchares-M247-http-08
-  - NL-Amsterda-Datacamp-http-09
-  - NL-Amsterda-Datacamp-http-10
-  - NL-Amsterda-AS56630-http-11
-  - US-Los Ange-Datacamp-http-12
-  - NL-Amsterda-AS197540-http-13
-  - US-Los Ange-Datacamp-http-14
-  - US-Los Ange-Datacamp-http-15
+  - DE-Nurember-Hetzner-vless-01
+  - FR-Paris-Scaleway-anytls-02
+  - RO-Buchares-M247-http-03
+  - NL-Amsterda-Datacamp-http-04
+  - NL-Amsterda-Datacamp-http-05
+  - SE-Stockhol-M247-http-06
+  - PL-Ursynów-M247-http-07
+  - NL-Amsterda-Datacamp-http-08
+  - CZ-Prague-M247-http-09
+  - SE-Stockhol-M247-http-10
+  - US-Englewoo-AS32133-http-11
+  - GB-London-Datacamp-http-12
+  - CA-Montréal-Amazon-http-13
+  - GB-London-AS62240-http-14
+  - US-Santa Cl-AS63023-http-15
   - NL-Amsterda-Datacamp-http-16
-  - US-San Fran-Cloudflare-http-17
-  - FR-Orléans-AS15557-http-18
-  - RO-Buchares-M247-http-19
-  - NL-Amsterda-Datacamp-http-20
-  - US-Los Ange-Datacamp-http-21
-  - RO-Buchares-M247-http-22
-  - RO-Buchares-M247-http-23
-  - NL-Amsterda-Datacamp-http-24
-  - RO-Buchares-M247-http-25
-  - DE-Nurember-AS197540-http-26
-  - US-San Jose-PEG-anytls-27
+  - NL-Lelystad-AS60404-http-17
+  - CY-Nicosia-AS15805-http-18
+  - LV-Riga-AS52048-http-19
+  - RO-Buchares-M247-http-20
+  - FR-Paris-AS199636-http-21
+  - GR-Athens-Datacamp-http-22
+  - ES-Barcelon-M247-http-23
+  - LV-Riga-AS52048-http-24
+  - NL-Amsterda-Datacamp-http-25
+  - GB-Manchest-M247-http-26
+  - AL-Tirana-AS197706-http-27
   - US-Los Ange-Datacamp-http-28
-  - US-Los Ange-Datacamp-http-29
-  - LV-Riga-AS215373-http-30
-  - DE-Frankfur-AS209207-http-31
-  - RO-Buchares-M247-http-32
-  - SE-Huskvarn-AS3301-http-33
-  - US-Los Ange-Datacamp-http-34
-  - NL-Lelystad-AS60404-http-35
-  - FR-Gravelin-OVH-http-36
-  - NL-Amsterda-AS60117-http-37
-  - NL-Amsterda-Datacamp-http-38
-  - RO-Buchares-M247-http-39
+  - ES-Madrid-M247-http-29
+  - CZ-Prague-M247-http-30
+  - AT-Vienna-M247-http-31
+  - BE-Zaventem-M247-http-32
+  - FR-Paris-Datacamp-http-33
+  - DE-Berlin-Datacamp-http-34
+  - GR-Athens-Datacamp-http-35
+  - GB-Manchest-M247-http-36
+  - DK-Ballerup-M247-http-37
+  - IE-Dublin-Amazon-http-38
+  - RS-Belgrade-M247-http-39
   - RO-Buchares-M247-http-40
-  - DE-Frankfur-Datacamp-http-41
-  - US-Los Ange-Datacamp-http-42
-  - US-Atlanta-AS62642-http-43
-  - US-Buffalo-AS36352-http-44
-  - US-Los Ange-Datacamp-http-45
-  - US-Los Ange-Datacamp-http-46
-  - SG-Singapor-Amazon-ss-47
-  - RO-Buchares-M247-http-48
-  - RO-Buchares-M247-http-49
-  - US-Douglasv-DigitalOcean-http-50
-  - AU-Sydney-Oracle-http-51
-  - CN-Guangzho-Shenzhen-vmess-52
+  - US-Los Ange-Datacamp-http-41
+  - DE-法兰克福-Datacamp-http-42
+  - US-Dallas-AS29802-http-43
+  - RO-Buchares-M247-http-44
+  - US-Ashburn-AS11878-http-45
+  - US-San Jose-PEG-http-46
+  - EE-Tallinn-AS1257-http-47
+  - DE-Frankfur-Datacamp-http-48
+  - GB-London-Datacamp-http-49
+  - NO-Oslo-M247-http-50
+  - CH-Zürich-Datacamp-http-51
+  - NL-Amsterda-Datacamp-http-52
+  - US-Los Ange-Datacamp-http-53
+  - US-New York-AS396356-http-54
+  - RO-Buchares-M247-http-55
+  - LV-Riga-AS215373-http-56
+  - AL-Tirana-AS198890-http-57
+  - HR-Zagreb-Datacamp-http-58
+  - BE-Zaventem-M247-http-59
+  - CA-Halifax-AS53356-http-60
+  - US-Los Ange-Datacamp-http-61
+  - US-Los Ange-Datacamp-http-62
+  - RO-Buchares-M247-http-63
+  - US-Los Ange-Datacamp-http-64
+  - RO-Buchares-M247-http-65
+  - NL-Amsterda-Datacamp-http-66
+  - RO-Buchares-M247-http-67
+  - RO-Buchares-M247-http-68
+  - RO-Buchares-M247-http-69
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 50

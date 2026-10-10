@@ -1,15 +1,15 @@
 {
   "meta": {
-    "generated_at": "2026-10-09T06:43:00.629834",
+    "generated_at": "2026-10-10T06:41:30.644842",
     "total_rounds": 3,
     "rounds_used": [
       1,
       2,
       3
     ],
-    "total_unique_nodes": 380,
-    "total_stable": 12,
-    "total_good": 1,
+    "total_unique_nodes": 405,
+    "total_stable": 2,
+    "total_good": 2,
     "min_valid_rounds": 2,
     "good_threshold_ms": 3000,
     "region_quota": {
@@ -24,337 +24,73 @@
   },
   "nodes": [
     {
-      "real_name": "SG-Singapor-Amazon-ss-01",
-      "type": "ss",
-      "server": "13.212.141.33",
-      "port": 8443,
-      "ip": "13.212.141.33",
-      "country": "新加坡",
-      "city": "Singapore",
-      "isp": "AS16509 Amazon.com, Inc.",
-      "avg_delay_ms": 4651,
-      "valid_rounds": 3,
+      "real_name": "DE-Nurember-Hetzner-vless-01",
+      "type": "vless",
+      "server": "91.107.152.245",
+      "port": 9090,
+      "ip": "91.107.152.245",
+      "country": "德国",
+      "city": "Nuremberg",
+      "isp": "AS24940 Hetzner Online GmbH",
+      "avg_delay_ms": 2214,
+      "valid_rounds": 2,
       "total_rounds": 3,
       "delays": [
-        3448,
-        4009,
-        6496
+        2072,
+        0,
+        2355
       ],
       "is_cf": false,
       "raw_config": {
-        "cipher": "chacha20-ietf-poly1305",
-        "password": "7e68e32f-8015-4f37-9082-70e8b0b58043",
-        "port": 8443,
-        "server": "13.212.141.33",
-        "type": "ss",
+        "encryption": "mlkem768x25519plus.native.0rtt.4KdihKDYMW0oVNhapx5xMK_dLk5YOAB41kZYlC_mnHY",
+        "http-opts": {
+          "headers": {
+            "Host": [
+              "testspeed-foreign.tci.ir"
+            ]
+          },
+          "method": "GET",
+          "path": [
+            "/@TurboConfigs---@TurboConfigs---@TurboConfigs---@TurboConfigs---@TurboConfigs--@TurboConfigs---@TurboConfigs---@TurboConfigs---@TurboConfigs---@TurboConfigs---@TurboConfigs--@TurboConfigs---@TurboConfigs---@TurboConfigs---@TurboConfigs---@TurboConfigs---@TurboConfigs--@TurboConfigs---@TurboConfigs---@TurboConfigs---"
+          ]
+        },
+        "network": "http",
+        "port": 9090,
+        "server": "91.107.152.245",
+        "tls": false,
+        "type": "vless",
         "udp": true,
-        "name": "node_0316"
+        "uuid": "5c19d97e-6f02-4ca8-91b7-d3ef4341c95e",
+        "name": "node_0302"
       }
     },
     {
-      "real_name": "US-San Jose-PEG-anytls-02",
+      "real_name": "FR-Paris-Scaleway-anytls-02",
       "type": "anytls",
-      "server": "anytls2.864106.xyz",
-      "port": 19000,
-      "ip": "38.6.222.253",
-      "country": "美国",
-      "city": "San Jose",
-      "isp": "AS54600 PEG TECH INC",
-      "avg_delay_ms": 4068,
-      "valid_rounds": 3,
+      "server": "ip5.934618.xyz",
+      "port": 30099,
+      "ip": "62.210.28.175",
+      "country": "法国",
+      "city": "Paris",
+      "isp": "AS12876 Scaleway SAS",
+      "avg_delay_ms": 2707,
+      "valid_rounds": 2,
       "total_rounds": 3,
       "delays": [
-        4287,
-        4685,
-        3232
+        2808,
+        0,
+        2606
       ],
       "is_cf": false,
       "raw_config": {
         "password": "github.com/Alvin9999-newpac/fanqiang",
-        "port": 19000,
-        "server": "anytls2.864106.xyz",
+        "port": 30099,
+        "server": "ip5.934618.xyz",
         "skip-cert-verify": true,
-        "sni": "anytls2.864106.xyz",
+        "sni": "ip5.934618.xyz",
         "type": "anytls",
         "udp": true,
-        "name": "node_0304"
-      }
-    },
-    {
-      "real_name": "US-Seattle-AS201106-http-03",
-      "type": "http",
-      "server": "45.145.73.240",
-      "port": 8443,
-      "ip": "45.145.73.240",
-      "country": "美国",
-      "city": "Seattle",
-      "isp": "AS201106 Spartan Host Ltd",
-      "avg_delay_ms": 2460,
-      "valid_rounds": 3,
-      "total_rounds": 3,
-      "delays": [
-        2470,
-        2261,
-        2648
-      ],
-      "is_cf": false,
-      "raw_config": {
-        "port": 8443,
-        "server": "45.145.73.240",
-        "skip-cert-verify": true,
-        "tls": true,
-        "type": "http",
-        "name": "node_0218"
-      }
-    },
-    {
-      "real_name": "US-Dallas-AS393398-http-04",
-      "type": "http",
-      "server": "38.247.141.135",
-      "port": 443,
-      "ip": "38.247.141.135",
-      "country": "美国",
-      "city": "Dallas",
-      "isp": "AS393398 1515 ROUNDTABLE DR PROPERTY, LLC",
-      "avg_delay_ms": 3332,
-      "valid_rounds": 3,
-      "total_rounds": 3,
-      "delays": [
-        2944,
-        3740,
-        3311
-      ],
-      "is_cf": false,
-      "raw_config": {
-        "port": 443,
-        "server": "38.247.141.135",
-        "skip-cert-verify": true,
-        "tls": true,
-        "type": "http",
-        "name": "node_0197"
-      }
-    },
-    {
-      "real_name": "US-Los Ange-Datacamp-http-05",
-      "type": "http",
-      "server": "138.199.35.197",
-      "port": 9002,
-      "ip": "138.199.35.197",
-      "country": "美国",
-      "city": "Los Angeles",
-      "isp": "AS212238 Datacamp Limited",
-      "avg_delay_ms": 3364,
-      "valid_rounds": 3,
-      "total_rounds": 3,
-      "delays": [
-        3168,
-        2927,
-        3997
-      ],
-      "is_cf": false,
-      "raw_config": {
-        "password": "null",
-        "port": 9002,
-        "server": "138.199.35.197",
-        "skip-cert-verify": true,
-        "tls": true,
-        "type": "http",
-        "username": "null",
-        "name": "node_0206"
-      }
-    },
-    {
-      "real_name": "US-Los Ange-Datacamp-http-06",
-      "type": "http",
-      "server": "138.199.35.217",
-      "port": 9002,
-      "ip": "138.199.35.217",
-      "country": "美国",
-      "city": "Los Angeles",
-      "isp": "AS212238 Datacamp Limited",
-      "avg_delay_ms": 3658,
-      "valid_rounds": 3,
-      "total_rounds": 3,
-      "delays": [
-        3386,
-        3465,
-        4124
-      ],
-      "is_cf": false,
-      "raw_config": {
-        "port": 9002,
-        "server": "138.199.35.217",
-        "skip-cert-verify": true,
-        "tls": true,
-        "type": "http",
-        "name": "node_0190"
-      }
-    },
-    {
-      "real_name": "US-Los Ange-Datacamp-http-07",
-      "type": "http",
-      "server": "138.199.35.196",
-      "port": 9002,
-      "ip": "138.199.35.196",
-      "country": "美国",
-      "city": "Los Angeles",
-      "isp": "AS212238 Datacamp Limited",
-      "avg_delay_ms": 3692,
-      "valid_rounds": 3,
-      "total_rounds": 3,
-      "delays": [
-        2996,
-        3512,
-        4568
-      ],
-      "is_cf": false,
-      "raw_config": {
-        "port": 9002,
-        "server": "138.199.35.196",
-        "skip-cert-verify": true,
-        "tls": true,
-        "type": "http",
-        "name": "node_0265"
-      }
-    },
-    {
-      "real_name": "US-Los Ange-Datacamp-http-08",
-      "type": "http",
-      "server": "138.199.35.203",
-      "port": 9002,
-      "ip": "138.199.35.203",
-      "country": "美国",
-      "city": "Los Angeles",
-      "isp": "AS212238 Datacamp Limited",
-      "avg_delay_ms": 3748,
-      "valid_rounds": 3,
-      "total_rounds": 3,
-      "delays": [
-        2777,
-        5080,
-        3386
-      ],
-      "is_cf": false,
-      "raw_config": {
-        "port": 9002,
-        "server": "138.199.35.203",
-        "skip-cert-verify": true,
-        "tls": true,
-        "type": "http",
-        "name": "node_0256"
-      }
-    },
-    {
-      "real_name": "US-San Fran-Cloudflare-http-09",
-      "type": "http",
-      "server": "172.64.68.89",
-      "port": 443,
-      "ip": "172.64.68.89",
-      "country": "美国",
-      "city": "San Francisco",
-      "isp": "AS13335 Cloudflare, Inc.",
-      "avg_delay_ms": 3789,
-      "valid_rounds": 3,
-      "total_rounds": 3,
-      "delays": [
-        4214,
-        4395,
-        2759
-      ],
-      "is_cf": true,
-      "raw_config": {
-        "port": 443,
-        "server": "172.64.68.89",
-        "skip-cert-verify": true,
-        "tls": true,
-        "type": "http",
-        "name": "node_0195"
-      }
-    },
-    {
-      "real_name": "US-Los Ange-Datacamp-http-10",
-      "type": "http",
-      "server": "138.199.35.199",
-      "port": 9002,
-      "ip": "138.199.35.199",
-      "country": "美国",
-      "city": "Los Angeles",
-      "isp": "AS212238 Datacamp Limited",
-      "avg_delay_ms": 3975,
-      "valid_rounds": 3,
-      "total_rounds": 3,
-      "delays": [
-        3308,
-        4845,
-        3772
-      ],
-      "is_cf": false,
-      "raw_config": {
-        "port": 9002,
-        "server": "138.199.35.199",
-        "skip-cert-verify": true,
-        "tls": true,
-        "type": "http",
-        "udp": true,
-        "name": "node_0187"
-      }
-    },
-    {
-      "real_name": "US-Los Ange-Datacamp-http-11",
-      "type": "http",
-      "server": "138.199.35.198",
-      "port": 9002,
-      "ip": "138.199.35.198",
-      "country": "美国",
-      "city": "Los Angeles",
-      "isp": "AS212238 Datacamp Limited",
-      "avg_delay_ms": 4078,
-      "valid_rounds": 3,
-      "total_rounds": 3,
-      "delays": [
-        2742,
-        5201,
-        4291
-      ],
-      "is_cf": false,
-      "raw_config": {
-        "password": "null",
-        "port": 9002,
-        "server": "138.199.35.198",
-        "skip-cert-verify": true,
-        "sni": "138.199.35.198",
-        "tls": true,
-        "type": "http",
-        "username": "null",
-        "name": "node_0188"
-      }
-    },
-    {
-      "real_name": "US-Los Ange-Datacamp-http-12",
-      "type": "http",
-      "server": "138.199.35.213",
-      "port": 9002,
-      "ip": "138.199.35.213",
-      "country": "美国",
-      "city": "Los Angeles",
-      "isp": "AS212238 Datacamp Limited",
-      "avg_delay_ms": 4094,
-      "valid_rounds": 3,
-      "total_rounds": 3,
-      "delays": [
-        3818,
-        4348,
-        4116
-      ],
-      "is_cf": false,
-      "raw_config": {
-        "password": "None",
-        "port": 9002,
-        "server": "138.199.35.213",
-        "skip-cert-verify": true,
-        "tls": true,
-        "type": "http",
-        "name": "node_0200"
+        "name": "node_0220"
       }
     }
   ]
